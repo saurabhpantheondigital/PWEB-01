@@ -331,15 +331,6 @@ export default function PlasticWastePage() {
             <div className="absolute -top-20 -right-20 w-[400px] h-[400px] bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none" />
             <div className="absolute -bottom-20 -left-20 w-[300px] h-[300px] bg-emerald-500/5 rounded-full blur-[80px] pointer-events-none" />
             
-            {/* Related Category Process Illustration */}
-            <div className="absolute -right-20 bottom-10 w-[700px] h-[700px] opacity-[0.08] grayscale pointer-events-none z-0 rotate-[5deg]">
-              <img 
-                src="/EPR/plastic_recycling_flow.png" 
-                alt="Plastic Recycling Flow Illustration" 
-                className="w-full h-full object-contain"
-              />
-            </div>
-            
             <div className="relative z-10">
               <div className="max-w-2xl mb-16">
                 <span className="text-[9px] font-black uppercase tracking-[0.4em] text-emerald-600 mb-4 block">THE SOLUTION</span>
@@ -349,7 +340,7 @@ export default function PlasticWastePage() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+              <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
                 {[
                   { title: "Automatic Liability Calculation", desc: "Sales data from your ERP auto-calculates category-wise EPR obligation in MT — applied per SKU, per state, per entity. No spreadsheets." },
                   { title: "Declaration & Approval Workflow", desc: "Create, submit, and track recycling declarations digitally — Draft → Submitted → Reconciled. Full audit trail at every step." },
@@ -360,13 +351,16 @@ export default function PlasticWastePage() {
                   { title: "Shortfall Alert Engine", desc: "Know your certificate gap 6 months before 30 June — not 6 days. Category-wise alerts with EC exposure in ₹." },
                   { title: "ERP Integration API", desc: "REST API connects to SAP, Oracle, or any internal ERP. Month-end sales data pushed automatically — no file uploads ever required." }
                 ].map((item, i) => (
-                  <div key={i} className="flex flex-col gap-5 group">
-                    <div className="h-12 w-12 rounded-2xl bg-emerald-50 flex items-center justify-center shrink-0 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-all font-black text-sm shadow-sm">
+                  <div key={i} className="flex p-8 flex-col gap-6 relative rounded-[2.5rem]
+                    after:absolute after:bottom-0 after:left-0 after:w-[90%] after:h-[1px] after:bg-[#d8d8d8]
+                    before:absolute before:top-0 before:right-0 before:w-[1px] before:h-[90%] before:bg-[#d8d8d8]"
+                  >
+                    <div className="h-14 w-14 rounded-2xl bg-emerald-50 flex items-center justify-center shrink-0 text-emerald-600 font-black text-base shadow-sm ring-8 ring-emerald-50/50">
                       {i + 1}
                     </div>
                     <div>
-                      <h4 className="text-[17px] font-black text-slate-900 mb-3 leading-tight tracking-tight group-hover:text-emerald-600 transition-colors">{item.title}</h4>
-                      <p className="text-[14px] text-slate-500 leading-relaxed font-medium">{item.desc}</p>
+                      <h4 className="text-[18px] font-black text-slate-900 mb-3 leading-tight tracking-tight">{item.title}</h4>
+                      <p className="text-[15px] text-slate-500 leading-relaxed font-medium">{item.desc}</p>
                     </div>
                   </div>
                 ))}

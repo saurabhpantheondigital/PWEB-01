@@ -1998,6 +1998,15 @@ export default function EcoTraceEprPage() {
      
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute -right-[10%] top-0 h-96 w-96 rounded-full bg-emerald-200/20 blur-[100px]" />
+          
+          {/* Master Sustainability Ecosystem Illustration */}
+          <div className="absolute -left-20 bottom-[-5%] w-[700px] h-[700px] opacity-[0.08] grayscale pointer-events-none z-0 rotate-[-10deg]">
+            <img 
+              src="/EPR/sustainability_ecosystem_illustration.png" 
+              alt="Sustainability Ecosystem Illustration" 
+              className="w-full h-full object-contain"
+            />
+          </div>
         </div>
 
         <div className={shell + " relative z-10"}>

@@ -299,15 +299,6 @@ export default function WasteTyrePage() {
             <div className="absolute -top-20 -right-20 w-[200px] md:w-[400px] h-[200px] md:h-[400px] bg-emerald-500/5 rounded-full blur-[60px] md:blur-[100px] pointer-events-none" />
             <div className="absolute -bottom-20 -left-20 w-[150px] md:w-[300px] h-[150px] md:h-[300px] bg-emerald-500/5 rounded-full blur-[40px] md:blur-[80px] pointer-events-none" />
             
-            {/* Related Category Process Illustration */}
-            <div className="absolute -right-20 bottom-10 w-[700px] h-[700px] opacity-[0.08] grayscale pointer-events-none z-0 rotate-[5deg]">
-              <img 
-                src="/EPR/tyre_processing.png" 
-                alt="Tyre Processing Illustration" 
-                className="w-full h-full object-contain"
-              />
-            </div>
-            
             <div className="relative z-10">
               <div className="max-w-2xl mb-12 md:mb-16">
                 <span className="text-[8px] md:text-[9px] font-black uppercase tracking-[0.4em] text-emerald-600 mb-3 md:mb-4 block font-clash">THE SOLUTION</span>
