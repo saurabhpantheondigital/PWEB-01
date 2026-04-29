@@ -1,0 +1,467 @@
+
+EcoTrace
+EPR Compliance Software
+Website Content  |  www.pantheondigitals.com/ecotrace
+
+────────────────────────────────────────────
+Field
+Detail
+Product name
+EcoTrace — EPR Compliance Software
+Developed by
+Pantheon Digital Pvt. Ltd.
+Website
+www.pantheondigitals.com/ecotrace
+Target market
+Any Indian company using plastic packaging — FMCG, Pharma, Retail, D2C, MSME
+Content
+Complete product page marketing copy — 5,500+ words
+Regulatory base
+PWM Rules 2022 + 2025 + 2026 Amendments · CPCB portal insights
+Version
+v2.0 — Final. Britannia references removed. 5 categories updated. SIMP portal added.
+
+SECTION 1  |  HERO — Above the Fold
+
+— Eyebrow badge (pill, teal, pulsing green dot) —
+India's Only Fully Automated EPR Compliance Software
+
+— H1 Headline — Syne 700, ~64px desktop —
+Stop Managing EPR Compliance Manually.
+Automate Everything.
+Colour note: 'Manually.' in navy #0A1628. 'Automate Everything.' in amber #D4850A.
+
+— Subheadline — DM Sans 300, 17px, muted —
+EcoTrace is India's first end-to-end EPR compliance software — automating plastic waste liability calculation, CPCB and SPCB certificate management, recycler workflows, and annual return generation for any company that uses plastic packaging. Built by Pantheon Digital.
+
+— CTA Buttons —
+	•	[PRIMARY CTA] Get Started Free — teal background #0D6E56, white text
+	•	[SECONDARY CTA] Request a Demo → — outlined, navy border
+
+— Stats Strip — 4-column grid below headline —
+	•	5 — Plastic packaging categories tracked (Cat I, II, III, IV, V — updated per 2026 amendments)
+	•	100% — CPCB Annual Return generated in one click. All 9 sections. Zero manual effort.
+	•	₹0 — Environmental Compensation risk when your EPR compliance is managed on EcoTrace
+	•	30+ — Indian states with state-wise liability tracking and SPCB-level reporting
+
+
+SECTION 2  |  WHY EPR IS MANDATORY IN INDIA
+
+— Section label —
+Why Every Indian Company That Uses Plastic Packaging Must Act Now
+
+The Law Has Changed. EPR Compliance Is No Longer Optional.
+The Ministry of Environment, Forest and Climate Change (MoEF&CC) notified the Plastic Waste Management (Amendment) Rules, 2022, making Extended Producer Responsibility (EPR) legally mandatory for every Producer, Importer, and Brand Owner (PIBO) that introduces plastic packaging into the Indian market. Subsequent amendments in 2023, 2024, and 2026 have progressively tightened obligations, expanded the scope of covered entities, and increased recycling and recycled content targets year on year.
+This is not a future requirement. It is in force right now. Every company — from a large FMCG corporation to a regional dairy brand to a D2C startup — that uses plastic packaging must register on CPCB's centralised EPR portal, calculate its annual plastic waste liability, procure recycling certificates, and file an annual return every year by 30 June.
+Non-compliance is increasingly costly. CPCB has issued show-cause notices to hundreds of companies for FY 2022–23 and FY 2023–24. The agency publishes a public list of defaulters every year by 30 September — every company that missed its target or failed to file its annual return is named. Enforcement is no longer theoretical.
+
+What the Law Now Requires — Five Parallel Obligations
+	•	Registration: Register on CPCB's centralised EPR portal (eprplastic.cpcb.gov.in) before commencing operations. Companies in 3+ states register with CPCB. Companies in 1–2 states register with the relevant SPCB.
+	•	Recycling targets: Meet annual category-wise recycling targets by procuring EPR certificates from CPCB-registered recyclers. Targets are increasing each FY and reach 100% by FY 2027–28 for most categories.
+	•	Recycled content (URep) — new from FY 2025–26: Use a minimum percentage of recycled plastic in your own new packaging. Tracked separately via URep certificates. Targets increase through 2028–29.
+	•	Reuse obligation — new from FY 2025–26: Category I (rigid) brand owners must meet reuse targets for containers above 0.9 litres/kg. Declared on CPCB portal annually.
+	•	Annual return and quarterly data entry: File annual return by 30 June every year. Enter quarterly sales and procurement data with GST invoice numbers on CPCB portal throughout the year.
+
+The 5 Plastic Packaging Categories Under EPR
+Cat
+Name
+What It Covers
+Real-world examples
+I
+Rigid plastic
+Hard-form plastic that holds its shape without contents. Highest recyclability. Subject to reuse obligations for brand owners.
+PET bottles, HDPE containers, PP caps and lids, rigid trays, jerry cans, crates, buckets, tubs
+II
+Flexible plastic
+Single or multilayer flexible films and sheets. Includes carry bags above 75 microns. High volume for FMCG sachets and pouches.
+Sachets, pouches, plastic films, carry bags (75μ+), mailer bags, shrink films, wrappers
+III
+Multi-layer (MLP)
+Two or more layers where at least one is plastic and one is non-plastic. Hardest to recycle. Fewest registered recyclers. Most expensive certificates.
+Tetra Pak, metalized films, laminates, chip packets, juice cartons, standup pouches, Doypack
+IV
+Compostable plastic
+Certified compostable plastic carry bags and packaging meeting BIS standards. No URep requirement. Low volume for most companies.
+BIS-certified compostable bags, certified compostable packaging films
+V
+Industrial / B2B
+Added via 2025 and 2026 amendments. Plastic packaging used in industrial, agricultural, and B2B contexts. Previously overlooked — now in scope.
+Woven PP sacks, FIBC bulk bags, stretch wrap, pallet film, agricultural films, bubble wrap, transit packaging
+
+Category V is new from 2025–2026 amendments. Many companies in industrial and B2B sectors are unaware they now fall under EPR. This is a significant new market segment for EcoTrace.
+
+Why Most Companies Are Still Struggling
+Despite the law being in force, most Indian companies are still managing EPR compliance through spreadsheets, email chains, and manual CPCB portal entries. Here is what that looks like:
+
+	•	Finance teams spending 3–5 working days every month manually calculating EPR liability from sales data across multiple SKUs, states, and categories
+	•	No real-time visibility into certificate gaps — shortfalls discovered only 2–3 weeks before 30 June, leading to panic purchases at 2–3× normal certificate prices
+	•	Recycler agreements, capacity limits, CPCB certificate IDs, and GST invoice reconciliation managed through email and physical files with no system of record
+	•	Annual return preparation takes 2–4 weeks — compiling state-wise data, certificate IDs, invoice numbers, and entity-wise consumption across subsidiaries and business units
+	•	New URep obligation from FY 2025–26 adds another layer of calculation and declaration that most companies have no system to track
+	•	No audit trail — when CPCB or SPCBs request documentation during third-party audits, teams scramble to piece together evidence from disconnected sources
+
+EcoTrace solves every one of these problems.
+It is the only EPR compliance software in India that automates the complete lifecycle — from ERP sales data ingestion through to CPCB annual return generation — with no manual effort at any stage.
+
+
+SECTION 3  |  WHAT IS ECOTRACE
+
+— Section label —
+India's Only End-to-End EPR Compliance Platform
+
+EcoTrace — The Complete EPR Management System for Indian Companies
+EcoTrace is a cloud-based EPR compliance management software developed by Pantheon Digital Pvt. Ltd. It is purpose-built for any Indian company that is obligated under the Plastic Waste Management Rules to manage, track, and report their Extended Producer Responsibility — across all 5 plastic packaging categories, under both CPCB and SPCB authority.
+Unlike generic compliance tools or government portals, EcoTrace is built around the specific workflows, regulatory formats, certificate types, and filing requirements of India's EPR framework. It works as the intelligent preparation layer between your internal operations and the CPCB portal — ensuring every number you enter into the government system is accurate, validated, and audit-ready.
+EcoTrace works for any company size — from a mid-size regional brand filing with SPCB, to a pan-India corporation with multiple subsidiaries filing with CPCB. The platform adapts to your entity structure, packaging mix, and recycler relationships.
+
+What EcoTrace Automates End-to-End
+	•	Sales data ingestion: Direct API integration with SAP, Oracle, or any internal ERP — no manual file uploads or CSV exports required
+	•	Liability calculation: CPCB packaging weight matrix applied automatically — category-wise EPR obligation calculated in MT per month per entity
+	•	Declaration management: Create, submit, and track recycling declarations through the complete approval workflow from Draft to Approved
+	•	Vendor and recycler management: All WMA agreements, CPCB certificates, capacity limits, and GST invoice matching in one place
+	•	All 5 certificate types managed: Recycling, End-of-Life, URep (recycled content), and Reuse certificates — tracked with CPCB IDs
+	•	CPCB and SPCB reporting: Annual return PDF, quarterly data extracts, and state-wise achievement reports — generated in one click
+	•	Real-time shortfall tracking: Know your certificate gap 6 months before 30 June — never buy at panic prices again
+	•	Full audit trail: Every transaction, approval, and document stored immutably for CPCB third-party audit and SPCB review
+
+
+SECTION 4  |  PANTHEON DIGITAL — INDIA'S ONLY AUTOMATED EPR PLATFORM
+
+— Unique positioning statement —
+No other software company in India has built this.
+
+Pantheon Digital Is the Only Technology Company in India to Have Built a Fully Automated EPR Compliance Platform
+While other compliance tools offer generic document management or require your team to manually enter all data into the CPCB portal, EcoTrace is the only platform in India that automates the complete EPR compliance lifecycle from start to finish — with no manual intervention required at any stage. From the moment sales data leaves your ERP to the day your annual return is filed, EcoTrace handles everything.
+Pantheon Digital built EcoTrace from the ground up by studying the Plastic Waste Management Rules in depth, working with enterprise FMCG clients across multiple states, and engineering deep integrations into CPCB's regulatory framework, all 5 plastic packaging categories, certificate types, filing formats, and calculation rules — including the latest 2025 and 2026 amendments.
+
+What Makes EcoTrace Different
+ERP Integration
+EcoTrace connects directly to your internal ERP (SAP, Oracle, or custom) via REST API. Sales data is pushed automatically at month-end — no file exports, no manual uploads. The system validates every row, applies the weight matrix, and calculates your EPR liability instantly per category and state.
+Built exclusively for India's EPR Rules
+Every calculation, certificate type, form field, and reporting format is built specifically for India's Plastic Waste Management Rules — not adapted from a foreign compliance template. All 5 plastic categories, all CPCB certificate types, all 2026 amendment obligations.
+CPCB Annual Return in one click
+Generates the complete CPCB Annual Return PDF — all 9 mandatory sections, state-wise data, certificate ledger with CPCB IDs, URep and reuse claims, EC calculation, and signed declaration block — in seconds, not weeks.
+CPCB and SPCB both covered
+Whether your company files with CPCB (3+ states) or with an SPCB (1–2 states), EcoTrace prepares all the data, reports, and documentation for both authorities. One platform, complete compliance.
+Multi-entity architecture
+Handle a parent company and all subsidiaries under one login. Entity-wise liability tracking, consolidated group view, and combined CPCB reporting — all in one place.
+URep and reuse tracking — new obligation
+EcoTrace is the only compliance software that tracks the new FY 2025–26 recycled content (URep) and Cat I reuse obligations — calculating your obligation, generating URep certificates, and tracking carry-forward shortfalls across 3 years.
+SIMP portal awareness
+For companies whose upstream packaging suppliers now fall under CPCB's new SIMP portal, EcoTrace stores and validates their 15-digit CPCB numbers against all procurement entries — ensuring cross-portal compliance.
+
+
+SECTION 5  |  CPCB AND SPCB — BOTH REGULATORY AUTHORITIES COVERED
+
+— Section label —
+Complete CPCB and SPCB Compliance — In One Platform
+
+Understanding Your Regulatory Authority: CPCB vs SPCB
+India's EPR framework divides regulatory authority between CPCB at the national level and State Pollution Control Boards (SPCBs) at the state level. The rule is simple: if your company introduces plastic packaging in more than 2 states, you register and file with CPCB. If you operate in 1 or 2 states, you register with the relevant SPCB. EcoTrace supports both paths.
+
+CPCB — Central Pollution Control Board
+Portal: eprplastic.cpcb.gov.in · Ministry of Environment, Forest and Climate Change, New Delhi
+
+Applies when: Your company introduces plastic packaging in MORE than 2 states or union territories
+
+	•	Register on CPCB centralised portal — mandatory before operations. Unique 15-digit EPR registration number issued. Initial validity: 1 year. Renewal: 3 years.
+	•	File Annual Return on CPCB portal by 30 June every year — plastic consumption, certificates, state-wise data, URep claims, audit status
+	•	Enter quarterly sales and procurement transaction data on CPCB portal with GST invoice numbers throughout the year
+	•	Maintain CPCB certificate wallet — all recycling and end-of-life certificates procured and transferred via portal
+	•	Mandatory URep certificates from FY 2025–26 — generated by PIBO on portal, linked to recycled content used in own packaging
+	•	Third-party audit by CPCB-empanelled auditor (IITs, NITs, CSIRs) — triggered based on certificate volumes
+	•	Annual processing fee = 25% of registration fee — paid at time of annual return filing
+	•	Environmental Compensation levied by CPCB directly for shortfall or non-filing via portal
+	•	Registration renewal every 3 years with updated CTO/CTE consent numbers from SPCB
+
+SPCB — State Pollution Control Board
+Authority: Relevant state SPCB or Pollution Control Committee (PCC) — 28 SPCBs + 8 PCCs across India
+
+Applies when: Your company introduces plastic packaging in 1 or 2 states or union territories only
+
+	•	Register with the relevant SPCB or PCC through the centralised CPCB portal — same online system, SPCB is the approving authority
+	•	Obtain valid Consent to Establish (CTE) and Consent to Operate (CTO) under the Air and Water Acts from SPCB — required before EPR registration. CPCB portal auto-fetches validity and blocks registration if consents are expired.
+	•	File Annual Return via the same CPCB portal — SPCB receives and reviews your state-level data independently
+	•	SPCB submits its own annual report to CPCB covering all PIBOs and PWPs in that state — your portal data feeds this directly
+	•	SPCB can initiate independent compliance proceedings, surprise inspections, and separate EC notices — beyond any CPCB action
+	•	Physical verification of recyclers conducted jointly by CPCB Regional Directorate and SPCB within 30 days of recycler registration
+	•	SPCB / PCC is the final authority on registration cancellation or suspension for state-registered entities
+
+Important: Even SPCB-registered companies file their annual return on the same CPCB portal (eprplastic.cpcb.gov.in). The difference is the approving authority and fee payment. EcoTrace supports both CPCB and SPCB filing workflows — same one-click annual return generation for all clients.
+
+Which Authority Does Your Company Report To?
+Company Type
+Files With
+Key Obligation
+Pan-India companies operating in 3 or more states — most large FMCG, pharma, personal care, retail chains
+CPCB
+Register and file annual return on eprplastic.cpcb.gov.in
+Regional brands operating in 1 or 2 states — state-specific food, dairy, beverage, or FMCG companies
+SPCB
+Register with relevant SPCB or PCC. Annual return via CPCB portal — SPCB reviews
+Plastic Waste Processors and recyclers — all CPCB-registered WMAs and recycling facilities
+SPCB + CPCB
+Register with SPCB. Physical verification jointly by CPCB Regional Directorate and SPCB
+
+
+SECTION 6  |  THE 5 EPR CERTIFICATE TYPES ECOTRACE MANAGES
+
+— Section label —
+Every certificate type. Every compliance requirement. Tracked in one place.
+
+The Certificates Your Company Needs — And What Each One Means
+Under India's EPR framework, companies fulfil their compliance obligations through distinct types of certificates — each serving a different purpose under the Plastic Waste Management Rules. EcoTrace manages all of them, tracking each certificate in your ledger with CPCB certificate IDs, recycler registration numbers, GST invoice numbers, and transfer dates.
+
+#
+Certificate Type
+What It Is and How It Works
+Key Rules (FY 2025–26)
+1
+Recycling Certificate
+Issued by a CPCB-registered Plastic Waste Processor confirming a specific quantity of plastic packaging waste has been mechanically or chemically recycled. One certificate equals one MT of plastic processed. These are tradeable on CPCB's Electronic Trading Platform — companies with surplus can sell to those with shortfalls.
+1 cert = 1 MT · Category-specific · Tradeable · Transferred via CPCB wallet · Certificates from unregistered recyclers are legally invalid
+2
+End-of-Life Certificate
+Issued for plastic packaging that cannot be recycled and is processed through co-processing in cement or steel kilns, waste-to-energy, waste-to-oil, or road construction. The permissible share of EPR obligation that can be met through end-of-life disposal is capped and declining each financial year as CPCB drives toward higher recycling.
+Declining EOL cap each FY · Primarily Cat III and IV · Co-processing, WtE, WtO, road construction · EOL redefined under 2026 amendment Rule 3(ga)
+3
+URep Certificate (Recycled Content)
+The Use of Recycled Plastic (URep) certificate is generated by the PIBO itself — not by a recycler — to confirm that recycled plastic content has been used in their own new packaging. Mandatory from FY 2025–26 with minimum percentages per category increasing annually. Cat I: 30% in FY 25–26 rising to 60% from FY 28–29. Cat II: 10% from FY 25–26. Cat III: 5% from FY 25–26.
+Self-generated by PIBO · Mandatory FY 25–26 onwards · Cat I: 30% → 60% by FY 28–29 · Cat II: 10% → 20% · Cat III: 5% → 10% · FSSAI/CDSCO food and pharma exemptions available
+4
+Reuse Certificate (Cat I)
+Applicable to Category I rigid packaging only. If a company reuses its own rigid plastic packaging — for example refilling bottles or returning containers — the quantity reused is deducted from the eligible quantity calculation, reducing the EPR obligation for that year. Declared on CPCB portal annually. Reuse of food-contact packaging is subject to FSSAI regulations.
+Cat I rigid only · Reduces eligible quantity · Containers 0.9–4.9L/kg: 10% target in FY 25–26 · Containers >4.9L/kg: 70% target in FY 25–26 · FSSAI rules apply
+5
+ULB / PRO Credit
+Urban Local Bodies (ULBs) and Producer Responsibility Organisations (PROs) can generate and transfer EPR credits to PIBOs as part of city-level plastic waste collection and channelisation programs. This mechanism allows PIBOs to fulfil part of their obligation through formal waste collection systems rather than exclusively through recyclers.
+Via registered ULBs or PROs · Quantity exchanged for EPR credits · Must be documented and submitted on CPCB portal at annual return
+
+
+SECTION 7  |  EPR RECYCLING TARGETS — ALL CATEGORIES FY 2022 TO FY 2027-28
+
+— Section label —
+Your obligation grows every year. EcoTrace grows with it.
+
+Category-wise Recycling Targets — Progressive Schedule Through FY 2027–28
+CPCB assigns EPR recycling targets category-wise based on the plastic packaging volumes each company declares at registration. Targets are not static — they increase every financial year on a progressive schedule designed to move Indian industry toward full circular economy by FY 2027–28. Missing targets in any year carries forward with compounding penalties.
+
+Category
+FY 22–23
+FY 23–24
+FY 24–25
+FY 25–26 ★
+FY 26–27
+FY 27–28
+Cert price range
+Cat I — Rigid
+50%
+60%
+70%
+80%
+90%
+100%
+₹4,000–₹8,000/MT
+Cat II — Flexible
+50%
+60%
+70%
+80%
+90%
+100%
+₹6,000–₹10,000/MT
+Cat III — Multi-layer
+30%
+40%
+50%
+60%
+70%
+80%
+₹12,000–₹20,000/MT
+Cat IV — Compostable
+50%
+60%
+70%
+80%
+90%
+100%
+₹5,000–₹9,000/MT
+Cat V — Industrial
+—
+—
+—
+New — TBD
+TBD
+TBD
+Market forming
+
+Category III (multi-layer) is the most difficult and expensive category to meet — with certificate prices of ₹12,000–₹20,000 per MT due to the limited number of CPCB-registered multi-layer recyclers. EcoTrace's real-time shortfall alert is critical specifically for companies with significant Category III packaging — which includes most chip packets, juice cartons, laminates, and standup pouches.
+
+URep (Recycled Content) Targets — Mandatory from FY 2025–26
+Category
+FY 25–26 ★
+FY 26–27
+FY 27–28
+FY 28–29+
+Exemptions
+Cat I — Rigid
+30%
+40%
+50%
+60%
+FSSAI / CDSCO / food contact. Must declare specific law in annual return.
+Cat II — Flexible
+10%
+10%
+20%
+20%
+FSSAI, pesticide law. Declare exemption basis in annual return.
+Cat III — Multi-layer
+5%
+5%
+10%
+10%
+Calculated on plastic layers weight only, excluding non-plastic components.
+Cat IV — Compostable
+N/A
+N/A
+N/A
+N/A
+Exempt — compostable plastics not subject to URep requirement.
+
+
+SECTION 8  |  PLATFORM FEATURES — 10 INTEGRATED MODULES
+
+— Section label —
+Everything EPR. One Platform. Zero Manual Work.
+
+What EcoTrace Does — Module by Module
+EcoTrace is a complete EPR compliance operating system. Every module connects to the others so that data flows automatically from sales ingestion through to CPCB submission. Adding a new business unit, a new category, or a new recycler takes minutes — not weeks of spreadsheet updates.
+
+
+Module
+What It Does
+Status
+⚡
+Automatic Liability Calculator
+Sales data arrives from your ERP system automatically every month. EcoTrace validates every row, applies the CPCB packaging weight matrix, and calculates your exact EPR obligation in metric tonnes — broken down by category, entity, and state. Covers all 5 plastic packaging categories including the new Category V industrial packaging.
+Core
+📋
+Declaration Workflow
+Create and manage recycling declarations linking your EPR obligation to a specific recycler, plastic category, state, and financial year. Attach PO evidence, submit for approval, track every status from Draft to Approved — with a complete audit trail and timestamped log.
+Core
+🏭
+Vendor & WMA Management
+Register and manage all your CPCB-registered recyclers in one place. Track agreement dates, category certifications, state-wise capacity, CPCB registration numbers, GST details, and agreement documents. Automated expiry alerts 30 days before any agreement or certification lapses.
+Core
+📊
+Live Compliance Dashboard
+Real-time KPI cards showing total liability, total achieved, achievement %, and pending approvals. A 12-month trend chart. India state heatmap. Category breakdown donuts. All data updates automatically when declarations are approved — no manual refresh.
+Core
+📄
+CPCB & SPCB Report Generator
+One-click CPCB Annual Return PDF — all 9 mandatory sections, state-wise data, certificate ledger with CPCB IDs, URep and reuse claims, EC calculation, and signed declaration block. Also generates quarterly data extracts and state-wise achievement reports for SPCB filing.
+New
+🔑
+URep & Reuse Tracker
+Tracks the new FY 2025–26 recycled content (URep) obligation across Cat I, II, and III. Calculates your URep target based on packaging volumes, tracks procurement of recycled material, generates URep certificates on CPCB portal, and models carry-forward shortfalls across 3 years.
+New
+🏆
+EPR Credit Ledger
+An append-only ledger recording every MT of recycling credit issued — by category, by entity, by financial year. Each entry includes CPCB certificate ID, recycler registration number, GST invoice number, transfer date, and credit rate. Fully immutable and auditable.
+Core
+🔗
+ERP Integration API
+REST API connecting EcoTrace to SAP, Oracle, or any internal ERP system. Sales data pushed automatically at month-end. API validates incoming data, handles deduplication, flags unknown SKUs, and calculates liability in real time. No manual uploads — ever.
+New
+🔔
+Smart Alerts & Notifications
+Proactive alerts for every compliance risk — vendor expiry, certificate shortfall, quarterly entry due, 30 June countdown, critical EC risk alerts. Sent via email and in-app. Non-dismissable critical alerts when achievement gap exceeds 10% within 30 days of deadline.
+Core
+📁
+Document Vault
+Secure cloud storage for all EPR documents — PO evidence, WMA agreements, CPCB certificates, CTO/CTE consents, third-party audit reports. Stored on AWS S3. Accessible via time-limited pre-signed URLs. Every document linked to its specific declaration, vendor, or entity.
+Core
+
+
+SECTION 9  |  THE COST OF NON-COMPLIANCE
+
+— Section label —
+CPCB is enforcing. The penalties are real. And they are growing every year.
+
+What Happens When You Miss EPR Targets or Filing Deadlines
+CPCB has issued show-cause notices to hundreds of PIBOs for non-compliance in FY 2022–23 and 2023–24. It publishes a public defaulters list every year by 30 September. After the annual return deadline of 30 June, CPCB auto-files the return and levies maximum Environmental Compensation automatically — there is no manual override and no grace period.
+
+₹2,000 per MT shortfall
+Environmental Compensation (EC) for every MT of EPR target not met at year-end. A company that is short by 1,000 MT pays ₹20,00,000 in EC. Shortfall carries forward for up to 3 years — at least one-third must be cleared per year.
+₹5,000 per MT for non-filing
+2.5× the standard EC rate applies if the annual return is not filed by 30 June. After the deadline, CPCB auto-files at maximum EC with no warning and no possibility of reversal.
+1-year business ban
+Submitting false or misleading data results in cancellation of EPR registration and a 1-year ban from operations. The company is blacklisted from future EPR registration. This applies even to accidental errors in submitted data.
+Public defaulters list
+CPCB publishes every non-compliant PIBO by name on its website by 30 September each year. This is a reputational risk — customers, investors, and partners can see your compliance status publicly.
+SPCB independent action
+State Pollution Control Boards have authority to initiate compliance proceedings, surprise inspections, and separate EC notices for violations in their state — independent of CPCB action nationally.
+Shortfall carry-forward
+Unfulfilled obligations do not disappear. They carry forward to the next year. After 3 years, full EC is levied on the original shortfall and cannot be refunded even if eventually fulfilled.
+
+EcoTrace eliminates every one of these risks.
+Real-time shortfall tracking updated with every approved declaration. Automated certificate management across all 5 certificate types. One-click annual return generation. Your compliance team will be filing-ready months before 30 June — not days.
+
+
+SECTION 10  |  WHO IS ECOTRACE FOR
+
+— Section label —
+If your company uses plastic packaging in India, EPR compliance is your legal obligation. EcoTrace is built for you.
+
+Which Companies Need EcoTrace
+Under India's Plastic Waste Management Rules, every Producer, Importer, and Brand Owner that introduces plastic packaging into the Indian market must comply with EPR obligations. The 2025 amendments extended this to include Manufacturers and Traders in plastic packaging — making the scope wider than ever. The only exemption is for Micro and Small category brand owners.
+
+Company Type
+Why EcoTrace Is Built for You
+Examples
+FMCG & Food Companies
+Your products are wrapped, bottled, or pouched in Category I, II, and III packaging across hundreds of SKUs sold in every state. Your EPR obligation is large, your category mix is complex, and your recycler relationships need systematic management. EcoTrace was built for exactly this complexity.
+Large and mid-size biscuit, snack, dairy, beverage, confectionery, and ready-to-eat food brands
+Personal Care & Home Care
+Shampoo bottles, sachets, multilayer pouches — Category I, II, and III all apply. High-volume SKUs mean significant EPR obligations that must be tracked month by month with proactive shortfall management.
+Shampoo, soap, detergent, cleaning product, cosmetics, and personal hygiene brands
+Pharmaceuticals & Healthcare
+Blister packs, sachets, PET bottles — pharmaceutical packaging spans multiple EPR categories. Multi-state distribution makes CPCB registration mandatory. URep exemptions via CDSCO must still be declared in annual returns.
+Generic and branded pharma companies, medical device packaging, health supplement brands
+Beverages & Dairy
+PET bottles, HDPE containers, Tetra Pak cartons, pouches — beverage and dairy companies often span all four plastic categories. Category III (Tetra Pak) has the most expensive certificates and fewest recyclers.
+Packaged water, juices, dairy products, energy drinks, and ready-to-drink beverage brands
+Retail, D2C & E-Commerce
+Brand owners selling through e-commerce or retail chains are covered. CPCB's 2026 advisory specifically named all secondary and transit packaging used by e-commerce — bubble wrap, air pillows, mailer bags — as in scope.
+D2C brands, private label sellers, marketplace sellers with their own branded packaging
+Packaging Manufacturers & Traders
+The 2025 amendment added Manufacturers and Traders of plastic packaging to the CPCB portal. Traders and stockists dealing in finished plastic packaging must now obtain unique 15-digit CPCB EPR numbers.
+Plastic packaging manufacturers, converters, traders, stockists, and distributors
+Industrial & B2B Companies
+Category V (new from 2025/2026) covers industrial and agricultural plastic packaging — woven PP sacks, FIBC bags, stretch wrap, pallet film. Many B2B companies are unaware they are now in scope.
+Chemical companies, agricultural input producers, industrial goods manufacturers, logistics packaging users
+
+
+SECTION 13  |  CALL TO ACTION — PAGE FOOTER
+
+— Section label —
+Close with one strong action. One clear benefit. Zero ambiguity.
+
+Ready to Automate Your EPR Compliance?
+EcoTrace is now available to any Indian company that needs to manage CPCB and SPCB EPR obligations — regardless of size, category mix, or number of entities. Whether you are a large FMCG group filing with CPCB across 28 states, or a regional brand filing with SPCB in 2 states, EcoTrace is built for your workflow.
+
+Book a personalised product demo with Pantheon Digital's EPR compliance experts. We will walk you through the platform live, show how it handles your specific entity structure and packaging categories, and give you a clear picture of what your first year on EcoTrace looks like — before you sign anything.
+
+Primary CTA:
+Book a Free Demo
+Secondary CTA:
+Download Product Brochure
+Contact line:
+sales@pantheondigitals.com  |  www.pantheondigitals.com
+
+Footer text:
+Pantheon Digital Pvt. Ltd.  |  www.pantheondigitals.com  |  EcoTrace EPR Compliance Software
+Built for Indian EPR compliance under Plastic Waste Management (Amendment) Rules, 2022 / 2025 / 2026
+© 2026 Pantheon Digital Pvt. Ltd. All rights reserved.  |  Privacy Policy  |  Terms of Use  |  Contact
+

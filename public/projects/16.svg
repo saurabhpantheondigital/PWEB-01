@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg data-bbox="42.733 32.36 1476.895 310.24" viewBox="0 0 1592.69 374.98" xmlns="http://www.w3.org/2000/svg" data-type="ugc">
+    <g>
+        <path d="M272.24 175.68v-.09h-.02s.01.06.02.09" fill="none"/>
+        <path fill="none" stroke-width="12" stroke="#262262" stroke-miterlimit="10" d="m97.36 76.67 71.39 48.13-40.05 39.57 124.2 61.49"/>
+        <path d="m147.76 71.31 60.97 47.88-29.86 29.8c.03.06.04.09.04.09-.02-.02-.04-.05-.06-.07l-11.17 11.15 85.23 65.71-169.84-51.5 43.4-43.31-45.33-26.22c-15.64-9.04-35.42 1.07-37.21 19.05-8.5 85.43 29.36 133.17 79.06 159.57 20.14-2.03 41.76-5.57 64.82-11.08 0 0-20.82 9.24-52.17 17.24 25.23 11.27 52.62 17.73 78.1 21.32 14.08-2.51 28.78-5.77 44.09-9.92 0 0-11.11 5.33-29.39 11.71 46.15 4.77 74.13 29.87 74.13 29.87 3.36-40.94 11.92-105.28 9.15-135.54-9.6-.68-19.57-1.07-29.96-1.11 0 0 11.42-2.22 29.5-3.6C297.08 64.16 224.69 32.34 161 32.36c-20.59 0-29.43 26.22-13.24 38.94Z" stroke="#262262" stroke-miterlimit="10" fill="#262262"/>
+        <path fill="#262262" d="M102.57 80.164a6.02 6.02 0 0 1-8.336 1.713l-4.468-2.942a6.02 6.02 0 0 1-1.72-8.334 6.02 6.02 0 0 1 8.335-1.714l4.469 2.942a6.02 6.02 0 0 1 1.72 8.335"/>
+        <text transform="translate(377.26 200.15)" fill="#262262" font-weight="800" font-family="Avenir-Black,Avenir" font-size="182.64"><tspan y="0" x="0">PowerMarket</tspan></text>
+        <text transform="translate(456.16 309.1)" fill="#231f20" font-family="Avenir-HeavyOblique,Avenir" font-size="84.13" font-style="oblique" font-weight="800"><tspan y="0" x="0">Austra</tspan><tspan y="0" x="257.01" letter-spacing="0">l</tspan><tspan y="0" x="278.96">ia</tspan><tspan y="0" x="346.01" letter-spacing="-.07em">’</tspan><tspan y="0" x="364.69">s Best U</tspan><tspan y="0" x="685.46" letter-spacing="0">t</tspan><tspan y="0" x="718.27">i</tspan><tspan y="0" x="740.15" letter-spacing="0">l</tspan><tspan y="0" x="762.1">ity Deals</tspan></text>
+    </g>
+</svg>

@@ -1,0 +1,43 @@
+ABOUT PANTHEON DIGITAL  |  Company History & EPR Credentials
+For the About Us section, Our Story page, and footer credibility copy
+
+
+Pantheon Digital — Building India's EPR Infrastructure, One Platform at a Time
+Pantheon Digital Pvt. Ltd. was founded with one conviction: that India's environmental compliance landscape was broken — not because companies didn't want to comply, but because the tools to comply simply didn't exist. Regulators had built portals. Consultants offered advice. But no one had built the software layer that could sit between a company's internal operations and the CPCB portal — automating everything in between.
+That gap was where Pantheon Digital chose to build.
+
+Our Story
+Founded
+Pantheon Digital Pvt. Ltd. was incorporated as a technology company focused on regulatory compliance software for the Indian market. The founding team combined deep expertise in enterprise SaaS, Indian environmental law, and CPCB portal operations.
+First product
+EcoTrace — India's first fully automated EPR compliance platform — was built from the ground up as Pantheon Digital's flagship product. Unlike tools repurposed from other geographies or adapted from generic compliance software, EcoTrace was purpose-built for CPCB's specific workflows, certificate types, and filing formats.
+First enterprise client
+EcoTrace was first deployed for a leading FMCG enterprise — a pan-India company with plastic packaging obligations across multiple subsidiaries. This implementation shaped every module, every workflow, and every report that now powers EcoTrace.
+From plastic to multi-category
+After proving the model in plastic waste EPR, Pantheon Digital expanded EcoTrace to cover all five CPCB EPR categories: E-Waste, Battery Waste, Waste Tyre, and Used Oil — creating India's only unified, multi-category EPR compliance platform.
+Today
+EcoTrace serves clients across FMCG, pharma, electronics, automotive, and industrial sectors. Pantheon Digital is the only technology company in India to have built a production-grade, end-to-end EPR compliance platform across all five CPCB EPR categories.
+Technology
+Built on React.js (frontend), Spring Boot / Java (backend), PostgreSQL, and AWS Mumbai infrastructure — ensuring enterprise-grade security, DPDP Act 2023 compliance, and 99.5%+ uptime during compliance-critical periods.
+
+
+Why Choose Pantheon Digital?
+There are consultants who will help you file. There are portals where you can enter data. But there is only one company that has built end-to-end software that automates the entire EPR compliance lifecycle — from the moment your sales data leaves your ERP to the day your annual return is acknowledged by CPCB.
+
+🇮🇳  Built for India, by India
+EcoTrace is not a foreign software adapted for Indian regulations. Every calculation, every certificate type, every filing format, every CPCB rule change is built natively into the platform.
+🏆  Only Multi-Category Platform
+The only EPR compliance software in India that covers all five CPCB EPR categories — Plastic, E-Waste, Battery, Tyre, and Used Oil — under one login, one dashboard, one platform.
+⚡  Automation-First Architecture
+No manual data entry. No spreadsheets. Sales data flows in from your ERP, liability is calculated automatically, certificates are tracked in real time, and returns are generated in one click.
+🔒  Enterprise-Grade Security
+DPDP Act 2023 compliant. All data stored on AWS Mumbai (ap-south-1). JWT authentication, role-based access control, append-only audit ledger, and pre-signed S3 document storage.
+📋  Complete Regulatory Coverage
+Tracks every amendment — 2022, 2023, 2024, 2025, 2026 — across all five EPR categories. When CPCB changes rules, EcoTrace is updated before your next compliance deadline.
+🤝  White-Glove Implementation
+Every EcoTrace client gets a dedicated implementation team — 6-month onboarding including ERP integration, weight matrix configuration, vendor migration, and UAT.
+📞  Ongoing Expert Support
+Our EPR compliance experts stay with you through every annual return cycle — answering CPCB portal questions, coordinating recycler onboarding, and ensuring zero shortfall.
+📈  Proven at Enterprise Scale
+Deployed for multi-entity pan-India FMCG operations — managing thousands of SKUs, 30+ states, and multiple plastic categories simultaneously in production.
+
