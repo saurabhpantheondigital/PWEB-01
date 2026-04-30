@@ -16,8 +16,6 @@ const Header = () => {
     setIsDropDownOpen(!isDropDownOpen);
   };
 
-
-
   const toggleMobileServices = () => {
     setIsMobileDropDown(!isMobileDropDown);
   };
@@ -51,8 +49,12 @@ const Header = () => {
   return (
     <>
       {/* Desktop Header */}
-      <div className={`hidden lg:block sticky top-0 z-50 ${isEprPage ? "mt-0 shadow-none bg-white" : "mt-10 shadow-xl shadow-black "}`}>
-        <header className={`${isEprPage ? "bg-white" : "bg-black"} flex flex-row p-4 items-center justify-between px-0 md:px-16`}>
+      <div
+        className={`hidden lg:block sticky top-0 z-50 ${isEprPage ? "mt-0 shadow-[0px_4px_20px_white] bg-white" : "mt-10 shadow-xl shadow-black "}`}
+      >
+        <header
+          className={`${isEprPage ? "bg-white" : "bg-black"} flex flex-row p-4 items-center justify-between px-0 md:px-16`}
+        >
           <Link href="/">
             <Image
               priority
@@ -70,7 +72,9 @@ const Header = () => {
               <Link
                 href="/Projects/"
                 className={`font-avenir-bold text-sm ${isEprPage ? "text-[#0A1628] hover:text-[#0D6E56]" : "text-white hover:text-white/70"} transition-colors uppercase tracking-widest ${
-                  pathname === "/Projects" ? "underline underline-offset-8 decoration-cyan-500" : ""
+                  pathname === "/Projects"
+                    ? "underline underline-offset-8 decoration-cyan-500"
+                    : ""
                 }`}
               >
                 Projects
@@ -79,7 +83,9 @@ const Header = () => {
                 href="/About/"
                 onClick={closeDropDownMenu}
                 className={`font-avenir-bold text-sm ${isEprPage ? "text-[#0A1628] hover:text-[#0D6E56]" : "text-white hover:text-white/70"} transition-colors uppercase tracking-widest ${
-                  pathname === "/About" ? "underline underline-offset-8 decoration-cyan-500" : ""
+                  pathname === "/About"
+                    ? "underline underline-offset-8 decoration-cyan-500"
+                    : ""
                 }`}
               >
                 About Us
@@ -87,7 +93,11 @@ const Header = () => {
               <button
                 onClick={toggleServices}
                 className={`font-avenir-bold text-sm ${isEprPage ? "text-[#0A1628] hover:text-[#0D6E56]" : "text-white hover:text-white/70"} transition-colors flex items-center gap-1 uppercase tracking-widest ${
-                  isDropDownOpen ? (isEprPage ? "text-[#0D6E56]" : "text-white/70") : ""
+                  isDropDownOpen
+                    ? isEprPage
+                      ? "text-[#0D6E56]"
+                      : "text-white/70"
+                    : ""
                 }`}
               >
                 Services
@@ -97,14 +107,16 @@ const Header = () => {
                 target="_blank"
                 onClick={closeDropDownMenu}
                 className={`font-avenir-bold text-sm ${isEprPage ? "text-[#0A1628] hover:text-[#0D6E56]" : "text-white hover:text-white/70"} transition-colors uppercase tracking-widest ${
-                  pathname === "/Blogs" ? "underline underline-offset-8 decoration-cyan-500" : ""
+                  pathname === "/Blogs"
+                    ? "underline underline-offset-8 decoration-cyan-500"
+                    : ""
                 }`}
               >
                 Blogs
               </Link>
             </div>
           </div>
-          
+
           <Link
             href="/Ai"
             className={`group relative flex items-center cursor-pointer ${isEprPage ? "" : "transition-all duration-500 transform hover:scale-105 active:scale-95"}`}
@@ -113,9 +125,13 @@ const Header = () => {
             {!isEprPage && (
               <div className="absolute -inset-[3px] bg-cyan-500/50 rounded-full blur-[8px] opacity-100 animate-pulse transition-opacity duration-300"></div>
             )}
-            
-            <div className={`relative flex items-center gap-3 px-6 py-2 rounded-full ${isEprPage ? "bg-white border-[#0A1628]/20 shadow-none" : "bg-black border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.3)]"} border overflow-hidden ${isEprPage ? "" : "transition-all duration-500"}`}>
-              <span className={`text-sm font-avenir-heavy ${isEprPage ? "text-[#0A1628]" : "text-white"} tracking-wide`}>
+
+            <div
+              className={`relative flex items-center gap-3 px-6 py-2 rounded-full ${isEprPage ? "bg-white border-[#0A1628]/20 shadow-none" : "bg-black border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.3)]"} border overflow-hidden ${isEprPage ? "" : "transition-all duration-500"}`}
+            >
+              <span
+                className={`text-sm font-avenir-heavy ${isEprPage ? "text-[#0A1628]" : "text-white"} tracking-wide`}
+              >
                 Ai Tools
               </span>
             </div>
@@ -127,12 +143,12 @@ const Header = () => {
           href="/Contact_Us"
           className="fixed bottom-8 right-13 z-[100] flex items-center gap-2 bg-[#F61313] text-white px-6 py-3 rounded-full shadow-lg hover:scale-105 transition-all duration-300 group"
         >
-          <Image 
-            src="/Contact-Us.svg" 
-            alt="phone" 
-            width={18} 
-            height={18} 
-            className=" group-hover:rotate-12 transition-transform" 
+          <Image
+            src="/Contact-Us.svg"
+            alt="phone"
+            width={18}
+            height={18}
+            className=" group-hover:rotate-12 transition-transform"
           />
           <span className="font-avenir-heavy text-sm">Contact Us</span>
         </Link>
@@ -144,9 +160,10 @@ const Header = () => {
             isDropDownOpen ? "block" : "hidden"
           } absolute flex w-screen h-screen justify-center duration-1000 bg-[#00000095] z-[51]`}
         >
-          <div className="-top-0.5 w-full h-[40.5vh] absolute bg-white z-[-1] rounded-3xl bg-[linear-gradient(to_right,_#FF0000,_#0095FF)]" />
+          <div className="relative w-full h-fit flex justify-center">
+            <div className="-top-[2px] -bottom-[2px] w-full h-[calc(100%+4px)] absolute z-[-1] rounded-3xl bg-[linear-gradient(to_right,_#FF0000,_#0095FF)]" />
 
-          <div className="w-[99.8%] h-[40vh] bg-neutral-800 p-6 rounded-3xl shadow-xl/30 shadow-white text-center">
+            <div className="w-[99.8%] h-fit min-h-[40vh] bg-neutral-800 p-6 rounded-3xl text-center shadow-2xl shadow-black/50">
             {/* category */}
             <div className="grid grid-cols-5 gap-6">
               <div className="col-span-2 border-r border-white p-6 flex flex-col justify-between">
@@ -418,27 +435,29 @@ const Header = () => {
                   ))}
                 </div>
               </div>
-              
+
               {/* third service close */}
             </div>
           </div>
-        </button>
+        </div>
+      </button>
 
-
+        {isEprPage ? (
+          <div
+            className="pointer-events-none absolute top-[100%] left-0 w-full h-5 
+              [mask-image:linear-gradient(to_bottom,white,transparent)] 
+              backdrop-blur-lg bg-white"
+          ></div>
+        ) : (
+          ""
+        )}
       </div>
-
-
-
-      {/* ====================================================================================================================== */}
-      {/* ====================================================================================================================== */}
-      {/* ====================================================================================================================== */}
-      {/* ====================================================================================================================== */}
-      {/* ====================================================================================================================== */}
-      {/* ====================================================================================================================== */}
 
       {/* Mobile Header */}
       <div className="lg:hidden fixed w-full top-0 z-[100]">
-        <header className={`${isEprPage ? "bg-white shadow-sm" : "bg-black shadow-black shadow-xl"} flex flex-row p-4 items-center justify-between transition-all duration-500`}>
+        <header
+          className={`${isEprPage ? "bg-white shadow-sm" : "bg-black shadow-black shadow-xl"} flex flex-row p-4 items-center justify-between transition-all duration-500`}
+        >
           <Link href="/">
             <Image
               src="/Logo.svg"
@@ -454,7 +473,10 @@ const Header = () => {
             />
           </Link>
 
-          <button onClick={toggleMobileMenu} className={isEprPage ? "text-[#0A1628]" : "text-white"}>
+          <button
+            onClick={toggleMobileMenu}
+            className={isEprPage ? "text-[#0A1628]" : "text-white"}
+          >
             <Image
               src="/MenuIcon.svg"
               width="20"
@@ -502,7 +524,7 @@ const Header = () => {
               label="About Us"
               className="justify-normal"
             />
-            
+
             <PrimaryButton
               href="/Ai"
               onClick={closeMobileMenu}

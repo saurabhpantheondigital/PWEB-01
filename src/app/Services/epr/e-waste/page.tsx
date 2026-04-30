@@ -292,22 +292,32 @@ export default function EWastePage() {
           </div>
         </section>
 
-        {/* How EcoTrace Solves Section */}
-        <section className="mb-24 md:mb-32">
-          <div className="bg-white rounded-[2.5rem] md:rounded-[4rem] p-8 md:p-16 text-slate-900 overflow-hidden relative shadow-[0_40px_100px_-20px_rgba(0,0,0,0.04)] border border-slate-100">
-            <div className="absolute -top-20 -right-20 w-[200px] md:w-[400px] h-[200px] md:h-[400px] bg-emerald-500/5 rounded-full blur-[60px] md:blur-[100px] pointer-events-none" />
-            <div className="absolute -bottom-20 -left-20 w-[150px] md:w-[300px] h-[150px] md:h-[300px] bg-emerald-500/5 rounded-full blur-[40px] md:blur-[80px] pointer-events-none" />
+        {/* How EcoTrace Solves Section - Redesigned to Premium White */}
+        <section className="mb-32">
+          <div className="bg-white rounded-[4rem] p-10 md:p-16 text-slate-900 overflow-hidden relative shadow-[0_40px_100px_-20px_rgba(0,0,0,0.04)] border border-slate-100">
+            {/* Background elements - Subtle Emerald Glows */}
+            <div className="absolute -top-20 -right-20 w-[400px] h-[400px] bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute -bottom-20 -left-20 w-[300px] h-[300px] bg-emerald-500/5 rounded-full blur-[80px] pointer-events-none" />
+            
+            {/* Section Background Illustration */}
+            <div className="absolute -top-30 right-1 w-[600px] h-[600px] opacity-[0.08] grayscale pointer-events-none z-0 translate-x-20 -translate-y-20">
+              <img 
+                src="/EPR/eco30.png" 
+                alt="Eco Illustration" 
+                className="w-full h-full object-contain"
+              />
+            </div>
             
             <div className="relative z-10">
-              <div className="max-w-2xl mb-12 md:mb-16">
-                <span className="text-[8px] md:text-[9px] font-black uppercase tracking-[0.4em] text-emerald-600 mb-3 md:mb-4 block font-clash">THE SOLUTION</span>
-                <h2 className="text-2xl md:text-5xl font-black tracking-tighter mb-4 leading-tight text-slate-900 font-clash">How EcoTrace Solves E-Waste EPR</h2>
-                <p className="text-base md:text-lg text-slate-500 font-medium leading-relaxed">
+              <div className="max-w-2xl mb-16">
+                <span className="text-[9px] font-black uppercase tracking-[0.4em] text-emerald-600 mb-4 block font-clash">THE SOLUTION</span>
+                <h2 className="text-3xl md:text-5xl font-black tracking-tighter mb-4 leading-tight text-slate-900 font-clash">How EcoTrace Solves This <br /> End to End</h2>
+                <p className="text-lg text-slate-500 font-medium leading-relaxed">
                   EcoTrace&apos;s E-Waste module manages the complete EPR lifecycle under the 2022 Rules — from target calculation to Form-1 generation.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 md:gap-y-12">
+              <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
                 {[
                   { title: "Product Category Matrix", desc: "Auto-maps your EEE portfolio to the 106 Schedule I categories. Calculates targets based on sales data automatically." },
                   { title: "Authorised Dismantler Network", desc: "Manage your entire dismantler network — authorisation numbers, certifications, coverage, and capacity in one place." },
@@ -318,13 +328,16 @@ export default function EWastePage() {
                   { title: "Customs Clearance Risk Alerts", desc: "Proactive alerts when renewal is approaching — preventing business disruption caused by customs holds on imported products." },
                   { title: "ERP & Inventory Integration", desc: "Connects to your ERP system to pull product sales data — automatically calculating target weight without manual data entry." }
                 ].map((item, i) => (
-                  <div key={i} className="flex flex-col gap-4 md:gap-5 group">
-                    <div className="h-10 w-10 md:h-12 md:w-12 rounded-xl md:rounded-2xl bg-emerald-50 flex items-center justify-center shrink-0 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-all font-black text-xs md:text-sm shadow-sm">
+                  <div key={i} className={`flex p-8 flex-col gap-6 relative rounded-[2.5rem]
+                    ${i < 4 ? 'after:absolute after:bottom-0 after:left-0 after:w-[90%] after:h-[1px] after:bg-[#d8d8d8]' : ''}
+                    ${(i + 1) % 4 !== 0 ? 'before:absolute before:top-0 before:right-0 before:w-[1px] before:h-[90%] before:bg-[#d8d8d8]' : ''}`}
+                  >
+                    <div className="h-14 w-14 rounded-2xl bg-emerald-50 flex items-center justify-center shrink-0 text-emerald-600 font-black text-base shadow-sm ring-8 ring-emerald-50/50">
                       {i + 1}
                     </div>
                     <div>
-                      <h4 className="text-sm md:text-[17px] font-black text-slate-900 mb-2 md:mb-3 leading-tight tracking-tight group-hover:text-emerald-600 transition-colors font-clash">{item.title}</h4>
-                      <p className="text-[11px] md:text-[14px] text-slate-500 leading-relaxed font-medium">{item.desc}</p>
+                      <h4 className="text-[18px] font-black text-slate-900 mb-3 leading-tight tracking-tight font-clash">{item.title}</h4>
+                      <p className="text-[15px] text-slate-500 leading-relaxed font-medium">{item.desc}</p>
                     </div>
                   </div>
                 ))}

@@ -14,49 +14,70 @@ type TableData = {
 const shell =
   "mx-auto w-full max-w-[1600px] px-4 min-[400px]:px-5 sm:px-6 md:px-10 lg:px-14 xl:px-16 2xl:px-20";
 
-import { 
-  Calculator, 
-  FileCheck, 
-  ShieldCheck, 
-  LayoutDashboard, 
-  FileDown, 
-  RotateCcw, 
-  Shield, 
-  Zap, 
-  Bell, 
-  FolderLock,
-  Globe,
-  Trophy,
-  Lock,
+import {
+  Calculator,
+  FileCheck,
+  Landmark,
+  MapPin,
+  Factory,
+  Layers,
+  Zap,
+  Shield,
   FileText,
+  Recycle,
+  Flame,
+  CreditCard,
+  Repeat,
+  Users,
+  LayoutDashboard,
+  FileDown,
+  RotateCcw,
+  CodeXml,
+  Bell,
+  FolderLock,
+  IndianRupee,
   Handshake,
   Headset,
   TrendingUp,
-  ArrowRight
+  ArrowRight,
 } from "lucide-react";
 
 import EPRCTA from "@/components/ui/EPRCTA";
 
-const ContextualCTA = ({ 
-  title, 
-  desc, 
-  btnText, 
+const TirangaIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+    <rect x="3" y="4" width="18" height="5.33" rx="1" fill="#FF9933" />
+    <rect x="3" y="9.33" width="18" height="5.33" fill="#FFFFFF" />
+    <rect x="3" y="14.66" width="18" height="5.34" rx="1" fill="#138808" />
+    <circle cx="12" cy="12" r="1.8" fill="#000080" />
+  </svg>
+);
+
+const ContextualCTA = ({
+  title,
+  desc,
+  btnText,
   href = "/Contact_Us",
   variant = "light",
   className = "",
-  showBorder = false
-}: { 
-  title: string; 
-  desc: string; 
-  btnText: string; 
+  showBorder = false,
+}: {
+  title: string;
+  desc: string;
+  btnText: string;
   href?: string;
   variant?: "light" | "dark";
   className?: string;
   showBorder?: boolean;
 }) => (
-  <section className={`w-full py-20 overflow-hidden relative group transition-all duration-700 ${className} ${showBorder ? "border-y border-slate-200/60" : ""}`}>
+  <section
+    className={`w-full py-20 overflow-hidden relative group transition-all duration-700 ${className} ${showBorder ? "border-y border-slate-200/60" : ""}`}
+  >
     {/* Decorative Background Illustrations - Styled like EPRCTA */}
-    <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+    <div
+      className="absolute inset-0 pointer-events-none z-0 overflow-hidden"
+      aria-hidden="true"
+    >
       {/* Right Side Illustration */}
       <motion.div
         initial={{ opacity: 0, x: 100 }}
@@ -65,9 +86,9 @@ const ContextualCTA = ({
         transition={{ duration: 1.5, ease: "easeOut" }}
         className="absolute right-0 -bottom-10 h-full w-1/2 flex items-end justify-end"
       >
-        <img 
-          src="/EPR/image.png" 
-          alt="" 
+        <img
+          src="/EPR/image.png"
+          alt=""
           className="h-full w-auto object-contain object-bottom translate-x-20 grayscale opacity-40"
         />
       </motion.div>
@@ -80,39 +101,44 @@ const ContextualCTA = ({
         transition={{ duration: 1.5, ease: "easeOut" }}
         className="absolute left-0 -bottom-26 h-full w-1/2 flex items-end justify-start"
       >
-        <img 
-          src="/EPR/eco2.png" 
-          alt="" 
+        <img
+          src="/EPR/eco2.png"
+          alt=""
           className="h-full w-auto object-contain object-bottom -translate-x-20 grayscale opacity-60"
         />
       </motion.div>
     </div>
 
     {/* Subtle Pattern Overlay */}
-    <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none"
+    <div
+      className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none"
       style={{
         backgroundImage: `radial-gradient(#10b981 0.5px, transparent 0.5px)`,
-        backgroundSize: `32px 32px`
+        backgroundSize: `32px 32px`,
       }}
     />
-    
+
     <div className="absolute inset-0 opacity-[0.06] pointer-events-none">
       <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-400 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-indigo-400 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2" />
     </div>
-    
+
     <div className={shell + " relative z-10"}>
       <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
         <div className="flex-1 text-center lg:text-left">
-          <h3 className={`text-2xl md:text-3xl lg:text-4xl font-clash font-black mb-4 tracking-tight leading-tight ${variant === "dark" ? "text-white" : "text-slate-900"}`}>
+          <h3
+            className={`text-2xl md:text-3xl lg:text-4xl font-clash font-black mb-4 tracking-tight leading-tight ${variant === "dark" ? "text-white" : "text-slate-900"}`}
+          >
             {title}
           </h3>
-          <p className={`font-medium leading-relaxed text-base md:text-lg max-w-2xl mx-auto lg:mx-0 ${variant === "dark" ? "text-slate-400" : "text-slate-500"}`}>
+          <p
+            className={`font-medium leading-relaxed text-base md:text-lg max-w-2xl mx-auto lg:mx-0 ${variant === "dark" ? "text-slate-400" : "text-slate-500"}`}
+          >
             {desc}
           </p>
         </div>
         <div className="w-full lg:w-auto">
-          <Link 
+          <Link
             href={href}
             className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 bg-emerald-600 hover:bg-emerald-700 text-white font-black rounded-2xl transition-all shadow-2xl shadow-emerald-600/20 hover:shadow-emerald-600/40 hover:scale-[1.02] active:scale-95 w-full lg:w-auto"
           >
@@ -199,12 +225,12 @@ function HeroSection() {
               className="mb-8 max-w-xl mx-auto lg:mx-0 text-center lg:text-left text-[0.95rem] leading-relaxed text-slate-600 sm:text-base md:text-lg md:leading-relaxed"
               style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
             >
-              
-              EcoTrace by Pantheon Digital&apos; is the only EPR compliance software in India that covers all five CPCB-regulated 
-              waste categories — Plastic, E-Waste, Battery, Tyre, and Used Oil — under one unified platform.
-               Stop managing compliance across spreadsheets and disconnected portals. Automate everything, 
-               from liability calculation to annual return filing.
-
+              EcoTrace by Pantheon Digital&apos; is the only EPR compliance
+              software in India that covers all five CPCB-regulated waste
+              categories — Plastic, E-Waste, Battery, Tyre, and Used Oil — under
+              one unified platform. Stop managing compliance across spreadsheets
+              and disconnected portals. Automate everything, from liability
+              calculation to annual return filing.
             </motion.p>
 
             <motion.div
@@ -250,18 +276,30 @@ function HeroSection() {
                 animate={{
                   scale: 1,
                   opacity: 1,
-                  y: [0, -30, 0],
+                  y: [0, -10, 0],
+                  x: [0, 3, 0],
+                  rotate: [0, 0.45, 0],
                 }}
                 transition={{
                   opacity: { delay: 0.8, duration: 1 },
                   scale: { delay: 0.8, duration: 1 },
                   y: {
-                    duration: 3,
+                    duration: 10,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  },
+                  x: {
+                    duration: 10,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  },
+                  rotate: {
+                    duration: 10,
                     repeat: Infinity,
                     ease: "easeInOut",
                   },
                 }}
-                className="relative w-full max-w-[650px] lg:scale-110 xl:scale-125 transition-transform duration-1000"
+                className="relative w-full max-w-[650px] transform-gpu will-change-transform lg:scale-110 xl:scale-125"
               >
                 <Image
                   src="/EPR/recycle.svg"
@@ -385,19 +423,27 @@ function SSOPortalsSection() {
               whileHover={{ y: -12 }}
               className="group relative flex flex-col items-center"
             >
-              <div className={`relative z-10 flex h-full w-full flex-col items-center overflow-hidden rounded-[3rem] bg-white p-10 text-center shadow-[0_40px_100px_-20px_rgba(0,0,0,0.04)] transition-all duration-500 group-hover:shadow-[0_80px_150px_-30px_rgba(16,185,129,0.12)] border border-slate-50 ${portal.color}`}>
+              <div
+                className={`relative z-10 flex h-full w-full flex-col items-center overflow-hidden rounded-[3rem] bg-white p-10 text-center shadow-[0_40px_100px_-20px_rgba(0,0,0,0.04)] transition-all duration-500 group-hover:shadow-[0_80px_150px_-30px_rgba(16,185,129,0.12)] border border-slate-50 ${portal.color}`}
+              >
                 {/* Category-specific Texture Background */}
-                <div 
+                <div
                   className="absolute inset-0 z-0 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-700 pointer-events-none"
                   style={{
                     backgroundImage: `radial-gradient(${portal.hex} 1.5px, transparent 1.5px)`,
-                    backgroundSize: `24px 24px`
+                    backgroundSize: `24px 24px`,
                   }}
                 />
-                
+
                 {/* Large Background Category Watermark */}
                 <div className="absolute -bottom-8 -right-8 pointer-events-none opacity-[0.04] group-hover:opacity-[0.08] transition-all duration-700 group-hover:-rotate-12 group-hover:scale-110">
-                  <svg width="180" height="180" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <svg
+                    width="180"
+                    height="180"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
                     {portal.icon}
                   </svg>
                 </div>
@@ -427,7 +473,7 @@ function SSOPortalsSection() {
                   EPR Portal for <br /> {portal.title}
                 </h3>
 
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   whileHover={{ x: 5 }}
                   className="mt-8 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0"
@@ -514,7 +560,6 @@ function EPRStatsStrip() {
     </section>
   );
 }
-
 
 function Counter({
   value,
@@ -1123,7 +1168,7 @@ export default function EcoTraceEprPage() {
     headers: ["Company Type", "Files With", "Key Obligation"],
     rows: [
       [
-        "Pan-India companies operating in 3 or more states — most large FMCG, pharma, personal care, retail chains",
+        "Pan-India companies operating in 3 or more states  most large FMCG, pharma, personal care, retail chains",
         "CPCB",
         "Register and file annual return on eprplastic.cpcb.gov.in",
       ],
@@ -1417,7 +1462,6 @@ export default function EcoTraceEprPage() {
         </div>
 
         <div className="w-full max-w-[1600px] mx-auto px-0 sm:px-6 md:px-10 lg:px-14 xl:px-16 2xl:px-20 relative z-10">
-
           {/* Centered Heading - Matching Screenshot Typography */}
           <div className="text-center mb-10 max-w-5xl mx-auto px-4">
             <motion.div
@@ -1428,11 +1472,13 @@ export default function EcoTraceEprPage() {
               <h2 className="jsx-9deaa8cd422d1982 text-4xl md:text-5xl font-clash font-black tracking-tighter leading-tight text-slate-900 mb-8">
                 India Has Made Extended <br className="hidden md:block" />
                 Producer Responsibility Mandatory. <br />
-                <span className="text-slate-400">For Every Category. Right Now.</span>
+                <span className="text-slate-400">
+                  For Every Category. Right Now.
+                </span>
               </h2>
             </motion.div>
-            
-            <motion.p 
+
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1450,21 +1496,36 @@ export default function EcoTraceEprPage() {
             viewport={{ once: true }}
             className="w-full bg-white rounded-none sm:rounded-[3rem] md:rounded-[4rem] p-6 md:p-10 lg:p-12 shadow-[0_40px_100px_-30px_rgba(0,0,0,0.06)] border-y sm:border border-slate-100 relative"
           >
-
             {/* Top Grid: Mandate & Risk */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mb-12">
               <div className="space-y-3 text-center lg:text-left">
-                <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-600">THE MANDATE</h3>
+                <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-600">
+                  THE MANDATE
+                </h3>
                 <p className="text-[14px] sm:text-base leading-relaxed text-slate-600 font-medium">
-                  The Ministry of Environment, Forest and Climate Change (MoEF&CC) has notified EPR rules across five major waste 
-                  categories <span className="text-slate-900 font-bold decoration-emerald-500/30 underline-offset-4 font-sora">Plastic, E-Waste, Battery, Tyre, and Used Oil</span>. Together, these form India&apos;s circular economy backbone, and enforcement is tightening every year.
+                  The Ministry of Environment, Forest and Climate Change
+                  (MoEF&CC) has notified EPR rules across five major waste
+                  categories{" "}
+                  <span className="text-slate-900 font-bold decoration-emerald-500/30 underline-offset-4 font-sora">
+                    Plastic, E-Waste, Battery, Tyre, and Used Oil
+                  </span>
+                  . Together, these form India&apos;s circular economy backbone,
+                  and enforcement is tightening every year.
                 </p>
               </div>
               <div className="space-y-3 text-center lg:text-left">
-                <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-rose-500">THE RISK</h3>
+                <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-rose-500">
+                  THE RISK
+                </h3>
                 <p className="text-[14px] sm:text-base leading-relaxed text-slate-600 font-medium">
-                  If your company manufactures, imports, or sells products in any of these categories in India <span className="text-slate-900 font-bold decoration-rose-500/30 underline-offset-4 font-sora">You are already legally obligated</span>. 
-                  There is no opt-out. Non-compliance means Environmental Compensation charges, registration cancellation, and business bans.
+                  If your company manufactures, imports, or sells products in
+                  any of these categories in India{" "}
+                  <span className="text-slate-900 font-bold decoration-rose-500/30 underline-offset-4 font-sora">
+                    You are already legally obligated
+                  </span>
+                  . There is no opt-out. Non-compliance means Environmental
+                  Compensation charges, registration cancellation, and business
+                  bans.
                 </p>
               </div>
             </div>
@@ -1472,34 +1533,84 @@ export default function EcoTraceEprPage() {
             {/* Table Section: Styled like the Screenshot */}
             <div className="mb-12">
               <div className="flex flex-col sm:flex-row items-center justify-between mb-8 pb-4 border-b border-slate-50 gap-4">
-                <h3 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 text-center sm:text-left">The Five CPCB EPR Frameworks</h3>
+                <h3 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 text-center sm:text-left">
+                  The Five CPCB EPR Frameworks
+                </h3>
                 <div className="flex items-center gap-2 px-3 py-1.5 bg-emerald-50 rounded-full shrink-0">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-[9px] font-black uppercase tracking-widest text-emerald-600">Active Compliance</span>
+                  <span className="text-[9px] font-black uppercase tracking-widest text-emerald-600">
+                    Active Compliance
+                  </span>
                 </div>
               </div>
-              
+
               {/* Mobile View for Categories - Premium App Style */}
               <div className="grid grid-cols-1 gap-5 md:hidden">
                 {[
-                  { cat: "Plastic Waste", rules: "PWM Rules, 2022 + Amendments", portal: "eprplastic.cpcb.gov.in", who: "PIBOs using plastic packaging", penalty: "₹2k–₹5k/MT EC", color: "bg-emerald-500", path: "/Services/epr/plastic-waste" },
-                  { cat: "E-Waste", rules: "E-Waste Rules, 2022", portal: "ewaste.cpcb.gov.in", who: "106+ EEE product categories", penalty: "₹10L–₹50L fine", color: "bg-purple-500", path: "/Services/epr/e-waste" },
-                  { cat: "Battery Waste", rules: "BWM Rules, 2022", portal: "batteryepr.cpcb.gov.in", who: "All battery types", penalty: "Registration suspension", color: "bg-blue-500", path: "/Services/epr/battery-waste" },
-                  { cat: "Waste Tyre", rules: "Hazardous Waste Rules, 2022", portal: "eprtyres.cpcb.gov.in", who: "Tyre & Vehicle importers", penalty: "₹10L–₹50L fine + ban", color: "bg-slate-900", path: "/Services/epr/waste-tyre" },
-                  { cat: "Used Oil", rules: "Schedule IX (H&OW Rules)", portal: "usedoilepr.cpcb.gov.in", who: "Lubricant oil importers", penalty: "EC + blacklisting", color: "bg-amber-400", path: "/Services/epr/used-oil" }
+                  {
+                    cat: "Plastic Waste",
+                    rules: "PWM Rules, 2022 + Amendments",
+                    portal: "eprplastic.cpcb.gov.in",
+                    who: "PIBOs using plastic packaging",
+                    penalty: "₹2k–₹5k/MT EC",
+                    color: "bg-emerald-500",
+                    path: "/Services/epr/plastic-waste",
+                  },
+                  {
+                    cat: "E-Waste",
+                    rules: "E-Waste Rules, 2022",
+                    portal: "ewaste.cpcb.gov.in",
+                    who: "106+ EEE product categories",
+                    penalty: "₹10L–₹50L fine",
+                    color: "bg-purple-500",
+                    path: "/Services/epr/e-waste",
+                  },
+                  {
+                    cat: "Battery Waste",
+                    rules: "BWM Rules, 2022",
+                    portal: "batteryepr.cpcb.gov.in",
+                    who: "All battery types",
+                    penalty: "Registration suspension",
+                    color: "bg-blue-500",
+                    path: "/Services/epr/battery-waste",
+                  },
+                  {
+                    cat: "Waste Tyre",
+                    rules: "Hazardous Waste Rules, 2022",
+                    portal: "eprtyres.cpcb.gov.in",
+                    who: "Tyre & Vehicle importers",
+                    penalty: "₹10L–₹50L fine + ban",
+                    color: "bg-slate-900",
+                    path: "/Services/epr/waste-tyre",
+                  },
+                  {
+                    cat: "Used Oil",
+                    rules: "Schedule IX (H&OW Rules)",
+                    portal: "usedoilepr.cpcb.gov.in",
+                    who: "Lubricant oil importers",
+                    penalty: "EC + blacklisting",
+                    color: "bg-amber-400",
+                    path: "/Services/epr/used-oil",
+                  },
                 ].map((row, i) => (
-                  <div 
-                    key={i} 
-                    onClick={() => row.path && (window.location.href = row.path)}
-                    className="group relative overflow-hidden p-6 rounded-[2.2rem] bg-white border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] active:scale-[0.97] transition-all duration-300"
+                  <Link
+                    key={i}
+                    href={row.path || "#"}
+                    className="group relative block overflow-hidden p-6 rounded-[2.2rem] bg-white border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] active:scale-[0.97] transition-all duration-300"
                   >
                     {/* Left Accent Bar */}
-                    <div className={`absolute left-0 top-0 bottom-0 w-2 ${row.color} opacity-80`} />
-                    
+                    <div
+                      className={`absolute left-0 top-0 bottom-0 w-2 ${row.color} opacity-80`}
+                    />
+
                     <div className="flex items-center justify-between mb-5">
                       <div className="flex flex-col">
-                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-1">Waste Category</span>
-                        <h4 className="text-[20px] font-black text-slate-900">{row.cat}</h4>
+                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-1">
+                          Waste Category
+                        </span>
+                        <h4 className="text-[20px] font-black text-slate-900">
+                          {row.cat}
+                        </h4>
                       </div>
                       <div className="h-10 w-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 group-active:bg-emerald-600 group-active:text-white transition-colors duration-300">
                         <ArrowRight className="w-5 h-5" />
@@ -1510,24 +1621,36 @@ export default function EcoTraceEprPage() {
                       <div className="flex items-start gap-4">
                         <div className="w-1.5 h-1.5 rounded-full bg-slate-300 mt-1.5 shrink-0" />
                         <div className="flex flex-col">
-                          <span className="text-[9px] font-black uppercase tracking-widest text-slate-400">Governing Rules</span>
-                          <span className="text-[13px] text-slate-600 font-bold leading-tight">{row.rules}</span>
+                          <span className="text-[9px] font-black uppercase tracking-widest text-slate-400">
+                            Governing Rules
+                          </span>
+                          <span className="text-[13px] text-slate-600 font-bold leading-tight">
+                            {row.rules}
+                          </span>
                         </div>
                       </div>
 
                       <div className="flex items-start gap-4">
                         <div className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0" />
                         <div className="flex flex-col">
-                          <span className="text-[9px] font-black uppercase tracking-widest text-amber-500">CPCB Portal</span>
-                          <span className="text-[13px] text-amber-600 font-mono font-black break-all">{row.portal}</span>
+                          <span className="text-[9px] font-black uppercase tracking-widest text-amber-500">
+                            CPCB Portal
+                          </span>
+                          <span className="text-[13px] text-amber-600 font-mono font-black break-all">
+                            {row.portal}
+                          </span>
                         </div>
                       </div>
 
                       <div className="flex items-start gap-4">
                         <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
                         <div className="flex flex-col">
-                          <span className="text-[9px] font-black uppercase tracking-widest text-emerald-600">Compliance Risk</span>
-                          <span className="text-[13px] text-emerald-600 font-black">{row.penalty}</span>
+                          <span className="text-[9px] font-black uppercase tracking-widest text-emerald-600">
+                            Compliance Risk
+                          </span>
+                          <span className="text-[13px] text-emerald-600 font-black">
+                            {row.penalty}
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -1538,7 +1661,7 @@ export default function EcoTraceEprPage() {
                         Tap to explore
                       </span>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
 
@@ -1547,51 +1670,123 @@ export default function EcoTraceEprPage() {
                 <table className="w-full text-left border-collapse">
                   <thead>
                     <tr className="border-b border-slate-100">
-                      <th className="px-6 py-6 text-[10px] font-black uppercase tracking-widest text-slate-400">CATEGORY</th>
-                      <th className="px-6 py-6 text-[10px] font-black uppercase tracking-widest text-slate-400">GOVERNING RULES</th>
-                      <th className="px-6 py-6 text-[10px] font-black uppercase tracking-widest text-slate-400 bg-amber-50/30">CPCB PORTAL</th>
-                      <th className="px-6 py-6 text-[10px] font-black uppercase tracking-widest text-slate-400">WHO MUST COMPLY</th>
-                      <th className="px-6 py-6 text-[10px] font-black uppercase tracking-widest text-slate-400 bg-emerald-50/30">KEY PENALTY</th>
+                      <th className="px-6 py-6 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                        CATEGORY
+                      </th>
+                      <th className="px-6 py-6 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                        GOVERNING RULES
+                      </th>
+                      <th className="px-6 py-6 text-[10px] font-black uppercase tracking-widest text-slate-400 bg-amber-50/30">
+                        CPCB PORTAL
+                      </th>
+                      <th className="px-6 py-6 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                        WHO MUST COMPLY
+                      </th>
+                      <th className="px-6 py-6 text-[10px] font-black uppercase tracking-widest text-slate-400 bg-emerald-50/30">
+                        KEY PENALTY
+                      </th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-50">
                     {[
-                      { cat: "Plastic Waste", rules: "PWM Rules, 2022 + Amendments", portal: "eprplastic.cpcb.gov.in", who: "PIBOs using plastic packaging", penalty: "₹2k–₹5k/MT EC", color: "bg-emerald-500", path: "/Services/epr/plastic-waste" },
-                      { cat: "E-Waste", rules: "E-Waste Rules, 2022", portal: "ewaste.cpcb.gov.in", who: "106+ EEE product categories", penalty: "₹10L–₹50L fine", color: "bg-purple-500", path: "/Services/epr/e-waste" },
-                      { cat: "Battery Waste", rules: "BWM Rules, 2022", portal: "batteryepr.cpcb.gov.in", who: "All battery types", penalty: "Registration suspension", color: "bg-blue-500", path: "/Services/epr/battery-waste" },
-                      { cat: "Waste Tyre", rules: "Hazardous Waste Rules, 2022", portal: "eprtyres.cpcb.gov.in", who: "Tyre & Vehicle importers", penalty: "₹10L–₹50L fine + ban", color: "bg-slate-900", path: "/Services/epr/waste-tyre" },
-                      { cat: "Used Oil", rules: "Schedule IX (H&OW Rules)", portal: "usedoilepr.cpcb.gov.in", who: "Lubricant oil importers", penalty: "EC + blacklisting", color: "bg-amber-400", path: "/Services/epr/used-oil" }
+                      {
+                        cat: "Plastic Waste",
+                        rules: "PWM Rules, 2022 + Amendments",
+                        portal: "eprplastic.cpcb.gov.in",
+                        who: "PIBOs using plastic packaging",
+                        penalty: "₹2k–₹5k/MT EC",
+                        color: "bg-emerald-500",
+                        path: "/Services/epr/plastic-waste",
+                      },
+                      {
+                        cat: "E-Waste",
+                        rules: "E-Waste Rules, 2022",
+                        portal: "ewaste.cpcb.gov.in",
+                        who: "106+ EEE product categories",
+                        penalty: "₹10L–₹50L fine",
+                        color: "bg-purple-500",
+                        path: "/Services/epr/e-waste",
+                      },
+                      {
+                        cat: "Battery Waste",
+                        rules: "BWM Rules, 2022",
+                        portal: "batteryepr.cpcb.gov.in",
+                        who: "All battery types",
+                        penalty: "Registration suspension",
+                        color: "bg-blue-500",
+                        path: "/Services/epr/battery-waste",
+                      },
+                      {
+                        cat: "Waste Tyre",
+                        rules: "Hazardous Waste Rules, 2022",
+                        portal: "eprtyres.cpcb.gov.in",
+                        who: "Tyre & Vehicle importers",
+                        penalty: "₹10L–₹50L fine + ban",
+                        color: "bg-slate-900",
+                        path: "/Services/epr/waste-tyre",
+                      },
+                      {
+                        cat: "Used Oil",
+                        rules: "Schedule IX (H&OW Rules)",
+                        portal: "usedoilepr.cpcb.gov.in",
+                        who: "Lubricant oil importers",
+                        penalty: "EC + blacklisting",
+                        color: "bg-amber-400",
+                        path: "/Services/epr/used-oil",
+                      },
                     ].map((row, i) => (
-                      <tr 
-                        key={i} 
-                        onClick={() => row.path && (window.location.href = row.path)}
-                        className={`group transition-all duration-300 cursor-pointer hover:bg-slate-50/80`}
+                      <tr
+                        key={i}
+                        className={`group transition-all duration-300 cursor-pointer hover:bg-slate-50/80 relative`}
                       >
                         <td className="px-6 py-8">
                           <div className="flex items-start gap-3">
-                            <span className={`h-2 w-2 rounded-full ${row.color} shrink-0 mt-[7px]`} />
+                            <span
+                              className={`h-2 w-2 rounded-full ${row.color} shrink-0 mt-[7px]`}
+                            />
                             <div className="flex flex-col justify-center">
-                              <span className={`font-bold text-[16px] text-slate-900 group-hover:text-emerald-600 transition-colors`}>
+                              <Link
+                                href={row.path || "#"}
+                                className={`font-bold text-[16px] text-slate-900 group-hover:text-emerald-600 transition-colors after:absolute after:inset-0 after:z-10`}
+                              >
                                 {row.cat}
-                              </span>
+                              </Link>
                               <div className="overflow-hidden pr-4">
                                 <div className="opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] flex items-center gap-1.5 mt-1">
                                   <span className="text-[10px] font-black uppercase tracking-widest text-emerald-600">
                                     Read more
                                   </span>
-                                  <svg className="w-3.5 h-3.5 text-emerald-600 transition-transform duration-500 group-hover:translate-x-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                  <svg
+                                    className="w-3.5 h-3.5 text-emerald-600 transition-transform duration-500 group-hover:translate-x-1.5"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    strokeWidth={3}
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                    />
                                   </svg>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </td>
-                        <td className="px-6 py-8 text-[13px] text-slate-500 font-medium max-w-[180px] leading-relaxed">{row.rules}</td>
-                        <td className="px-6 py-8 text-[13px] font-black text-amber-600 bg-amber-50/20 font-mono tracking-tight">{row.portal}</td>
-                        <td className="px-6 py-8 text-[13px] text-slate-500 font-medium max-w-[180px] leading-relaxed">{row.who}</td>
+                        <td className="px-6 py-8 text-[13px] text-slate-500 font-medium max-w-[180px] leading-relaxed">
+                          {row.rules}
+                        </td>
+                        <td className="px-6 py-8 text-[13px] font-black text-amber-600 bg-amber-50/20 font-mono tracking-tight">
+                          {row.portal}
+                        </td>
+                        <td className="px-6 py-8 text-[13px] text-slate-500 font-medium max-w-[180px] leading-relaxed">
+                          {row.who}
+                        </td>
                         <td className="px-6 py-8 bg-emerald-50/20">
-                          <span className="text-[13px] font-black text-emerald-600">{row.penalty}</span>
+                          <span className="text-[13px] font-black text-emerald-600">
+                            {row.penalty}
+                          </span>
                         </td>
                       </tr>
                     ))}
@@ -1603,31 +1798,45 @@ export default function EcoTraceEprPage() {
             {/* Bottom Line - Matching Screenshot's Styled Card */}
             <div className="mt-12 p-6 sm:p-8 rounded-[2.5rem] bg-[#fff4e6] border border-[#fd8f01] flex flex-col md:flex-row items-center md:items-start gap-6">
               <div className="h-12 w-12 rounded-2xl bg-[#fd8f01] flex items-center justify-center text-white shrink-0 shadow-lg shadow-amber-500/20">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2.5}
+                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                  />
                 </svg>
               </div>
               <p className="text-[13px] sm:text-[14px] leading-relaxed text-slate-600 font-medium text-center md:text-left">
-                Non-compliance across any EPR category can result in: financial penalties (₹10 lakh to ₹50 lakh), 
-                public naming on CPCB&apos;s defaulter list, business restrictions, and long-term reputational damage. 
-                <span className="text-emerald-600 font-bold"> EcoTrace</span> gives you full compliance visibility across every category you operate in from one dashboard.
+                Non-compliance across any EPR category can result in: financial
+                penalties (₹10 lakh to ₹50 lakh), public naming on CPCB&apos;s
+                defaulter list, business restrictions, and long-term
+                reputational damage.
+                <span className="text-emerald-600 font-bold">
+                  {" "}
+                  EcoTrace
+                </span>{" "}
+                gives you full compliance visibility across every category you
+                operate in from one dashboard.
               </p>
             </div>
-
           </motion.div>
         </div>
       </section>
 
       <EPRCategoriesGrid data={eprCategories} />
 
-      <ContextualCTA 
+      <ContextualCTA
         title="Multiple waste streams to manage?"
         desc="EcoTrace is the only platform in India that handles Plastic, E-Waste, Battery, Tyre, and Used Oil EPR under one roof."
         btnText="Book a Demo"
         className="bg-[#FDFDFD]"
       />
-
-
 
       <section
         id="epr-compliance-challenges"
@@ -1752,19 +1961,17 @@ export default function EcoTraceEprPage() {
         </div>
       </section>
 
-      <ContextualCTA 
+      <ContextualCTA
         title="Stop manual spreadsheet filing."
         desc="Most companies spend 200+ man-hours on EPR returns. We reduce that to 15 minutes of automated data validation."
         btnText="Automate Your Returns"
         className="bg-slate-50/50 border"
       />
 
-
-
       {/* Why Pantheon Digital - Our Story & Infrastructure */}
       <section
         id="why-pantheon-digital"
-        className="w-full py-24 md:py-30 bg-gradient-to-b from-white via-emerald-50/20 to-[#F0F2F1] relative overflow-hidden font-avenir"
+        className="w-full py-24 md:py-32 bg-gradient-to-b from-white via-emerald-50/30 to-[#F0F2F1] relative overflow-hidden font-avenir"
       >
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-200/20 rounded-full blur-[120px]" />
@@ -1772,22 +1979,22 @@ export default function EcoTraceEprPage() {
         </div>
 
         {/* Background Decorative Illustration - SVG Style Bottom Aligned */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 0.1, y: 0 }}
           viewport={{ once: true }}
           className="absolute inset-x-0 bottom-0 z-0 grayscale pointer-events-none flex items-end justify-center overflow-hidden h-full"
         >
-          <img 
-            src="/EPR/image.png" 
-            alt="Pantheon EPR Infrastructure Background" 
+          <img
+            src="/EPR/image.png"
+            alt="Pantheon EPR Infrastructure Background"
             className="w-full max-w-[1400px] h-auto object-contain opacity-40 translate-y-20"
           />
         </motion.div>
 
         <div className={shell + " relative z-10"}>
           {/* Section Header */}
-          <div className="mb-20 text-center max-w-4xl mx-auto">
+          <div className="mb-16 md:mb-20 text-center max-w-4xl mx-auto">
             <div className="flex items-center justify-center gap-3 mb-6">
               <div className="h-[2px] w-12 bg-emerald-600" />
               <span className="text-[10px] font-black uppercase tracking-[0.4em] text-emerald-600 font-clash">
@@ -1797,75 +2004,136 @@ export default function EcoTraceEprPage() {
             </div>
             <h2 className="jsx-9deaa8cd422d1982 text-4xl md:text-5xl font-clash font-black tracking-tighter leading-tight text-slate-900 mb-6">
               Building India&apos;s EPR Infrastructure, <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-emerald-400">One Platform at a Time.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-emerald-400">
+                One Platform at a Time.
+              </span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-12 items-start">
             {/* Left Column: The Vision */}
-            <div className="lg:col-span-7 space-y-10">
-              <div className="space-y-6">
-                <p className="jsx-9deaa8cd422d1982 text-lg text-slate-500 leading-relaxed font-medium">
-                  Pantheon Digital Pvt. Ltd. was founded with one conviction: that India&apos;s environmental compliance landscape was broken not because companies didn&apos;t want to comply, but because the tools to comply simply didn&apos;t exist.
+            <div className="lg:col-span-7 space-y-8 min-w-0">
+              <div className="space-y-6 rounded-[2rem] border border-white/70 bg-white/80 backdrop-blur-sm p-6 md:p-8 shadow-[0_10px_30px_rgba(15,23,42,0.04)]">
+                <p className="jsx-9deaa8cd422d1982 text-slate-500 leading-relaxed font-medium mb-2 text-[15px]">
+                  <span className=" text-sm font-black uppercase tracking-widest text-slate-900 font-clash">
+                    Pantheon Digital Pvt. Ltd.
+                  </span>{" "}
+                  was founded with one conviction: that India&apos;s
+                  environmental compliance landscape was broken not because
+                  companies didn&apos;t want to comply, but because the tools to
+                  comply simply didn&apos;t exist.
                 </p>
-                <p className="text-lg text-slate-500 leading-relaxed font-medium">
-                  Regulators had built portals. Consultants offered advice. But no one had built the software layer that could sit between a company&apos;s internal operations and the CPCB portal automating everything in between. 
-                  <span className="block mt-4 font-bold text-slate-900">That gap was where Pantheon Digital chose to build.</span>
+                <p className="jsx-9deaa8cd422d1982 text-slate-500 leading-relaxed font-medium mb-2 text-[15px]">
+                  Regulators had built portals. Consultants offered advice. But
+                  no one had built the software layer that could sit between a
+                  company&apos;s internal operations and the CPCB portal
+                  automating everything in between.
+                  <span className="jsx-9deaa8cd422d1982 block mt-4  text-sm font-black uppercase tracking-widest text-slate-900 font-clash">
+                    That gap was where Pantheon Digital chose to build.
+                  </span>
                 </p>
               </div>
 
               {/* Milestones Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-10 border-t border-slate-200/60">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 pt-8 border-t border-slate-200/60">
                 {[
-                  { label: "Founded", desc: "Incorporated as a technology company focused on regulatory compliance software, combining expertise in SaaS, environmental law, and CPCB portal operations." },
-                  { label: "First Product", desc: "EcoTrace was built from the ground up as our flagship platform — purpose-built for CPCB's specific workflows and certificate types." },
-                  { label: "First Enterprise Client", desc: "Successfully deployed for a leading pan-India FMCG enterprise, shaping the modules that now power the entire platform." },
-                  { label: "Multi-Category Expansion", desc: "India's only unified platform covering all five CPCB categories: Plastic, E-Waste, Battery, Tyre, and Used Oil." }
+                  {
+                    label: "Founded",
+                    desc: "Incorporated as a technology company focused on regulatory compliance software, combining expertise in SaaS, environmental law, and CPCB portal operations.",
+                  },
+                  {
+                    label: "First Product",
+                    desc: "EcoTrace was built from the ground up as our flagship platform — purpose-built for CPCB's specific workflows and certificate types.",
+                  },
+                  {
+                    label: "First Enterprise Client",
+                    desc: "Successfully deployed for a leading pan-India FMCG enterprise, shaping the modules that now power the entire platform.",
+                  },
+                  {
+                    label: "Multi-Category Expansion",
+                    desc: "India's only unified platform covering all five CPCB categories: Plastic, E-Waste, Battery, Tyre, and Used Oil.",
+                  },
                 ].map((item, i) => (
-                  <div key={i} className="space-y-3 group">
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ delay: i * 0.06, duration: 0.4 }}
+                    whileHover={{ y: -3 }}
+                    className="space-y-3 group rounded-2xl border border-slate-200/60 bg-white/70 px-4 py-5 md:px-5 md:py-6 transition-all duration-300 hover:border-emerald-200 hover:shadow-[0_10px_25px_rgba(16,185,129,0.08)]"
+                  >
                     <div className="flex items-center gap-3">
                       <div className="h-1.5 w-1.5 rounded-full bg-emerald-500 group-hover:scale-150 transition-transform" />
-                      <h4 className="text-sm font-black uppercase tracking-widest text-slate-900 font-clash">{item.label}</h4>
+                      <h4 className="text-sm font-black uppercase tracking-widest text-slate-900 font-clash">
+                        {item.label}
+                      </h4>
                     </div>
-                    <p className="text-sm text-slate-500 leading-relaxed font-medium group-hover:text-slate-700 transition-colors">{item.desc}</p>
-                  </div>
+                    <p className="text-sm text-slate-500 leading-relaxed font-medium group-hover:text-slate-700 transition-colors">
+                      {item.desc}
+                    </p>
+                  </motion.div>
                 ))}
               </div>
             </div>
 
             {/* Right Column: Today & Tech Bento */}
-            <div className="lg:col-span-5 space-y-8">
-              <div className="bg-white rounded-[3rem] p-8 md:p-10 border border-slate-100 shadow-[0_20px_50px_rgba(0,0,0,0.03)] relative overflow-hidden group transition-all hover:border-emerald-200 hover:shadow-xl">
-                <div className="absolute -top-4 -right-4 p-8 opacity-[0.10] group-hover:opacity-[0.20] transition-opacity duration-500">
-                  <img 
-                    src="/EPR/eco.svg" 
-                    alt="EcoTrace" 
-                    className="w-50 h-50 object-contain "
+            <div className="lg:col-span-5 space-y-6 md:space-y-8 min-w-0">
+              <motion.div
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                className="bg-white rounded-[2rem] md:rounded-[2.2rem] p-7 md:p-9 border border-slate-100 shadow-[0_20px_50px_rgba(0,0,0,0.03)] relative overflow-hidden group transition-all hover:border-emerald-200 hover:shadow-xl"
+              >
+                <div className="absolute -top-4 -right-6 p-8 opacity-[0.10] group-hover:opacity-[0.20] transition-opacity duration-500">
+                  <img
+                    src="/EPR/eco.svg"
+                    alt="EcoTrace"
+                    className="w-60 h-60 object-contain "
                   />
                 </div>
-                <h3 className="text-2xl font-clash font-black text-slate-900 mb-6 tracking-tight">Today</h3>
-                <p className="text-slate-500 leading-relaxed font-medium mb-8 text-[15px]">
-                  EcoTrace serves clients across FMCG, pharma, electronics, automotive, and industrial sectors. Pantheon Digital is the only technology company in India to have built a production-grade, end-to-end EPR compliance platform across all five CPCB EPR categories.
+                <h3 className="text-2xl md:text-[1.75rem] font-clash font-black text-slate-900 mb-5 tracking-tight">
+                  Today
+                </h3>
+                <p className="text-slate-500 leading-relaxed font-medium mb-7 text-[15px]">
+                  EcoTrace serves clients across FMCG, pharma, electronics,
+                  automotive, and industrial sectors. Pantheon Digital is the
+                  only technology company in India to have built a
+                  production-grade, end-to-end EPR compliance platform across
+                  all five CPCB EPR categories.
                 </p>
-                <div className="pt-8 border-t border-slate-100">
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-600 block mb-4 font-clash">TECHNOLOGY STACK</span>
-                  <p className="text-[11px] text-slate-400 font-mono leading-relaxed bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                    React.js · Spring Boot · PostgreSQL · AWS Mumbai · DPDP Act 2023 Compliant · 99.5% Uptime
+                <div className="pt-6 border-t border-slate-100">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-600 block mb-4 font-clash">
+                    TECHNOLOGY STACK
+                  </span>
+                  <p className="text-[11px] text-slate-400 font-mono leading-relaxed bg-slate-50 p-4 rounded-2xl border border-slate-100 break-words">
+                    React.js · Spring Boot · PostgreSQL · AWS Mumbai · DPDP Act
+                    2023 Compliant · 99.5% Uptime
                   </p>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="bg-slate-900 rounded-[3rem] p-8 md:p-10 text-white relative overflow-hidden group shadow-2xl">
+              <motion.div
+                id="infrastructure-ready"
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                className="bg-gradient-to-br from-slate-950 via-slate-900 to-[#0B1833] rounded-[2rem] md:rounded-[2.2rem] p-7 md:p-9 text-white relative overflow-hidden group shadow-2xl border border-slate-700/50"
+              >
                 <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-emerald-500/20 rounded-full blur-3xl" />
-                <h3 className="text-xl font-clash font-black mb-4 relative z-10 tracking-tight">Infrastructure Ready</h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-6 relative z-10 font-medium">
-                  Built on enterprise-grade AWS infrastructure to ensure security and scalability for India&apos;s largest producers.
+                <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-emerald-400 to-cyan-400 opacity-80" />
+                <h3 className="text-xl md:text-2xl font-clash font-black mb-4 relative z-10 tracking-tight">
+                  Infrastructure Ready
+                </h3>
+                <p className="text-slate-300 text-sm md:text-[15px] leading-relaxed mb-7 relative z-10 font-medium max-w-[44ch]">
+                  Built on enterprise-grade AWS infrastructure to ensure
+                  security and scalability for India&apos;s largest producers.
                 </p>
                 <div className="flex items-center gap-3 relative z-10">
                   <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-[10px] font-black uppercase tracking-widest text-emerald-500 font-clash">Live Compliance Monitoring</span>
+                  <span className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] text-emerald-400 font-clash">
+                    Live Compliance Monitoring
+                  </span>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -1875,138 +2143,125 @@ export default function EcoTraceEprPage() {
       <section className="w-full py-24 md:py-32 bg-white relative overflow-hidden font-avenir">
         <div className={shell}>
           <div className="text-center mb-20 max-w-4xl mx-auto px-4">
-            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-emerald-600 mb-6 block font-clash">WHY CHOOSE US</span>
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-emerald-600 mb-6 block font-clash">
+              WHY CHOOSE US
+            </span>
             <h2 className="jsx-9deaa8cd422d1982 text-4xl md:text-5xl font-clash font-black tracking-tighter leading-tight text-slate-900 mb-8">
-              The Only Company to Automate the <br className="hidden md:block" />
+              The Only Company to Automate the{" "}
+              <br className="hidden md:block" />
               <span className="text-emerald-600">Entire EPR Lifecycle.</span>
             </h2>
             <p className="text-lg text-slate-500 font-medium leading-relaxed">
-              There are consultants who help you file. There are portals where you enter data. But there is only one company that has built software to automate the entire lifecycle.
+              There are consultants who help you file. There are portals where
+              you enter data. But there is only one company that has built
+              software to automate the entire lifecycle.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { 
-                title: "Built for India, by India", 
+              {
+                title: "Built for India, by India",
                 desc: "Not an adapted foreign software. Every calculation, certificate type, and rule change is built natively for India.",
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 21a9 9 0 100-18 9 9 0 000 18zm0 0c2.5-1.5 4-4.5 4-7.5s-1.5-6-4-7.5m0 15c-2.5-1.5-4-4.5-4-7.5s1.5-6 4-7.5M3 12h18" />
-                ),
-                color: "bg-[#059669] text-white"
+                icon: TirangaIcon,
+                color: "bg-[#059669] text-white",
               },
-              { 
-                title: "Only Multi-Category Platform", 
+              {
+                title: "Only Multi-Category Platform",
                 desc: "Covers all five CPCB categories — Plastic, E-Waste, Battery, Tyre, and Used Oil — under one unified login.",
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 7v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2zm0 5h16m-16 4h16" />
-                ),
-                color: "bg-[#0284C7] text-white"
+                icon: Layers,
+                color: "bg-[#0284C7] text-white",
               },
-              { 
-                title: "Automation-First Architecture", 
+              {
+                title: "Automation-First Architecture",
                 desc: "No manual entry. Sales data flows from ERP, liability calculated automatically, returns generated in one click.",
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 3l-2 7h6l-5 11 2-7H7l6-11z" />
-                ),
-                color: "bg-[#D97706] text-white"
+                icon: Zap,
+                color: "bg-[#D97706] text-white",
               },
-              { 
-                title: "Enterprise-Grade Security", 
+              {
+                title: "Enterprise-Grade Security",
                 desc: "DPDP Act 2023 compliant. AWS Mumbai hosting, JWT auth, and pre-signed S3 document storage.",
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 11V7a4 4 0 00-8 0v4m-2 0h12a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2v-6a2 2 0 012-2z" />
-                ),
-                color: "bg-[#4F46E5] text-white"
+                icon: Shield,
+                color: "bg-[#4F46E5] text-white",
               },
-              { 
-                title: "Complete Regulatory Coverage", 
+              {
+                title: "Complete Regulatory Coverage",
                 desc: "Tracks every amendment across all categories. Updated natively before your next compliance deadline.",
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                ),
-                color: "bg-[#E11D48] text-white"
+                icon: FileText,
+                color: "bg-[#E11D48] text-white",
               },
-              { 
-                title: "White-Glove Implementation", 
+              {
+                title: "White-Glove Implementation",
                 desc: "Dedicated team for ERP integration, weight matrix config, and vendor migration over 6 months.",
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                ),
-                color: "bg-[#0D9488] text-white"
+                icon: Handshake,
+                color: "bg-[#0D9488] text-white",
               },
-              { 
-                title: "Ongoing Expert Support", 
+              {
+                title: "Ongoing Expert Support",
                 desc: "Compliance experts stay with you through every return cycle, ensuring zero shortfall and portal sync.",
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
-                ),
-                color: "bg-[#7C3AED] text-white"
+                icon: Headset,
+                color: "bg-[#7C3AED] text-white",
               },
-              { 
-                title: "Proven at Enterprise Scale", 
+              {
+                title: "Proven at Enterprise Scale",
                 desc: "Managing thousands of SKUs and 30+ states for pan-India FMCG operations in production.",
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                ),
-                color: "bg-[#EA580C] text-white"
-              }
+                icon: TrendingUp,
+                color: "bg-[#EA580C] text-white",
+              },
             ].map((item, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.1 }}
-                transition={{ 
+                transition={{
                   type: "spring",
                   stiffness: 70,
                   damping: 15,
-                  delay: idx * 0.1 
+                  delay: idx * 0.1,
                 }}
                 className="group relative p-8 rounded-[2.5rem] bg-[#F8FAFA] border border-slate-100 hover:bg-white hover:border-emerald-200 hover:shadow-2xl hover:shadow-emerald-500/10 transition-all duration-700 overflow-hidden"
               >
                 {/* Large Background Watermark */}
                 <div className="absolute -right-6 -bottom-6 opacity-[0.03] group-hover:opacity-[0.08] group-hover:scale-110 transition-all duration-700 pointer-events-none">
-                  <svg className="h-32 w-32" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    {item.icon}
-                  </svg>
+                  <item.icon className="h-32 w-32" strokeWidth={1.5} />
                 </div>
 
                 <div className="relative mb-6">
-                  <div className={`h-14 w-14 rounded-2xl ${item.color} flex items-center justify-center relative z-10 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 shadow-lg shadow-black/5`}>
-                    <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      {item.icon}
-                    </svg>
+                  <div
+                    className={`h-14 w-14 rounded-2xl ${item.color} flex items-center justify-center relative z-10 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 shadow-lg shadow-black/5`}
+                  >
+                    <item.icon className="h-7 w-7" strokeWidth={2} />
                   </div>
                 </div>
 
-                <h4 className="text-lg font-black text-slate-900 mb-3 tracking-tight font-clash leading-tight relative z-10">{item.title}</h4>
-                <p className="text-[13px] leading-relaxed text-slate-500 font-medium group-hover:text-slate-600 transition-colors relative z-10">{item.desc}</p>
+                <h4 className="text-lg font-black text-slate-900 mb-3 tracking-tight font-clash leading-tight relative z-10">
+                  {item.title}
+                </h4>
+                <p className="text-[13px] leading-relaxed text-slate-500 font-medium group-hover:text-slate-600 transition-colors relative z-10">
+                  {item.desc}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-     
-
-     
       <section
         id="authority-mapping"
         className="w-full py-24 bg-gradient-to-b from-white via-emerald-50/40 to-[#F0F2F1] border-y border-slate-200 relative overflow-hidden"
       >
-     
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute -right-[10%] top-0 h-96 w-96 rounded-full bg-emerald-200/20 blur-[100px]" />
-          
+
           {/* Master Sustainability Ecosystem Illustration */}
-          <div className="absolute -left-20 bottom-[-5%] w-[700px] h-[700px] opacity-[0.08] grayscale pointer-events-none z-0 rotate-[-10deg]">
+          {/* <div className="absolute -left-20 bottom-[-5%] w-[700px] h-[700px] opacity-[0.08] grayscale pointer-events-none z-0 rotate-[-10deg]">
             <img 
               src="/EPR/sustainability_ecosystem_illustration.png" 
               alt="Sustainability Ecosystem Illustration" 
               className="w-full h-full object-contain"
             />
-          </div>
+          </div> */}
         </div>
 
         <div className={shell + " relative z-10"}>
@@ -2014,33 +2269,29 @@ export default function EcoTraceEprPage() {
             <h2 className="jsx-9deaa8cd422d1982 text-4xl md:text-5xl font-clash font-black tracking-tighter leading-tight text-slate-900 mb-8">
               Which authority does your company report to?
             </h2>
-            <div className="h-1.5 w-20 bg-indigo-600 rounded-full" />
+            <div className="h-1.5 w-20 bg--600 rounded-full" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:auto-rows-fr">
             {[
               {
                 badge: "Central Authority",
                 title: "CPCB",
                 subtitle: "Pan-India Companies",
-                desc: "Operating in 3 or more states — most large FMCG, pharma, personal care, retail chains",
+                desc: "Operating in 3 or more states  most large FMCG, pharma, personal care, retail chains",
                 obligation:
                   "Register and file annual return on eprplastic.cpcb.gov.in",
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
-                ),
+                icon: Landmark,
                 accent: "indigo",
               },
               {
                 badge: "Regional Level",
                 title: "SPCB",
                 subtitle: "Regional Brands",
-                desc: "Operating in 1 or 2 states — state-specific food, dairy, beverage, or FMCG companies",
+                desc: "Operating in 1 or 2 states  state-specific food, dairy, beverage, or FMCG companies",
                 obligation:
                   "Register with relevant SPCB or PCC. Annual return via CPCB portal — SPCB reviews",
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0zM19.5 10.5c0 7.142-7.5 11.25-7.5 11.25s-7.5-4.108-7.5-11.25a7.5 7.5 0 1115 0z" />
-                ),
+                icon: MapPin,
                 accent: "emerald",
               },
               {
@@ -2050,9 +2301,7 @@ export default function EcoTraceEprPage() {
                 desc: "All CPCB-registered WMAs and recycling facilities",
                 obligation:
                   "Register with SPCB. Physical verification jointly by CPCB Regional Directorate and SPCB",
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-3h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3l3.597 2.158A15 15 0 0110.5 5.142V3L3 3z" />
-                ),
+                icon: Factory,
                 accent: "violet",
               },
             ].map((auth, idx) => (
@@ -2061,73 +2310,75 @@ export default function EcoTraceEprPage() {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ 
+                transition={{
                   type: "spring",
                   stiffness: 60,
                   damping: 18,
-                  delay: idx * 0.15 
+                  delay: idx * 0.15,
                 }}
-                
-                className="group relative p-8 rounded-[2.5rem] bg-white border border-slate-100 shadow-[0_10px_30px_rgba(0,0,0,0.02)] transition-all duration-700 overflow-hidden"
+                className="group relative flex h-full min-h-[420px] flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white p-6 md:p-7 shadow-[0_8px_24px_rgba(15,23,42,0.05)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(15,23,42,0.12)]"
               >
-             
                 <div
-                  className={`mb-6 inline-flex px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest border transition-colors duration-500
+                  className={`pointer-events-none absolute inset-x-0 top-0 h-1.5 ${auth.accent === "indigo" ? "bg-emerald-400" : auth.accent === "emerald" ? "bg-emerald-400" : "bg-amber-950"}`}
+                />
+                <div
+                  className={`mb-5 inline-flex w-fit rounded-full border px-3.5 py-1.5 text-[10px] font-black uppercase tracking-[0.16em] transition-colors duration-300
                   ${
                     auth.accent === "indigo"
-                      ? "bg-indigo-50 text-indigo-600 border-indigo-100 group-hover:bg-indigo-600 group-hover:text-white"
+                      ? "bg-indigo-50/80 text-indigo-700 border-indigo-100"
                       : auth.accent === "emerald"
-                        ? "bg-emerald-50 text-emerald-600 border-emerald-100 group-hover:bg-emerald-600 group-hover:text-white"
-                        : "bg-violet-50 text-violet-600 border-violet-100 group-hover:bg-violet-600 group-hover:text-white"
+                        ? "bg-emerald-50/80 text-emerald-700 border-emerald-100"
+                        : "bg-slate-100 text-slate-700 border-slate-200"
                   }`}
                 >
+                  
                   {auth.badge}
                 </div>
 
-              
-                <div className="flex items-start justify-between mb-8">
+                <div className="mb-6 flex items-start justify-between gap-4 border-b border-slate-100 pb-5">
                   <div>
-                    <h4 className="text-4xl font-black text-slate-900 mb-2">
+                    <h4 className="mb-1 text-[1.9rem] font-black leading-none text-slate-900">
                       {auth.title}
                     </h4>
                     <p
-                      className={`text-[13px] font-black uppercase tracking-widest ${auth.accent === "indigo" ? "text-indigo-600" : auth.accent === "emerald" ? "text-emerald-600" : "text-violet-600"}`}
+                      className={`text-[11px] font-black uppercase tracking-[0.15em] ${auth.accent === "indigo" ? "text-indigo-700" : auth.accent === "emerald" ? "text-emerald-700" : "text-slate-600"}`}
                     >
                       {auth.subtitle}
                     </p>
                   </div>
                   <div
-                    className={`h-12 w-12 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-110
+                    className={`h-12 w-12 shrink-0 rounded-2xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105
                     ${
                       auth.accent === "indigo"
-                        ? "bg-indigo-50 text-indigo-500"
+                        ? "bg-indigo-50 text-indigo-600"
                         : auth.accent === "emerald"
-                          ? "bg-emerald-50 text-emerald-500"
-                          : "bg-violet-50 text-violet-500"
+                          ? "bg-emerald-50 text-emerald-600"
+                          : "bg-slate-100 text-slate-600"
                     }`}
                   >
-                    <svg
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={1.5}
-                    >
-                      {auth.icon}
-                    </svg>
+                    <auth.icon className="h-6 w-6" strokeWidth={1.8} />
                   </div>
                 </div>
 
-                <p className="text-[14px] leading-relaxed text-slate-500 mb-10 font-medium">
-                  {auth.desc}
-                </p>
+                <div className="mb-6 rounded-2xl bg-slate-50 p-4">
+                  <p className="text-[13px] font-medium leading-relaxed text-slate-600">
+                    {auth.desc}
+                  </p>
+                </div>
 
-               
-                <div className="p-6 rounded-[1.8rem] bg-slate-50 border border-slate-100 group-hover:bg-slate-950 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-indigo-500/20">
-                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 mb-2 block group-hover:text-slate-500 transition-colors">
+                <div
+                  className={`mt-auto rounded-2xl border p-5 ${
+                    auth.accent === "indigo"
+                      ? "border-indigo-100 bg-indigo-50/60"
+                      : auth.accent === "emerald"
+                        ? "border-emerald-100 bg-emerald-50/60"
+                        : "border-slate-200 bg-slate-50"
+                  }`}
+                >
+                  <span className="mb-2 block text-[9px] font-black uppercase tracking-[0.2em] text-slate-500">
                     Key Obligation
                   </span>
-                  <p className="text-[13px] font-bold text-slate-800 leading-snug group-hover:text-white transition-colors duration-500">
+                  <p className="text-[12px] font-bold leading-snug text-slate-800">
                     {auth.obligation}
                   </p>
                 </div>
@@ -2137,7 +2388,7 @@ export default function EcoTraceEprPage() {
         </div>
       </section>
 
-      <ContextualCTA 
+      <ContextualCTA
         title="Need help with CPCB registration?"
         desc="The registration process for PIBOs involves complex document validation. Our compliance team handles it end-to-end."
         btnText="Talk to a Registration Expert"
@@ -2196,9 +2447,7 @@ export default function EcoTraceEprPage() {
                   "Certificates from unregistered recyclers are legally invalid",
                 ],
                 accent: "emerald",
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
-                ),
+                icon: Recycle,
               },
               {
                 id: "02",
@@ -2211,9 +2460,7 @@ export default function EcoTraceEprPage() {
                   "Rule 3(ga) redefined under 2026 amendment",
                 ],
                 accent: "rose",
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
-                ),
+                icon: Flame,
               },
               {
                 id: "03",
@@ -2226,9 +2473,7 @@ export default function EcoTraceEprPage() {
                   "FSSAI/CDSCO exemptions available",
                 ],
                 accent: "indigo",
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                ),
+                icon: FileCheck,
               },
               {
                 id: "04",
@@ -2241,9 +2486,7 @@ export default function EcoTraceEprPage() {
                   "Subject to FSSAI regulations",
                 ],
                 accent: "amber",
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" />
-                ),
+                icon: Repeat,
               },
               {
                 id: "05",
@@ -2256,9 +2499,7 @@ export default function EcoTraceEprPage() {
                   "Formal city-level collection",
                 ],
                 accent: "violet",
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a5.971 5.971 0 00-.941 3.197m0 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a5.971 5.971 0 00-.941 3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a5.971 5.971 0 00-.941 3.197" />
-                ),
+                icon: CreditCard,
               },
               {
                 id: "06",
@@ -2271,9 +2512,7 @@ export default function EcoTraceEprPage() {
                   "Category-specific transfer",
                 ],
                 accent: "blue",
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.94" />
-                ),
+                icon: TrendingUp,
               },
             ].map((cert, idx) => (
               <motion.div
@@ -2318,15 +2557,7 @@ export default function EcoTraceEprPage() {
                                 : "bg-violet-50 text-violet-600"
                     }`}
                   >
-                    <svg
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      {cert.icon}
-                    </svg>
+                    <cert.icon className="h-6 w-6" strokeWidth={2} />
                   </div>
 
                   <h3 className="text-xl font-clash font-black text-slate-950 mb-4 tracking-tight group-hover:text-slate-800 transition-colors">
@@ -2355,7 +2586,7 @@ export default function EcoTraceEprPage() {
         </div>
       </section>
 
-      <ContextualCTA 
+      <ContextualCTA
         title="Procure verified recycling credits."
         desc="EcoTrace connects you with 100+ CPCB-registered recyclers to ensure you meet your targets with zero legal risk."
         btnText="Check Credit Availability"
@@ -2419,28 +2650,83 @@ export default function EcoTraceEprPage() {
               {/* Mobile Card View for Recycling Targets */}
               <div className="grid grid-cols-1 gap-4 md:hidden">
                 {[
-                  { name: "Cat I — Rigid", f22: "50%", f23: "60%", f24: "70%", f25: "80%", f26: "90%", f27: "100%", price: "₹4k–8k" },
-                  { name: "Cat II — Flexible", f22: "50%", f23: "60%", f24: "70%", f25: "80%", f26: "90%", f27: "100%", price: "₹6k–10k" },
-                  { name: "Cat III — Multi-layer", f22: "30%", f23: "40%", f24: "50%", f25: "60%", f26: "70%", f27: "80%", price: "₹12k–20k" },
-                  { name: "Cat IV — Compostable", f22: "50%", f23: "60%", f24: "70%", f25: "80%", f26: "90%", f27: "100%", price: "₹15k–25k" },
+                  {
+                    name: "Cat I — Rigid",
+                    f22: "50%",
+                    f23: "60%",
+                    f24: "70%",
+                    f25: "80%",
+                    f26: "90%",
+                    f27: "100%",
+                    price: "₹4k–8k",
+                  },
+                  {
+                    name: "Cat II — Flexible",
+                    f22: "50%",
+                    f23: "60%",
+                    f24: "70%",
+                    f25: "80%",
+                    f26: "90%",
+                    f27: "100%",
+                    price: "₹6k–10k",
+                  },
+                  {
+                    name: "Cat III — Multi-layer",
+                    f22: "30%",
+                    f23: "40%",
+                    f24: "50%",
+                    f25: "60%",
+                    f26: "70%",
+                    f27: "80%",
+                    price: "₹12k–20k",
+                  },
+                  {
+                    name: "Cat IV — Compostable",
+                    f22: "50%",
+                    f23: "60%",
+                    f24: "70%",
+                    f25: "80%",
+                    f26: "90%",
+                    f27: "100%",
+                    price: "₹15k–25k",
+                  },
                 ].map((row, idx) => (
-                  <div key={idx} className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                  <div
+                    key={idx}
+                    className="p-4 rounded-2xl bg-slate-50 border border-slate-100"
+                  >
                     <div className="flex justify-between items-center mb-3">
-                      <span className="font-black text-slate-900 text-sm">{row.name}</span>
-                      <span className="text-[10px] font-black px-2 py-1 bg-emerald-100 text-emerald-700 rounded-lg">{row.price}</span>
+                      <span className="font-black text-slate-900 text-sm">
+                        {row.name}
+                      </span>
+                      <span className="text-[10px] font-black px-2 py-1 bg-emerald-100 text-emerald-700 rounded-lg">
+                        {row.price}
+                      </span>
                     </div>
                     <div className="grid grid-cols-3 gap-2">
                       <div className="flex flex-col">
-                        <span className="text-[8px] uppercase tracking-wider text-slate-400">FY 24-25</span>
-                        <span className="text-xs font-bold text-slate-600">{row.f24}</span>
+                        <span className="text-[8px] uppercase tracking-wider text-slate-400">
+                          FY 24-25
+                        </span>
+                        <span className="text-xs font-bold text-slate-600">
+                          {row.f24}
+                        </span>
                       </div>
                       <div className="flex flex-col">
-                        <span className="text-[8px] uppercase tracking-wider text-amber-500">FY 25-26 ★</span>
-                        <span className="text-xs font-black text-amber-600">{row.f25}</span>
+                        <span className="text-[8px] uppercase tracking-wider text-amber-500">
+                          FY 25-26 ★
+                        </span>
+                        <span className="text-xs font-black text-amber-600">
+                          {row.f25}
+                        </span>
                       </div>
                       <div className="flex flex-col">
-                        <span className="text-[8px] uppercase tracking-wider text-emerald-600">FY 27-28</span>
-                        <span className="text-xs font-black text-emerald-700">{row.f27}</span>
+                        <span className="text-[8px] uppercase tracking-wider text-emerald-600">
+                          FY 27-28
+                        </span>
+                        <span className="text-xs font-black text-emerald-700">
+                          {row.f27}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -2531,7 +2817,10 @@ export default function EcoTraceEprPage() {
                         price: "Market Forming",
                       },
                     ].map((row, idx) => (
-                      <tr key={idx} className="group hover:bg-slate-50/50 transition-colors">
+                      <tr
+                        key={idx}
+                        className="group hover:bg-slate-50/50 transition-colors"
+                      >
                         <td className="py-6 px-4">
                           <span className="font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">
                             {row.name}
@@ -2605,28 +2894,75 @@ export default function EcoTraceEprPage() {
                   {/* Mobile Card View for URep Targets */}
                   <div className="grid grid-cols-1 gap-4 md:hidden">
                     {[
-                      { name: "Cat I — Rigid", f25: "30%", f26: "40%", f27: "50%", f28: "60%", notes: "FSSAI / CDSCO / Food contact. Declare law in return." },
-                      { name: "Cat II — Flexible", f25: "10%", f26: "10%", f27: "20%", f28: "20%", notes: "FSSAI, pesticide law. Declare exemption basis." },
-                      { name: "Cat III — Multi-layer", f25: "5%", f26: "5%", f27: "10%", f28: "10%", notes: "Calculated on plastic layers weight only." },
-                      { name: "Cat IV — Compostable", f25: "N/A", f26: "N/A", f27: "N/A", f28: "N/A", notes: "Exempt — compostable plastics not subject to URep." },
+                      {
+                        name: "Cat I — Rigid",
+                        f25: "30%",
+                        f26: "40%",
+                        f27: "50%",
+                        f28: "60%",
+                        notes:
+                          "FSSAI / CDSCO / Food contact. Declare law in return.",
+                      },
+                      {
+                        name: "Cat II — Flexible",
+                        f25: "10%",
+                        f26: "10%",
+                        f27: "20%",
+                        f28: "20%",
+                        notes: "FSSAI, pesticide law. Declare exemption basis.",
+                      },
+                      {
+                        name: "Cat III — Multi-layer",
+                        f25: "5%",
+                        f26: "5%",
+                        f27: "10%",
+                        f28: "10%",
+                        notes: "Calculated on plastic layers weight only.",
+                      },
+                      {
+                        name: "Cat IV — Compostable",
+                        f25: "N/A",
+                        f26: "N/A",
+                        f27: "N/A",
+                        f28: "N/A",
+                        notes:
+                          "Exempt — compostable plastics not subject to URep.",
+                      },
                     ].map((row, rIdx) => (
-                      <div key={rIdx} className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                      <div
+                        key={rIdx}
+                        className="p-4 rounded-2xl bg-slate-50 border border-slate-100"
+                      >
                         <div className="flex justify-between items-center mb-3">
-                          <span className="font-black text-slate-900 text-sm">{row.name}</span>
+                          <span className="font-black text-slate-900 text-sm">
+                            {row.name}
+                          </span>
                         </div>
                         <div className="grid grid-cols-2 gap-3 mb-3">
                           <div className="flex flex-col">
-                            <span className="text-[8px] uppercase tracking-wider text-amber-500">FY 25-26 ★</span>
-                            <span className="text-xs font-black text-amber-600">{row.f25}</span>
+                            <span className="text-[8px] uppercase tracking-wider text-amber-500">
+                              FY 25-26 ★
+                            </span>
+                            <span className="text-xs font-black text-amber-600">
+                              {row.f25}
+                            </span>
                           </div>
                           <div className="flex flex-col">
-                            <span className="text-[8px] uppercase tracking-wider text-slate-400">FY 28-29+</span>
-                            <span className="text-xs font-bold text-slate-600">{row.f28}</span>
+                            <span className="text-[8px] uppercase tracking-wider text-slate-400">
+                              FY 28-29+
+                            </span>
+                            <span className="text-xs font-bold text-slate-600">
+                              {row.f28}
+                            </span>
                           </div>
                         </div>
                         <div className="pt-2 border-t border-slate-200/60">
-                          <span className="text-[8px] uppercase tracking-wider text-slate-400 block mb-1">Notes</span>
-                          <p className="text-[10px] text-slate-500 leading-tight font-medium">{row.notes}</p>
+                          <span className="text-[8px] uppercase tracking-wider text-slate-400 block mb-1">
+                            Notes
+                          </span>
+                          <p className="text-[10px] text-slate-500 leading-tight font-medium">
+                            {row.notes}
+                          </p>
                         </div>
                       </div>
                     ))}
@@ -2758,90 +3094,70 @@ export default function EcoTraceEprPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {[
               {
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 7.5a2.25 2.25 0 00-2.25 2.25v6.75c0 1.242 1.008 2.25 2.25 2.25h6c1.242 0 2.25-1.008 2.25-2.25V9.75A2.25 2.25 0 0015 7.5H9zM10.5 10.5h3m-3 3h3m-3 3h3" />
-                ),
+                icon: Calculator,
                 title: "Automatic Liability Calculator",
                 desc: "Sales data arrives from your ERP system automatically every month. EcoTrace validates every row, applies the CPCB packaging weight matrix, and calculates your exact EPR obligation in metric tonnes — broken down by category, entity, and state. Covers all 5 plastic packaging categories including the new Category V industrial packaging.",
                 status: "Core",
                 color: "indigo",
               },
               {
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-                ),
+                icon: FileCheck,
                 title: "Declaration Workflow",
                 desc: "Create and manage recycling declarations linking your EPR obligation to a specific recycler, plastic category, state, and financial year. Attach PO evidence, submit for approval, track every status from Draft to Approved — with a complete audit trail and timestamped log.",
                 status: "Core",
                 color: "indigo",
               },
               {
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18" />
-                ),
+                icon: Handshake,
                 title: "Vendor & WMA Management",
                 desc: "Register and manage all your CPCB-registered recyclers in one place. Track agreement dates, category certifications, state-wise capacity, CPCB registration numbers, GST details, and agreement documents. Automated expiry alerts 30 days before any agreement or certification lapses.",
                 status: "Core",
                 color: "indigo",
               },
               {
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75c0 .621-.504 1.125-1.125 1.125h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
-                ),
+                icon: LayoutDashboard,
                 title: "Live Compliance Dashboard",
                 desc: "Real-time KPI cards showing total liability, total achieved, achievement %, and pending approvals. A 12-month trend chart. India state heatmap. Category breakdown donuts. All data updates automatically when declarations are approved — no manual refresh.",
                 status: "Core",
                 color: "indigo",
               },
               {
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25H5.625A2.25 2.25 0 013.375 18V4.875c0-.621.504-1.125 1.125-1.125H9M12 3v4.5" />
-                ),
+                icon: FileDown,
                 title: "CPCB & SPCB Report Generator",
                 desc: "One-click CPCB Annual Return PDF — all 9 mandatory sections, state-wise data, certificate ledger with CPCB IDs, URep and reuse claims, EC calculation, and signed declaration block. Also generates quarterly data extracts and state-wise achievement reports for SPCB filing.",
                 status: "New",
                 color: "emerald",
               },
               {
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
-                ),
+                icon: RotateCcw,
                 title: "URep & Reuse Tracker",
                 desc: "Tracks the new FY 2025–26 recycled content (URep) obligation across Cat I, II, and III. Calculates your URep target based on packaging volumes, tracks procurement of recycled material, generates URep certificates on CPCB portal, and models carry-forward shortfalls across 3 years.",
                 status: "New",
                 color: "emerald",
               },
               {
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                ),
+                icon: IndianRupee,
                 title: "EPR Credit Ledger",
                 desc: "An append-only ledger recording every MT of recycling credit issued — by category, by entity, by financial year. Each entry includes CPCB certificate ID, recycler registration number, GST invoice number, transfer date, and credit rate. Fully immutable and auditable.",
                 status: "Core",
                 color: "indigo",
               },
               {
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
-                ),
+                icon: CodeXml,
                 title: "ERP Integration API",
                 desc: "REST API connecting EcoTrace to SAP, Oracle, or any internal ERP system. Sales data pushed automatically at month-end. API validates incoming data, handles deduplication, flags unknown SKUs, and calculates liability in real time. No manual uploads — ever.",
                 status: "New",
                 color: "emerald",
               },
               {
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-                ),
+                icon: Bell,
                 title: "Smart Alerts & Notifications",
                 desc: "Proactive alerts for every compliance risk — vendor expiry, certificate shortfall, quarterly entry due, 30 June countdown, critical EC risk alerts. Sent via email and in-app. Nondismissable critical alerts when achievement gap exceeds 10% within 30 days of deadline.",
                 status: "Core",
                 color: "indigo",
               },
               {
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-                ),
+                icon: FolderLock,
                 title: "Document Vault",
                 desc: "Secure cloud storage for all EPR documents — PO evidence, WMA agreements, CPCB certificates, CTO/CTE consents, third-party audit reports. Stored on AWS S3. Accessible via time-limited pre-signed URLs. Every document linked to its specific declaration, vendor, or entity.",
                 status: "Core",
@@ -2854,17 +3170,12 @@ export default function EcoTraceEprPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05 }}
-                whileHover={{
-                  y: -10,
-                }}
                 className="group relative"
               >
-                <div className="relative p-10 rounded-[3rem] bg-white border border-slate-100 shadow-[0_10px_40px_rgba(0,0,0,0.02)] transition-all duration-700 hover:shadow-2xl hover:border-transparent cursor-pointer overflow-hidden h-full flex flex-col">
+                <div className="relative p-10 rounded-[3rem] bg-white border border-slate-100 shadow-[0_10px_40px_rgba(0,0,0,0.02)] transition-all duration-500 hover:shadow-2xl hover:border-transparent cursor-pointer overflow-hidden h-full flex flex-col transform-gpu will-change-transform group-hover:-translate-y-2">
                   {/* Large Background Watermark Texture */}
                   <div className="absolute -right-6 -bottom-6 opacity-[0.02] group-hover:opacity-[0.06] group-hover:scale-110 transition-all duration-700 pointer-events-none">
-                    <svg className="h-40 w-40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                      {module.icon}
-                    </svg>
+                    <module.icon className="h-40 w-40" strokeWidth={1} />
                   </div>
 
                   {/* 3D Inner Glow Accents */}
@@ -2891,9 +3202,7 @@ export default function EcoTraceEprPage() {
                           className={`h-16 w-16 rounded-[1.5rem] flex items-center justify-center text-3xl shadow-inner transition-all duration-500 group-hover:rotate-[20deg]
                           ${module.color === "emerald" ? "bg-emerald-50" : "bg-indigo-50"}`}
                         >
-                          <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                            {module.icon}
-                          </svg>
+                          <module.icon className="h-8 w-8" strokeWidth={1.5} />
                         </div>
                         <div>
                           <h3 className="text-2xl font-black text-slate-900 leading-tight group-hover:text-indigo-600 transition-colors">
@@ -3011,14 +3320,14 @@ export default function EcoTraceEprPage() {
           </div>
 
           <div className="mt-16 text-center">
-            <div className="inline-block p-1 bg-gradient-to-r from-emerald-400 to-indigo-600 rounded-3xl">
-              <div className="bg-white px-10 py-8 rounded-[1.4rem]">
+            <div className="inline-block p-1 bg-gradient-to-r from-emerald-400 to-emerald-400 rounded-3xl">
+              <div className="bg-emerald-50  px-10 py-8 rounded-[1.4rem]">
                 <p className="text-xl font-bold text-slate-900 leading-tight">
-                  <span className="text-emerald-600 font-bold underline decoration-emerald-200">
+                  <span className="text-emerald-600 font-bold  decoration-emerald-200">
                     EcoTrace eliminates every one of these risks.
                   </span>
                   <br />
-                  Your compliance team will be filing-ready months before 30
+                  Your compliance team will be filing ready months before 30
                   June — not days.
                 </p>
               </div>
@@ -3099,8 +3408,6 @@ export default function EcoTraceEprPage() {
           </div>
         </div>
       </section>
-
-    
 
       <style jsx global>{`
         @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap");

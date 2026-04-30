@@ -43,16 +43,20 @@ const Contact_Us = () => {
   ];
 
   const services = [
+
     "Digital Marketing",
     "Graphic Designing",
     "UI/UX Design",
     "Logo/Brochure/Post Design",
     "HRMS Software",
     "CRM Software",
+    "EPR Software",
+    "AI Software",
     "Website Development",
     "Application Development",
     "Custom Software",
     "DevOps or Cloud Services",
+  
   ];
 
   const [loading, setLoading] = useState(false);
