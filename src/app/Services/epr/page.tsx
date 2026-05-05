@@ -14,18 +14,6 @@ type TableData = {
 const shell =
   "mx-auto w-full max-w-[1600px] px-4 min-[400px]:px-5 sm:px-6 md:px-10 lg:px-14 xl:px-16 2xl:px-20";
 
-/** Shared section typography (avoids repeating the same class strings) */
-const sectionHeading2 =
-  "text-4xl md:text-5xl font-clash font-black tracking-tighter leading-tight text-slate-900 mb-8";
-const sectionHeading2Compact =
-  "text-4xl md:text-5xl font-clash font-black tracking-tighter leading-tight text-slate-900 mb-6";
-const sectionHeading2OnDark =
-  "text-4xl md:text-5xl font-clash font-black tracking-tighter leading-tight text-white mb-8";
-const aboutVisionLead =
-  "text-slate-500 leading-relaxed font-medium mb-2 text-[15px]";
-const aboutVisionPullQuote =
-  "block mt-4 text-sm font-black uppercase tracking-widest text-slate-900 font-clash";
-
 import {
   Calculator,
   FileCheck,
@@ -121,6 +109,9 @@ const ContextualCTA = ({
         <img
           src="/EPR/image.png"
           alt=""
+          loading="lazy"
+          decoding="async"
+          fetchPriority="low"
           className="h-full w-auto object-contain object-bottom translate-x-20 grayscale opacity-40"
         />
       </motion.div>
@@ -136,6 +127,9 @@ const ContextualCTA = ({
         <img
           src="/EPR/eco2.png"
           alt=""
+          loading="lazy"
+          decoding="async"
+          fetchPriority="low"
           className="h-full w-auto object-contain object-bottom -translate-x-20 grayscale opacity-60"
         />
       </motion.div>
@@ -499,7 +493,7 @@ function SSOPortalsSection() {
           <span className="text-[10px] font-black uppercase tracking-[0.4em] text-emerald-600 mb-6 block">
             Unified Access
           </span>
-          <h2 className={sectionHeading2}>
+          <h2 className="jsx-9deaa8cd422d1982 text-4xl md:text-5xl font-clash font-black tracking-tighter leading-tight text-slate-900 mb-8">
             Single Sign-On (SSO) for <br className="hidden sm:block" /> existing
             EPR Portals
           </h2>
@@ -741,7 +735,7 @@ function SectionBlock({
               <p className="mb-3 text-sm font-medium text-slate-300">{label}</p>
             ) : null}
             {heading ? (
-              <h2 className={sectionHeading2OnDark}>
+              <h2 className="jsx-9deaa8cd422d1982 text-4xl md:text-5xl font-clash font-black tracking-tighter leading-tight text-white mb-8">
                 {heading}
               </h2>
             ) : null}
@@ -798,7 +792,7 @@ function SectionBlock({
             </p>
           ) : null}
           {heading ? (
-            <h2 className={sectionHeading2}>
+            <h2 className="jsx-9deaa8cd422d1982 text-4xl md:text-5xl font-clash font-black tracking-tighter leading-tight text-slate-900 mb-8">
               {heading}
             </h2>
           ) : null}
@@ -1112,6 +1106,108 @@ function EPRCategoriesGrid({ data }: { data: TableData }) {
           perspective: 1000px;
         }
       `}</style>
+    </section>
+  );
+}
+
+function CTASection() {
+  return (
+    <section
+      id="epr-cta"
+      className="w-full border-t border-slate-200/70 bg-gradient-to-b from-[#E8EEEC]/90 to-[#F0F2F1] py-12 sm:py-16 md:py-24 "
+    >
+      <div className={shell}>
+        <div className="relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-6 shadow-[0_28px_80px_-32px_rgba(15,23,42,0.2)] sm:rounded-3xl sm:p-10 md:rounded-[2rem] md:p-12">
+          <div
+            className="pointer-events-none absolute -right-20 top-0 h-56 w-56 rounded-full bg-gradient-to-bl from-emerald-100/80 to-transparent sm:h-72 sm:w-72"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute -bottom-12 -left-12 h-44 w-44 rounded-full bg-amber-50/90 blur-2xl sm:h-56 sm:w-56"
+            aria-hidden
+          />
+
+          <div className="relative max-w-4xl">
+            <p
+              id="cta-label"
+              className="mb-2 text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500 sm:text-[11px] sm:tracking-[0.2em]"
+            >
+              Next step
+            </p>
+            <h2
+              id="cta-heading"
+              className="jsx-9deaa8cd422d1982 text-4xl md:text-5xl font-clash font-black tracking-tighter leading-tight text-slate-900 mb-8"
+            >
+              Ready to automate your EPR compliance?
+            </h2>
+            <p
+              id="cta-description-1"
+              className="mb-4 text-[0.98rem] leading-[1.85] text-slate-600 sm:text-[1.05rem] sm:leading-[1.88]"
+            >
+              EcoTrace is now available to any Indian company that needs to
+              manage CPCB and SPCB EPR obligations — regardless of size,
+              category mix, or number of entities. Whether you are a large FMCG
+              group filing with CPCB across 28 states, or a regional brand
+              filing with SPCB in 2 states, EcoTrace is built for your workflow.
+            </p>
+            <p
+              id="cta-description-2"
+              className="mb-8 text-[0.98rem] leading-[1.85] text-slate-600 sm:text-[1.05rem] sm:leading-[1.88]"
+            >
+              Book a personalised product demo with Pantheon Digital&apos;s EPR
+              compliance experts. We will walk you through the platform live,
+              show how it handles your specific entity structure and packaging
+              categories, and give you a clear picture of what your first year
+              on EcoTrace looks like — before you sign anything.
+            </p>
+            <div
+              id="cta-button-group"
+              className="mb-10 flex w-full max-w-lg flex-col gap-3 sm:max-w-none sm:flex-row"
+            >
+              <Link
+                id="cta-book-demo-btn"
+                href="/Contact_Us"
+                className="group relative inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-emerald-700 text-white rounded-xl font-black text-base shadow-lg shadow-emerald-900/15 transition-all duration-300 hover:bg-emerald-800 hover:shadow-emerald-900/30 hover:scale-[1.02] active:scale-95 overflow-hidden"
+              >
+                <span className="relative z-10">Book a free demo</span>
+                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+              </Link>
+              <Link
+                id="cta-download-brochure-btn"
+                href="/Contact_Us"
+                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-white text-slate-800 rounded-xl font-bold text-base border border-slate-300 transition-all duration-300 hover:bg-slate-50 hover:border-emerald-300 hover:text-emerald-700 hover:shadow-xl hover:shadow-emerald-500/10 hover:scale-[1.02] active:scale-95"
+              >
+                Download product brochure
+              </Link>
+            </div>
+            <p
+              id="cta-contact-info"
+              className="flex flex-col gap-1 text-sm font-medium text-slate-500 sm:flex-row sm:items-center sm:gap-0"
+            >
+              <span>sales@pantheondigitals.com</span>
+              <span className="hidden sm:inline mx-2 text-slate-300">|</span>
+              <span>www.pantheondigitals.com</span>
+            </p>
+            <div
+              id="cta-footer"
+              className="mt-8 border-t border-slate-200 pt-8 text-xs leading-relaxed text-slate-500 sm:text-sm"
+            >
+              <p>
+                Pantheon Digital Pvt. Ltd. · www.pantheondigitals.com · EcoTrace
+                EPR Compliance Software
+              </p>
+              <p className="mt-1">
+                Built for Indian EPR compliance under Plastic Waste Management
+                (Amendment) Rules, 2022 / 2025 / 2026
+              </p>
+              <p className="mt-2 text-[11px] text-slate-400 sm:text-xs">
+                © 2026 Pantheon Digital Pvt. Ltd. All rights reserved.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
@@ -1445,22 +1541,29 @@ export default function EcoTraceEprPage() {
         id="why-epr-mandatory-premium"
         className="relative w-full bg-[#FDFDFD] py-10 lg:py-15 overflow-hidden"
       >
-        {[
-          {
-            wrap: "absolute top-40 -left-20 w-[500px] h-[500px] md:w-[700px] md:h-[700px] opacity-[0.12] grayscale pointer-events-none z-0",
-            src: "/EPR/eco3.png",
-            alt: "Decorative background left",
-          },
-          {
-            wrap: "absolute top-5 right-30 w-[600px] h-[700px] md:w-[400px] md:h-[600px] opacity-[0.15] grayscale pointer-events-none z-0",
-            src: "/EPR/eco2.png",
-            alt: "Decorative background right",
-          },
-        ].map((d, i) => (
-          <div key={i} className={d.wrap}>
-            <img src={d.src} alt={d.alt} className="w-full h-full object-contain" />
-          </div>
-        ))}
+        {/* Left Side Decorative Image */}
+        <div className="absolute top-40 -left-20 w-[500px] h-[500px] md:w-[700px] md:h-[700px] opacity-[0.12] grayscale pointer-events-none z-0">
+          <img
+            src="/EPR/eco3.png"
+            alt="Decorative background left"
+            loading="lazy"
+            decoding="async"
+            fetchPriority="low"
+            className="w-full h-full object-contain"
+          />
+        </div>
+
+        {/* Right Side Decorative Image */}
+        <div className="absolute top-5 right-30 w-[600px] h-[700px] md:w-[400px] md:h-[600px] opacity-[0.15] grayscale pointer-events-none z-0">
+          <img
+            src="/EPR/eco2.png"
+            alt="Decorative background right"
+            loading="lazy"
+            decoding="async"
+            fetchPriority="low"
+            className="w-full h-full object-contain"
+          />
+        </div>
 
         <div className="w-full max-w-[1600px] mx-auto px-0 sm:px-6 md:px-10 lg:px-14 xl:px-16 2xl:px-20 relative z-10">
           {/* Centered Heading - Matching Screenshot Typography */}
@@ -1470,7 +1573,7 @@ export default function EcoTraceEprPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className={sectionHeading2}>
+              <h2 className="jsx-9deaa8cd422d1982 text-4xl md:text-5xl font-clash font-black tracking-tighter leading-tight text-slate-900 mb-8">
                 India Has Made Extended <br className="hidden md:block" />
                 Producer Responsibility Mandatory. <br />
                 <span className="text-slate-400">
@@ -1854,7 +1957,7 @@ export default function EcoTraceEprPage() {
                 Why EPR is mandatory
               </span>
             </div>
-            <h2 className={sectionHeading2}>
+            <h2 className="jsx-9deaa8cd422d1982 text-4xl md:text-5xl font-clash font-black tracking-tighter leading-tight text-slate-900 mb-8">
               Why most companies are still{" "}
               <span className="text-rose-600">struggling</span>
             </h2>
@@ -1992,6 +2095,9 @@ export default function EcoTraceEprPage() {
           <img
             src="/EPR/image.png"
             alt=""
+            loading="lazy"
+            decoding="async"
+            fetchPriority="low"
             className="w-full max-w-[1400px] h-auto object-contain opacity-40 translate-y-20"
           />
         </motion.div>
@@ -2006,7 +2112,7 @@ export default function EcoTraceEprPage() {
               </span>
               <div className="h-[2px] w-12 bg-emerald-600" />
             </div>
-            <h2 className={sectionHeading2Compact}>
+            <h2 className="jsx-9deaa8cd422d1982 text-4xl md:text-5xl font-clash font-black tracking-tighter leading-tight text-slate-900 mb-6">
               Building India&apos;s EPR Infrastructure, <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-emerald-400">
                 One Platform at a Time.
@@ -2018,7 +2124,7 @@ export default function EcoTraceEprPage() {
             {/* Left Column: The Vision */}
             <div className="lg:col-span-7 space-y-8 min-w-0">
               <div className="space-y-6 rounded-[2rem] border border-white/70 bg-white/80 backdrop-blur-sm p-6 md:p-8 shadow-[0_10px_30px_rgba(15,23,42,0.04)]">
-                <p className={aboutVisionLead}>
+                <p className="jsx-9deaa8cd422d1982 text-slate-500 leading-relaxed font-medium mb-2 text-[15px]">
                   <span className=" text-sm font-black uppercase tracking-widest text-slate-900 font-clash">
                     Pantheon Digital Pvt. Ltd.
                   </span>{" "}
@@ -2027,12 +2133,12 @@ export default function EcoTraceEprPage() {
                   companies didn&apos;t want to comply, but because the tools to
                   comply simply didn&apos;t exist.
                 </p>
-                <p className={aboutVisionLead}>
+                <p className="jsx-9deaa8cd422d1982 text-slate-500 leading-relaxed font-medium mb-2 text-[15px]">
                   Regulators had built portals. Consultants offered advice. But
                   no one had built the software layer that could sit between a
                   company&apos;s internal operations and the CPCB portal
                   automating everything in between.
-                  <span className={aboutVisionPullQuote}>
+                  <span className="jsx-9deaa8cd422d1982 block mt-4  text-sm font-black uppercase tracking-widest text-slate-900 font-clash">
                     That gap was where Pantheon Digital chose to build.
                   </span>
                 </p>
@@ -2092,6 +2198,9 @@ export default function EcoTraceEprPage() {
                   <img
                     src="/EPR/eco.svg"
                     alt=""
+                    loading="lazy"
+                    decoding="async"
+                    fetchPriority="low"
                     className="w-60 h-60 object-contain "
                   />
                 </div>
@@ -2150,7 +2259,7 @@ export default function EcoTraceEprPage() {
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-emerald-600 mb-6 block font-clash">
               WHY CHOOSE US
             </span>
-            <h2 className={sectionHeading2}>
+            <h2 className="jsx-9deaa8cd422d1982 text-4xl md:text-5xl font-clash font-black tracking-tighter leading-tight text-slate-900 mb-8">
               The Only Company to Automate the{" "}
               <br className="hidden md:block" />
               <span className="text-emerald-600">Entire EPR Lifecycle.</span>
@@ -2270,7 +2379,7 @@ export default function EcoTraceEprPage() {
 
         <div className={shell + " relative z-10"}>
           <div className="mb-16">
-            <h2 className={sectionHeading2}>
+            <h2 className="jsx-9deaa8cd422d1982 text-4xl md:text-5xl font-clash font-black tracking-tighter leading-tight text-slate-900 mb-8">
               Which authority does your company report to?
             </h2>
             <div className="h-1.5 w-20 bg--600 rounded-full" />
@@ -2409,6 +2518,9 @@ export default function EcoTraceEprPage() {
           <img
             src="/EPR/eco6.png"
             alt=""
+            loading="lazy"
+            decoding="async"
+            fetchPriority="low"
             className="w-full h-full object-contain transform rotate-[10deg]"
           />
         </div>
@@ -2425,7 +2537,7 @@ export default function EcoTraceEprPage() {
               Every certificate type. Every compliance requirement. Tracked in
               one place.
             </p>
-            <h2 className={sectionHeading2}>
+            <h2 className="jsx-9deaa8cd422d1982 text-4xl md:text-5xl font-clash font-black tracking-tighter leading-tight text-slate-900 mb-8">
               The Certificates Your Company Needs And What Each One Means
             </h2>
             <p className="text-[16px] text-slate-500 leading-relaxed font-satoshi max-w-3xl mx-auto">
@@ -2602,26 +2714,29 @@ export default function EcoTraceEprPage() {
         id="recycling-targets"
         className="w-full py-14 md:py-24 bg-[#FDFDFD] text-slate-900 relative overflow-hidden"
       >
-        {[
-          {
-            wrap: "absolute top-20 right-0 w-[750px] h-[750px] opacity-[0.12] grayscale pointer-events-none z-0",
-            imgClass: "w-full h-full object-contain transform rotate-[-10deg]",
-            alt: "Recycling targets background",
-          },
-          {
-            wrap: "absolute -bottom-81 left-0 w-[700px] h-[700px] opacity-[0.12] grayscale pointer-events-none z-0",
-            imgClass: "w-full h-full object-contain transform ",
-            alt: "Recycling targets background left",
-          },
-        ].map((w, i) => (
-          <div key={i} className={w.wrap}>
-            <img
-              src="/EPR/eco2.png"
-              alt=""
-              className={w.imgClass}
-            />
-          </div>
-        ))}
+        {/* Background Decorative Image - Visibility Boosted */}
+        <div className="absolute top-20 right-0 w-[750px] h-[750px] opacity-[0.12] grayscale pointer-events-none z-0">
+          <img
+            src="/EPR/eco2.png"
+            alt=""
+            loading="lazy"
+            decoding="async"
+            fetchPriority="low"
+            className="w-full h-full object-contain transform rotate-[-10deg]"
+          />
+        </div>
+
+        {/* Background Decorative Image - Bottom Left Anchor */}
+        <div className="absolute -bottom-81 left-0 w-[700px] h-[700px] opacity-[0.12] grayscale pointer-events-none z-0">
+          <img
+            src="/EPR/eco2.png"
+            alt=""
+            loading="lazy"
+            decoding="async"
+            fetchPriority="low"
+            className="w-full h-full object-contain transform "
+          />
+        </div>
 
         {/* Background Decorative Accents */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald-500/[0.03] blur-[150px] rounded-full translate-x-1/4 -translate-y-1/4" />
@@ -2632,7 +2747,7 @@ export default function EcoTraceEprPage() {
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-emerald-600 mb-6 block">
               Recycling Targets
             </span>
-            <h2 className={sectionHeading2}>
+            <h2 className="jsx-9deaa8cd422d1982 text-4xl md:text-5xl font-clash font-black tracking-tighter leading-tight text-slate-900 mb-8">
               Your obligation grows every year. <br />{" "}
               <span className="text-slate-400">EcoTrace grows with it.</span>
             </h2>
@@ -3085,7 +3200,7 @@ export default function EcoTraceEprPage() {
             <span className="inline-flex px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-600 text-[10px] font-black uppercase tracking-[0.2em] border border-indigo-100 mb-8">
               PLATFORM FEATURES — 10 INTEGRATED MODULES
             </span>
-            <h2 className={sectionHeading2}>
+            <h2 className="jsx-9deaa8cd422d1982 text-4xl md:text-5xl font-clash font-black tracking-tighter leading-tight text-slate-900 mb-8">
               What EcoTrace Does — Module by Module
             </h2>
             <p className="max-w-4xl mx-auto text-lg text-slate-600 leading-relaxed">
@@ -3275,7 +3390,7 @@ export default function EcoTraceEprPage() {
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-rose-600 mb-4 block">
               Risk Assessment
             </span>
-            <h2 className={sectionHeading2}>
+            <h2 className="jsx-9deaa8cd422d1982 text-4xl md:text-5xl font-clash font-black tracking-tighter leading-tight text-slate-900 mb-8">
               What happens when you miss EPR targets or filing deadlines?
             </h2>
             <p className="text-lg text-slate-600 leading-relaxed">
@@ -3348,7 +3463,7 @@ export default function EcoTraceEprPage() {
       <section id="target-audience" className="w-full py-24 md:py-36 bg-white">
         <div className={shell}>
           <div className="mb-20 text-center">
-            <h2 className={sectionHeading2}>
+            <h2 className="jsx-9deaa8cd422d1982 text-4xl md:text-5xl font-clash font-black tracking-tighter leading-tight text-slate-900 mb-8">
               Which companies need EcoTrace?
             </h2>
             <p className="text-lg text-slate-500 max-w-3xl mx-auto italic">

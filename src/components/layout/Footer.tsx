@@ -19,9 +19,9 @@ const Footer = ({ theme = "default" }: { theme?: "default" | "ai" }) => {
     <>
       {!isAi && (
         <div className={`w-[90%] md:w-[80%] mx-auto bg-[#202020] rounded-t-3xl md:rounded-t-5xl h-auto py-8 sm:py-16 ${isEpr ? "mt-0" : "mt-12 sm:mt-24"} flex flex-col gap-8 items-center justify-center`}>
-          <h4 className="font-geometric text-white text-xs md:text-2xl font-bold">
+          <h2 className="font-geometric text-white text-xs md:text-2xl font-bold">
             We’re Delivering the best customer Experience
-          </h4>
+          </h2>
           <PrimaryButton
             label="+91 93547 61565"
             type="normal"
@@ -39,15 +39,15 @@ const Footer = ({ theme = "default" }: { theme?: "default" | "ai" }) => {
       >
         <Image
           src="/Logo.svg"
-          alt=""
+          alt="Pantheon Digital logo"
           width="0"
           height="0"
           className="md:w-[25%] md:h-[20%] w-[240] h-auto mt-8"
         />
-        <h1 className="mx-10 mt-12 sm:mt-0 text-center font-avenir-regular text-base text-white">
+        <p className="mx-10 mt-12 sm:mt-0 text-center font-avenir-regular text-base text-white">
           Passionate digital crafting, limitless tomorrows. Join us in shaping
           innovative experiences with creativity and dedication.
-        </h1>
+        </p>
 
         {/* main div for services */}
         <div className="grid grid-cols-1 md:grid-cols-4 auto-cols-fr  w-[80%] mt-16">
@@ -211,21 +211,21 @@ const Footer = ({ theme = "default" }: { theme?: "default" | "ai" }) => {
             <div className="flex flex-row justify-evenly">
               <Image
                 src="/social-icons/iso1.svg"
-                alt="iso 1"
+                alt="ISO certified badge"
                 width="10"
                 height="10"
                 className="w-[25%] h-[25%]"
               />
               <Image
                 src="/social-icons/iso2.svg"
-                alt="iso 2"
+                alt="Quality certification badge"
                 width="10"
                 height="10"
                 className="w-[25%] h-[25%]"
               />
               <Image
                 src="/social-icons/aicpa.svg"
-                alt="aicpa"
+                alt="AICPA compliance badge"
                 width="10"
                 height="10"
                 className="w-[25%] h-[25%]"

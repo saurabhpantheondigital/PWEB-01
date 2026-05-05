@@ -53,7 +53,8 @@ const PrimaryButton = ({
         {leftIcon && (
           <Image
             src={leftIcon}
-            alt="left icon"
+            alt=""
+            aria-hidden="true"
             width={16}
             height={16}
             className="group-hover:scale-125 duration-300"
@@ -66,7 +67,8 @@ const PrimaryButton = ({
             </span>
             <Image
               src="/lottie/loading.gif"
-              alt="loading"
+              alt=""
+              aria-hidden="true"
               width="60"
               height="60"
               className="absolute left-16"
@@ -88,7 +90,8 @@ const PrimaryButton = ({
         <Image
           className="ml-2 group-hover:scale-105 duration-300"
           src={rightIcon}
-          alt="right icon"
+          alt=""
+          aria-hidden="true"
           width={16}
           height={16}
         />

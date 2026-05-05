@@ -74,7 +74,7 @@ const Hero = ({
           >
             <img
               src={`/CrmHeroBannerImage.svg`}
-              alt="hero"
+              alt="CRM dashboard preview"
               height={"0"}
               width={"0"}
               className="w-full mx-auto rounded-2xl object-contain h-full "

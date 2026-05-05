@@ -4,8 +4,7 @@ import LayoutShell from "@/components/layout/LayoutShell";
 
 export const metadata: Metadata = {
   title: {
-    template:
-      "Digital Solutions Agency | Web, Branding & Software | Pantheon Digital",
+    template: "%s | Pantheon Digital",
     default: "Pantheon Digital",
   },
   description:

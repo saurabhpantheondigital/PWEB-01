@@ -32,7 +32,7 @@ function ProjectCard({
       /> */}
       <img
         src={src}
-        alt={src + "image"}
+        alt={`${title} project preview`}
         className="mx-auto w-[80%] h-auto z-20"
       />
     </div>

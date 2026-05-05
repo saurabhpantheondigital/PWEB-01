@@ -154,7 +154,8 @@ const Header = () => {
           >
             <Image
               src="/Contact-Us.svg"
-              alt="phone"
+              alt=""
+              aria-hidden="true"
               width={18}
               height={18}
               className=" group-hover:rotate-12 transition-transform"
@@ -272,21 +273,21 @@ const Header = () => {
                   <div className="flex flex-row w-full gap-8 mt-4">
                     <Image
                       src="/social-icons/iso1.svg"
-                      alt="iso 1"
+                      alt="ISO certified badge"
                       width="10"
                       height="10"
                       className="w-[10%] h-auto"
                     />
                     <Image
                       src="/social-icons/iso2.svg"
-                      alt="iso 2"
+                      alt="Quality certification badge"
                       width="10"
                       height="10"
                       className="w-[10%] h-auto"
                     />
                     <Image
                       src="/social-icons/aicpa.svg"
-                      alt="aicpa"
+                      alt="AICPA compliance badge"
                       width="10"
                       height="10"
                       className="w-[10%] h-auto"
@@ -545,7 +546,6 @@ const Header = () => {
             />
             <PrimaryButton
               onClick={toggleMobileServices}
-              href=""
               leftIcon="/Services.svg"
               type="outline"
               label="Services"
@@ -956,7 +956,8 @@ const Header = () => {
             )}
 
             <PrimaryButton
-              href=""
+              href="https://blogs.pantheondigitals.com/"
+              nextPage
               onClick={closeMobileMenu}
               leftIcon="/Blogs.svg"
               type="outline"

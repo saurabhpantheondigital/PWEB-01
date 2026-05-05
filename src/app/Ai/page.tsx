@@ -335,7 +335,7 @@ export default function AiPortalPage() {
                 <span className="block text-cyan-500  text-[2.5rem] sm:text-[3.25rem] md:text-[3.75rem] xl:text-[4.5rem] leading-[1] tracking-[-0.01em] mt-2 drop-shadow-[0_0_30px_rgba(6,182,212,0.6)] drop-shadow-[0_0_60px_rgba(6,182,212,0.3)]">
                   That Works
                 </span>
-                for You
+                for Your Business
               </motion.h1>
               <motion.p
                 variants={fadeInUp}

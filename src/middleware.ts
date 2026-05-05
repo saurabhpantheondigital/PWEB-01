@@ -19,11 +19,21 @@ export function middleware(request: NextRequest) {
   // Enforce HTTPS-like behavior (HSTS) - mostly useful if strictly HTTPS, but good practice
   headers.set(
     "Strict-Transport-Security",
-    "max-age=31536000; includeSubDomains"
+    "max-age=63072000; includeSubDomains; preload"
   );
 
   // Basic XSS protection (legacy but harmless)
   headers.set("X-XSS-Protection", "1; mode=block");
+  headers.set("Cross-Origin-Opener-Policy", "same-origin");
+  headers.set("Cross-Origin-Resource-Policy", "same-origin");
+  headers.set(
+    "Permissions-Policy",
+    "camera=(), microphone=(), geolocation=(), payment=()"
+  );
+  headers.set(
+    "Content-Security-Policy",
+    "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data: blob: https:; font-src 'self' data: https:; style-src 'self' 'unsafe-inline' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; connect-src 'self' https:; upgrade-insecure-requests"
+  );
 
   return response;
 }

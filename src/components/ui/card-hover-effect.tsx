@@ -57,7 +57,7 @@ export const HoverEffect = ({
           <Card type={type}>
             <Image
               src={item.icon}
-              alt="icon"
+              alt={`${item.title} icon`}
               width="0"
               height="0"
               className="w-[13%] h-auto"
