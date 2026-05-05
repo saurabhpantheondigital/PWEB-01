@@ -349,7 +349,7 @@ const Footer = ({ theme = "default" }: { theme?: "default" | "ai" }) => {
         {/* for copywrite and other details */}
         <div className="bg-transparent border-0 md:border-1 md:bg-black rounded-full w-[80%]  sm:mt-8 md:mb-2 border-gray-700">
           <h4 className="text-white font-avenir-demi text-sm sm:text-xl px-1 sm:py-4 text-center">
-            CIN: U74999DL2021PTC379806 © Copyright 2016 - 2025, INT. All rights
+            CIN: U74999DL2021PTC379806 © Copyright 2016 - {new Date().getFullYear()}, INT. All rights
             reserved.
           </h4>
         </div>
