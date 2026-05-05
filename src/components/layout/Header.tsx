@@ -196,8 +196,8 @@ const Header = () => {
                     <Image
                       src="/social-icons/facebook.svg"
                       alt="facebook icon"
-                      width="10"
-                      height="10"
+                      width={10}
+                      height={10}
                       className="w-full h-full"
                     />
                   </Link>
@@ -209,8 +209,8 @@ const Header = () => {
                     <Image
                       src="/social-icons/x.svg"
                       alt="x icon"
-                      width="10"
-                      height="10"
+                      width={10}
+                      height={10}
                       className="w-full h-full"
                     />
                   </Link>
@@ -222,8 +222,8 @@ const Header = () => {
                     <Image
                       src="/social-icons/insta.svg"
                       alt="instagram icon"
-                      width="10"
-                      height="10"
+                      width={10}
+                      height={10}
                       className="w-full h-full"
                     />
                   </Link>
@@ -235,8 +235,8 @@ const Header = () => {
                     <Image
                       src="/social-icons/linkedin.svg"
                       alt="linkedin icon"
-                      width="10"
-                      height="10"
+                      width={10}
+                      height={10}
                       className="w-full h-full"
                     />
                   </Link>
@@ -248,8 +248,8 @@ const Header = () => {
                     <Image
                       src="/social-icons/youtube.svg"
                       alt="youtube icon"
-                      width="10"
-                      height="10"
+                      width={10}
+                      height={10}
                       className="w-full h-full"
                     />
                   </Link>
@@ -261,8 +261,8 @@ const Header = () => {
                     <Image
                       src="/social-icons/pinterest.svg"
                       alt="pinterest icon"
-                      width="10"
-                      height="10"
+                      width={10}
+                      height={10}
                       className="w-full h-full"
                     />
                   </Link>
@@ -274,22 +274,22 @@ const Header = () => {
                     <Image
                       src="/social-icons/iso1.svg"
                       alt="ISO certified badge"
-                      width="10"
-                      height="10"
+                      width={10}
+                      height={10}
                       className="w-[10%] h-auto"
                     />
                     <Image
                       src="/social-icons/iso2.svg"
                       alt="Quality certification badge"
-                      width="10"
-                      height="10"
+                      width={10}
+                      height={10}
                       className="w-[10%] h-auto"
                     />
                     <Image
                       src="/social-icons/aicpa.svg"
                       alt="AICPA compliance badge"
-                      width="10"
-                      height="10"
+                      width={10}
+                      height={10}
                       className="w-[10%] h-auto"
                     />
                   </div>
@@ -335,9 +335,9 @@ const Header = () => {
                       <Image
                         src="/ArrowRight.svg"
                         alt="arrow right"
-                        width="10"
-                        height="10"
-                        className="w-auto h-[10px] opacity-0 group-hover:opacity-100 -translate-x-10 group-hover:translate-x-0 duration-300"
+                        width={10}
+                        height={10}
+                        className="w-auto h-auto opacity-0 group-hover:opacity-100 -translate-x-10 group-hover:translate-x-0 duration-300"
                       />
                     </Link>
                   ))}
@@ -378,9 +378,9 @@ const Header = () => {
                       <Image
                         src="/ArrowRight.svg"
                         alt="arrow right"
-                        width="10"
-                        height="10"
-                        className="w-auto h-[10px] opacity-0 group-hover:opacity-100 -translate-x-10 group-hover:translate-x-0 duration-300"
+                        width={10}
+                        height={10}
+                        className="w-auto h-auto opacity-0 group-hover:opacity-100 -translate-x-10 group-hover:translate-x-0 duration-300"
                       />
                     </Link>
                   ))}
@@ -438,9 +438,9 @@ const Header = () => {
                       <Image
                         src="/ArrowRight.svg"
                         alt="arrow right"
-                        width="10"
-                        height="10"
-                        className="w-auto h-[10px] opacity-0 group-hover:opacity-100 -translate-x-10 group-hover:translate-x-0 duration-300"
+                        width={10}
+                        height={10}
+                        className="w-auto h-auto opacity-0 group-hover:opacity-100 -translate-x-10 group-hover:translate-x-0 duration-300"
                       />
                     </Link>
                   ))}
@@ -592,9 +592,9 @@ const Header = () => {
                               <Image
                                 src="/ArrowRight.svg"
                                 alt="arrow right"
-                                width="10"
-                                height="10"
-                                className="w-[10%] h-[10%]"
+                                width={10}
+                                height={10}
+                                className="w-auto h-auto"
                               />
                             </Link>
                           </li>
@@ -610,9 +610,9 @@ const Header = () => {
                               <Image
                                 src="/ArrowRight.svg"
                                 alt="arrow right"
-                                width="10"
-                                height="10"
-                                className="w-[10%] h-[10%]"
+                                width={10}
+                                height={10}
+                                className="w-auto h-auto"
                               />
                             </Link>
                           </li>
@@ -628,9 +628,9 @@ const Header = () => {
                               <Image
                                 src="/ArrowRight.svg"
                                 alt="arrow right"
-                                width="10"
-                                height="10"
-                                className="w-[10%] h-[10%]"
+                                width={10}
+                                height={10}
+                                className="w-auto h-auto"
                               />
                             </Link>
                           </li>
@@ -646,9 +646,9 @@ const Header = () => {
                               <Image
                                 src="/ArrowRight.svg"
                                 alt="arrow right"
-                                width="10"
-                                height="10"
-                                className="w-[10%] h-[10%]"
+                                width={10}
+                                height={10}
+                                className="w-auto h-auto"
                               />
                             </Link>
                           </li>
@@ -664,9 +664,9 @@ const Header = () => {
                               <Image
                                 src="/ArrowRight.svg"
                                 alt="arrow right"
-                                width="10"
-                                height="10"
-                                className="w-[10%] h-[10%]"
+                                width={10}
+                                height={10}
+                                className="w-auto h-auto"
                               />
                             </Link>
                           </li>
@@ -682,9 +682,9 @@ const Header = () => {
                               <Image
                                 src="/ArrowRight.svg"
                                 alt="arrow right"
-                                width="10"
-                                height="10"
-                                className="w-[10%] h-[10%]"
+                                width={10}
+                                height={10}
+                                className="w-auto h-auto"
                               />
                             </Link>
                           </li>
@@ -730,9 +730,9 @@ const Header = () => {
                               <Image
                                 src="/ArrowRight.svg"
                                 alt="arrow right"
-                                width="10"
-                                height="10"
-                                className="w-[10%] h-[10%]"
+                                width={10}
+                                height={10}
+                                className="w-auto h-auto"
                               />
                             </Link>
                           </li>
@@ -748,9 +748,9 @@ const Header = () => {
                               <Image
                                 src="/ArrowRight.svg"
                                 alt="arrow right"
-                                width="10"
-                                height="10"
-                                className="w-[10%] h-[10%]"
+                                width={10}
+                                height={10}
+                                className="w-auto h-auto"
                               />
                             </Link>
                           </li>
@@ -766,9 +766,9 @@ const Header = () => {
                               <Image
                                 src="/ArrowRight.svg"
                                 alt="arrow right"
-                                width="10"
-                                height="10"
-                                className="w-[10%] h-[10%]"
+                                width={10}
+                                height={10}
+                                className="w-auto h-auto"
                               />
                             </Link>
                           </li>
@@ -784,9 +784,9 @@ const Header = () => {
                               <Image
                                 src="/ArrowRight.svg"
                                 alt="arrow right"
-                                width="10"
-                                height="10"
-                                className="w-[10%] h-[10%]"
+                                width={10}
+                                height={10}
+                                className="w-auto h-auto"
                               />
                             </Link>
                           </li>
@@ -833,9 +833,9 @@ const Header = () => {
                               <Image
                                 src="/ArrowRight.svg"
                                 alt="arrow right"
-                                width="10"
-                                height="10"
-                                className="w-[10%] h-[10%]"
+                                width={10}
+                                height={10}
+                                className="w-auto h-auto"
                               />
                             </Link>
                           </li>
@@ -851,9 +851,9 @@ const Header = () => {
                               <Image
                                 src="/ArrowRight.svg"
                                 alt="arrow right"
-                                width="10"
-                                height="10"
-                                className="w-[10%] h-[10%]"
+                                width={10}
+                                height={10}
+                                className="w-auto h-auto"
                               />
                             </Link>
                           </li>
@@ -869,9 +869,9 @@ const Header = () => {
                               <Image
                                 src="/ArrowRight.svg"
                                 alt="arrow right"
-                                width="10"
-                                height="10"
-                                className="w-[10%] h-[10%]"
+                                width={10}
+                                height={10}
+                                className="w-auto h-auto"
                               />
                             </Link>
                           </li>
@@ -887,9 +887,9 @@ const Header = () => {
                               <Image
                                 src="/ArrowRight.svg"
                                 alt="arrow right"
-                                width="10"
-                                height="10"
-                                className="w-[10%] h-[10%]"
+                                width={10}
+                                height={10}
+                                className="w-auto h-auto"
                               />
                             </Link>
                           </li>
@@ -905,9 +905,9 @@ const Header = () => {
                               <Image
                                 src="/ArrowRight.svg"
                                 alt="arrow right"
-                                width="10"
-                                height="10"
-                                className="w-[10%] h-[10%]"
+                                width={10}
+                                height={10}
+                                className="w-auto h-auto"
                               />
                             </Link>
                           </li>
@@ -923,9 +923,9 @@ const Header = () => {
                               <Image
                                 src="/ArrowRight.svg"
                                 alt="arrow right"
-                                width="10"
-                                height="10"
-                                className="w-[10%] h-[10%]"
+                                width={10}
+                                height={10}
+                                className="w-auto h-auto"
                               />
                             </Link>
                           </li>
@@ -941,9 +941,9 @@ const Header = () => {
                               <Image
                                 src="/ArrowRight.svg"
                                 alt="arrow right"
-                                width="10"
-                                height="10"
-                                className="w-[10%] h-[10%]"
+                                width={10}
+                                height={10}
+                                className="w-auto h-auto"
                               />
                             </Link>
                           </li>
@@ -983,8 +983,8 @@ const Header = () => {
               <Image
                 src="/social-icons/facebook.svg"
                 alt="facebook icon"
-                width="10"
-                height="10"
+                width={10}
+                height={10}
                 className="w-full h-full"
               />
             </Link>
@@ -996,8 +996,8 @@ const Header = () => {
               <Image
                 src="/social-icons/x.svg"
                 alt="x icon"
-                width="10"
-                height="10"
+                width={10}
+                height={10}
                 className="w-full h-full"
               />
             </Link>
@@ -1009,8 +1009,8 @@ const Header = () => {
               <Image
                 src="/social-icons/insta.svg"
                 alt="instagram icon"
-                width="10"
-                height="10"
+                width={10}
+                height={10}
                 className="w-full h-full"
               />
             </Link>
@@ -1022,8 +1022,8 @@ const Header = () => {
               <Image
                 src="/social-icons/linkedin.svg"
                 alt="linkedin icon"
-                width="10"
-                height="10"
+                width={10}
+                height={10}
                 className="w-full h-full"
               />
             </Link>
@@ -1035,8 +1035,8 @@ const Header = () => {
               <Image
                 src="/social-icons/youtube.svg"
                 alt="youtube icon"
-                width="10"
-                height="10"
+                width={10}
+                height={10}
                 className="w-full h-full"
               />
             </Link>
@@ -1048,8 +1048,8 @@ const Header = () => {
               <Image
                 src="/social-icons/pinterest.svg"
                 alt="pinterest icon"
-                width="10"
-                height="10"
+                width={10}
+                height={10}
                 className="w-full h-full"
               />
             </Link>

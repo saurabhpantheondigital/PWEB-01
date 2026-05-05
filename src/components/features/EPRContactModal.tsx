@@ -9,6 +9,19 @@ import Toast from "@/components/ui/Toast";
 
 const FIXED_SERVICE = "EPR Software";
 
+function formatLocalDate(d: Date): string {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
+function formatLocalTimeHM(d: Date): string {
+  const h = String(d.getHours()).padStart(2, "0");
+  const min = String(d.getMinutes()).padStart(2, "0");
+  return `${h}:${min}`;
+}
+
 /** Light inputs for EPR page palette (globals `.input-box` is dark / contact-page only). */
 const fieldBase =
   "min-h-[50px] mt-3 rounded-lg border border-slate-200 bg-white text-slate-900 placeholder:text-slate-400 px-3 py-2.5 font-avenir-medium outline-none transition shadow-sm focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20";
@@ -32,6 +45,8 @@ type EPRContactModalProps = {
   open: boolean;
   onClose: () => void;
 };
+
+const nameRegex = /^[A-Za-z\s.'-]+$/;
 
 export default function EPRContactModal({
   open,
@@ -80,12 +95,40 @@ export default function EPRContactModal({
     contact: "",
     companyName: "",
     method: "",
+    date: "",
+    time: "",
     accept: "",
   });
 
   const validateForm = () => {
+    let dateErr = "";
+    let timeErr = "";
+    const hasDate = Boolean(date);
+    const hasTime = Boolean(time);
+    const todayStr = formatLocalDate(new Date());
+    const nowMs = Date.now();
+
+    if (!hasDate && !hasTime) {
+      /* optional */
+    } else if (!hasDate && hasTime) {
+      dateErr = "Please select a date for your preferred time";
+    } else if (hasDate) {
+      if (date < todayStr) {
+        dateErr = "Date cannot be in the past";
+      } else if (date === todayStr && hasTime) {
+        const selected = new Date(`${date}T${time}:00`);
+        if (selected.getTime() < nowMs) {
+          timeErr = "Choose a time in the future";
+        }
+      }
+    }
+
     const newError = {
-      name: name ? "" : "Full name is required",
+      name: name
+        ? nameRegex.test(name)
+          ? ""
+          : "Name cannot contain numbers or special characters"
+        : "Full name is required",
       email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
         ? ""
         : "valid email is required",
@@ -95,6 +138,8 @@ export default function EPRContactModal({
           : "Valid contact number is required",
       companyName: companyName ? "" : "Company name is required",
       method: contactMethod ? "" : "Preferred contact method is required",
+      date: dateErr,
+      time: timeErr,
       accept: accept ? "" : "You must accept the terms",
     };
     setErrors(newError);
@@ -149,6 +194,9 @@ export default function EPRContactModal({
       });
     }
   };
+
+  const todayMin = formatLocalDate(new Date());
+  const timeInputMin = date === todayMin ? formatLocalTimeHM(new Date()) : undefined;
 
   if (!open) return null;
 
@@ -219,8 +267,11 @@ export default function EPRContactModal({
               placeholder="e.g., Sam Smith"
               value={name}
               onChange={(txt) => {
-                setName(txt.target.value);
-                setErrors((prev) => ({ ...prev, name: "" }));
+                const value = txt.target.value;
+                if (value === "" || nameRegex.test(value)) {
+                  setName(value);
+                  setErrors((prev) => ({ ...prev, name: "" }));
+                }
               }}
             />
             {errors.name && (
@@ -353,16 +404,42 @@ export default function EPRContactModal({
             <div className="flex gap-4 lg:flex-nowrap flex-wrap relative">
               <input
                 type="date"
+                min={todayMin}
                 className={`${field} w-full`}
                 value={date}
-                onChange={(e) => setDate(e.target.value)}
+                onChange={(e) => {
+                  const v = e.target.value;
+                  const nextDate = v && v < todayMin ? todayMin : v;
+                  setDate(nextDate);
+                  setErrors((prev) => ({ ...prev, date: "", time: "" }));
+                  if (nextDate === todayMin && time) {
+                    const sel = new Date(`${nextDate}T${time}:00`);
+                    if (sel.getTime() < Date.now()) {
+                      setTime("");
+                    }
+                  }
+                }}
               />
+              {errors.date && (
+                <p className="text-red-500 lg:absolute lg:-bottom-6 font-avenir-medium-italic text-sm mt-1">
+                  {errors.date}
+                </p>
+              )}
               <input
                 type="time"
+                min={timeInputMin}
                 className={`${field} w-full`}
                 value={time}
-                onChange={(e) => setTime(e.target.value)}
+                onChange={(e) => {
+                  setTime(e.target.value);
+                  setErrors((prev) => ({ ...prev, time: "" }));
+                }}
               />
+              {errors.time && (
+                <p className="text-red-500 lg:absolute lg:sm:left-45 -bottom-6 font-avenir-medium-italic text-sm mt-1">
+                  {errors.time}
+                </p>
+              )}
 
               <button
                 type="button"

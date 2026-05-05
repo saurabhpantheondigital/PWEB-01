@@ -71,9 +71,9 @@ const Technology = ({
               <Image
                 src="/ArrowRight.svg"
                 alt={"right arrow"}
-                width={"0"}
-                height={"0"}
-                className="w-[30] -translate-x-5 group-hover:translate-x-0 duration-300"
+                width={30}
+                height={30}
+                className="w-auto h-auto -translate-x-5 group-hover:translate-x-0 duration-300"
               />
             </Link>
           </div>
@@ -104,9 +104,9 @@ const Technology = ({
           <Image
             src="/ArrowRight.svg"
             alt={"right arrow"}
-            width={"0"}
-            height={"0"}
-            className="w-[30] -translate-x-5 group-hover:translate-x-0 duration-300"
+            width={30}
+            height={30}
+            className="w-auto h-auto -translate-x-5 group-hover:translate-x-0 duration-300"
           />
         </Link>
 

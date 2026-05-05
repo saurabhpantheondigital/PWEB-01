@@ -26,6 +26,12 @@ function formatLocalTimeHM(d: Date): string {
   return `${h}:${min}`;
 }
 
+function dateStartMs(yyyyMmDd: string): number {
+  return new Date(`${yyyyMmDd}T00:00:00`).getTime();
+}
+
+const nameRegex = /^[A-Za-z\s.'-]+$/;
+
 const Contact_Us = () => {
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
@@ -127,6 +133,7 @@ const Contact_Us = () => {
     const hasDate = Boolean(date);
     const hasTime = Boolean(time);
     const todayStr = formatLocalDate(new Date());
+    const todayStartMs = dateStartMs(todayStr);
     const nowMs = Date.now();
 
     if (!hasDate && !hasTime) {
@@ -134,7 +141,7 @@ const Contact_Us = () => {
     } else if (!hasDate && hasTime) {
       dateErr = "Please select a date for your preferred time";
     } else if (hasDate) {
-      if (date < todayStr) {
+      if (dateStartMs(date) < todayStartMs) {
         dateErr = "Date cannot be in the past";
       } else if (date === todayStr && hasTime) {
         const selected = new Date(`${date}T${time}:00`);
@@ -145,7 +152,11 @@ const Contact_Us = () => {
     }
 
     const newError = {
-      name: name ? "" : "Full name is required",
+      name: name
+        ? nameRegex.test(name)
+          ? ""
+          : "Name cannot contain numbers or special characters"
+        : "Full name is required",
       email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
         ? ""
         : "valid email is required",
@@ -309,8 +320,11 @@ const Contact_Us = () => {
               placeholder="e.g., Sam Smith"
               value={name}
               onChange={(txt) => {
-                setName(txt.target.value);
-                setErrors((prev) => ({ ...prev, name: "" }));
+                const value = txt.target.value;
+                if (value === "" || nameRegex.test(value)) {
+                  setName(value);
+                  setErrors((prev) => ({ ...prev, name: "" }));
+                }
               }}
             />
             {errors.name && (
@@ -482,10 +496,12 @@ const Contact_Us = () => {
                 value={date}
                 onChange={(e) => {
                   const v = e.target.value;
-                  setDate(v);
+                  const nextDate =
+                    v && dateStartMs(v) < dateStartMs(todayMin) ? todayMin : v;
+                  setDate(nextDate);
                   setErrors((prev) => ({ ...prev, date: "", time: "" }));
-                  if (v === todayMin && time) {
-                    const sel = new Date(`${v}T${time}:00`);
+                  if (nextDate === todayMin && time) {
+                    const sel = new Date(`${nextDate}T${time}:00`);
                     if (sel.getTime() < Date.now()) {
                       setTime("");
                     }

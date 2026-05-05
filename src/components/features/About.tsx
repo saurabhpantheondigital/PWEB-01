@@ -110,12 +110,13 @@ const About = () => {
                 className="w-full h-full object-cover"
               />
             </button>
-            <Image
+            <img
               src="/AboutUsContentImage.png"
               alt="home page vertical image"
-              width="450"
-              height="286"
+              width={450}
+              height={286}
               className="object-contain"
+              style={{ width: "100%", height: "auto", maxWidth: "450px" }}
             />
           </div>
         </div>
