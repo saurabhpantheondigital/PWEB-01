@@ -1987,10 +1987,11 @@ export default function EcoTraceEprPage() {
           whileInView={{ opacity: 0.1, y: 0 }}
           viewport={{ once: true }}
           className="absolute inset-x-0 bottom-0 z-0 grayscale pointer-events-none flex items-end justify-center overflow-hidden h-full"
+          aria-hidden="true"
         >
           <img
             src="/EPR/image.png"
-            alt="Pantheon EPR Infrastructure Background"
+            alt=""
             className="w-full max-w-[1400px] h-auto object-contain opacity-40 translate-y-20"
           />
         </motion.div>
@@ -2090,7 +2091,7 @@ export default function EcoTraceEprPage() {
                 <div className="absolute -top-4 -right-6 p-8 opacity-[0.10] group-hover:opacity-[0.20] transition-opacity duration-500">
                   <img
                     src="/EPR/eco.svg"
-                    alt="EcoTrace"
+                    alt=""
                     className="w-60 h-60 object-contain "
                   />
                 </div>
@@ -2407,7 +2408,7 @@ export default function EcoTraceEprPage() {
         <div className="absolute top-40 -right-20 w-[750px] h-[450px] opacity-[0.08] grayscale pointer-events-none z-0">
           <img
             src="/EPR/eco6.png"
-            alt="Certificate Types Background"
+            alt=""
             className="w-full h-full object-contain transform rotate-[10deg]"
           />
         </div>
@@ -2616,7 +2617,7 @@ export default function EcoTraceEprPage() {
           <div key={i} className={w.wrap}>
             <img
               src="/EPR/eco2.png"
-              alt={w.alt}
+              alt=""
               className={w.imgClass}
             />
           </div>
