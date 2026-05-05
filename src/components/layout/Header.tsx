@@ -11,6 +11,9 @@ const Header = () => {
   const [isDropDownOpen, setIsDropDownOpen] = useState<boolean>(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [isMobileDropDown, setIsMobileDropDown] = useState<boolean>(false);
+  const [mobileOpenCategory, setMobileOpenCategory] = useState<
+    "digital" | "graphic" | "tech" | null
+  >(null);
 
   const toggleServices = () => {
     setIsDropDownOpen(!isDropDownOpen);
@@ -20,7 +23,13 @@ const Header = () => {
     setIsMobileDropDown(!isMobileDropDown);
   };
 
-  useEffect(() => {}, [isMobileDropDown]);
+  const toggleMobileCategory = (cat: "digital" | "graphic" | "tech") => {
+    setMobileOpenCategory((c) => (c === cat ? null : cat));
+  };
+
+  useEffect(() => {
+    if (!isMobileDropDown) setMobileOpenCategory(null);
+  }, [isMobileDropDown]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -138,20 +147,21 @@ const Header = () => {
           </Link>
         </header>
 
-        {/* Floating Contact Us Button - matching screenshot */}
-        <Link
-          href="/Contact_Us"
-          className="fixed bottom-8 right-13 z-[100] flex items-center gap-2 bg-[#F61313] text-white px-6 py-3 rounded-full shadow-lg hover:scale-105 transition-all duration-300 group"
-        >
-          <Image
-            src="/Contact-Us.svg"
-            alt="phone"
-            width={18}
-            height={18}
-            className=" group-hover:rotate-12 transition-transform"
-          />
-          <span className="font-avenir-heavy text-sm">Contact Us</span>
-        </Link>
+        {!isEprPage && (
+          <Link
+            href="/Contact_Us"
+            className="fixed bottom-8 right-13 z-[100] flex items-center gap-2 bg-[#F61313] text-white px-6 py-3 rounded-full shadow-lg hover:scale-105 transition-all duration-300 group"
+          >
+            <Image
+              src="/Contact-Us.svg"
+              alt="phone"
+              width={18}
+              height={18}
+              className=" group-hover:rotate-12 transition-transform"
+            />
+            <span className="font-avenir-heavy text-sm">Contact Us</span>
+          </Link>
+        )}
 
         {/* dropdown body -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-=-=-= */}
         <button
@@ -498,7 +508,7 @@ const Header = () => {
         )}
 
         <div
-          className={`absolute top-0 right-0 w-[80%] h-[100dvh] bg-black z-[60] p-4 pt-18 md:pt-24 flex flex-col gap-4  duration-300 overflow-x-hidden overflow-y-scroll  ${
+          className={`absolute top-0 right-0 w-[80%] h-[100dvh] min-h-0 bg-black z-[60] p-4 pt-18 md:pt-24 flex flex-col gap-4 duration-300 overflow-x-hidden overflow-y-auto overscroll-contain ${
             isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -515,7 +525,7 @@ const Header = () => {
             />
           </button>
           {/* buttons */}
-          <div className="flex flex-col gap-4 grow ">
+          <div className="flex flex-col gap-4 grow min-h-0">
             <PrimaryButton
               href="/About"
               onClick={closeMobileMenu}
@@ -543,350 +553,403 @@ const Header = () => {
             />
 
             {isMobileDropDown && (
-              <div className="flex w-full h-auto min-h-[400px] justify-center bg-black z-[60] overflow-x-hidden overflow-y-scroll">
-                <div className="w-full bg-black rounded-3xl ">
-                  <div className="grid grid-cols-1 mt-6 gap-4">
-                    {/* Categories */}
-
-                    {/* first service start */}
-                    <div className="bg-[#2A2A2A] min-w-[25%]  rounded-3xl p-4 ">
-                      <h1 className="font-avenir-bold font-bold text-lg text-left text-white">
+              <div className="flex w-full shrink-0 bg-black z-[60] overflow-x-hidden">
+                <div className="w-full bg-black rounded-3xl flex flex-col gap-3 mt-2 pb-1">
+                  {/* Digital Marketing — nested dropdown (mobile only) */}
+                  <div className="rounded-3xl bg-[#2A2A2A]">
+                    <button
+                      type="button"
+                      onClick={() => toggleMobileCategory("digital")}
+                      className="w-full flex items-center justify-between gap-2 p-4 text-left"
+                    >
+                      <span className="font-avenir-bold text-lg text-white">
                         Digital Marketing
-                      </h1>
-                      <div className="my-4 border-[0.5] border-white"></div>
-                      <ul className="text-left mt-4 h-full styled-list">
-                        <li>
-                          <Link
-                            href="/Services/social-management/"
-                            onClick={closeMobileMenu}
-                            className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
-                          >
-                            <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
-                              Social Media Management
-                            </span>
-                            <Image
-                              src="/ArrowRight.svg"
-                              alt="arrow right"
-                              width="10"
-                              height="10"
-                              className="w-[10%] h-[10%]"
-                            />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="/Services/google-ppc/"
-                            onClick={closeMobileMenu}
-                            className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
-                          >
-                            <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
-                              Google PPC
-                            </span>
-                            <Image
-                              src="/ArrowRight.svg"
-                              alt="arrow right"
-                              width="10"
-                              height="10"
-                              className="w-[10%] h-[10%]"
-                            />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="/Services/meta-ads/"
-                            onClick={closeMobileMenu}
-                            className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
-                          >
-                            <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
-                              Meta Ads Campaign
-                            </span>
-                            <Image
-                              src="/ArrowRight.svg"
-                              alt="arrow right"
-                              width="10"
-                              height="10"
-                              className="w-[10%] h-[10%]"
-                            />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="/Services/seo/"
-                            onClick={closeMobileMenu}
-                            className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
-                          >
-                            <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
-                              SEO & SMO
-                            </span>
-                            <Image
-                              src="/ArrowRight.svg"
-                              alt="arrow right"
-                              width="10"
-                              height="10"
-                              className="w-[10%] h-[10%]"
-                            />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="/Services/posts-and-reels/"
-                            onClick={closeMobileMenu}
-                            className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
-                          >
-                            <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
-                              Posts & Reels
-                            </span>
-                            <Image
-                              src="/ArrowRight.svg"
-                              alt="arrow right"
-                              width="10"
-                              height="10"
-                              className="w-[10%] h-[10%]"
-                            />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="/Services/branding-and-ads/"
-                            onClick={closeMobileMenu}
-                            className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
-                          >
-                            <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
-                              Branding & Advertising
-                            </span>
-                            <Image
-                              src="/ArrowRight.svg"
-                              alt="arrow right"
-                              width="10"
-                              height="10"
-                              className="w-[10%] h-[10%]"
-                            />
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                    {/* 1st service close */}
+                      </span>
+                      <Image
+                        src={
+                          mobileOpenCategory === "digital"
+                            ? "/arrow-up.svg"
+                            : "/DownArrow.svg"
+                        }
+                        alt=""
+                        width={20}
+                        height={20}
+                        className="shrink-0 w-5 h-5"
+                      />
+                    </button>
+                    {mobileOpenCategory === "digital" && (
+                      <div className="px-4 pb-4 border-t border-white/20">
+                        <ul className="text-left pt-3 styled-list">
+                          <li>
+                            <Link
+                              href="/Services/social-management/"
+                              onClick={closeMobileMenu}
+                              className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
+                            >
+                              <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
+                                Social Media Management
+                              </span>
+                              <Image
+                                src="/ArrowRight.svg"
+                                alt="arrow right"
+                                width="10"
+                                height="10"
+                                className="w-[10%] h-[10%]"
+                              />
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              href="/Services/google-ppc/"
+                              onClick={closeMobileMenu}
+                              className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
+                            >
+                              <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
+                                Google PPC
+                              </span>
+                              <Image
+                                src="/ArrowRight.svg"
+                                alt="arrow right"
+                                width="10"
+                                height="10"
+                                className="w-[10%] h-[10%]"
+                              />
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              href="/Services/meta-ads/"
+                              onClick={closeMobileMenu}
+                              className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
+                            >
+                              <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
+                                Meta Ads Campaign
+                              </span>
+                              <Image
+                                src="/ArrowRight.svg"
+                                alt="arrow right"
+                                width="10"
+                                height="10"
+                                className="w-[10%] h-[10%]"
+                              />
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              href="/Services/seo/"
+                              onClick={closeMobileMenu}
+                              className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
+                            >
+                              <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
+                                SEO & SMO
+                              </span>
+                              <Image
+                                src="/ArrowRight.svg"
+                                alt="arrow right"
+                                width="10"
+                                height="10"
+                                className="w-[10%] h-[10%]"
+                              />
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              href="/Services/posts-and-reels/"
+                              onClick={closeMobileMenu}
+                              className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
+                            >
+                              <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
+                                Posts & Reels
+                              </span>
+                              <Image
+                                src="/ArrowRight.svg"
+                                alt="arrow right"
+                                width="10"
+                                height="10"
+                                className="w-[10%] h-[10%]"
+                              />
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              href="/Services/branding-and-ads/"
+                              onClick={closeMobileMenu}
+                              className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
+                            >
+                              <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
+                                Branding & Advertising
+                              </span>
+                              <Image
+                                src="/ArrowRight.svg"
+                                alt="arrow right"
+                                width="10"
+                                height="10"
+                                className="w-[10%] h-[10%]"
+                              />
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                    )}
+                  </div>
 
-                    {/* second service start */}
-                    <div className="bg-[#2A2A2A] min-w-[25%]  rounded-3xl p-4">
-                      <h1 className="font-avenir-bold font-bold text-lg text-left text-white">
+                  {/* Graphic Designing */}
+                  <div className="rounded-3xl bg-[#2A2A2A]">
+                    <button
+                      type="button"
+                      onClick={() => toggleMobileCategory("graphic")}
+                      className="w-full flex items-center justify-between gap-2 p-4 text-left"
+                    >
+                      <span className="font-avenir-bold text-lg text-white">
                         Graphic Designing
-                      </h1>
-                      <div className="my-4 border-[0.5] border-white"></div>
-                      <ul className="text-left mt-4 h-full styled-list">
-                        <li>
-                          <Link
-                            href="/Services/ui-ux/"
-                            onClick={closeMobileMenu}
-                            className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
-                          >
-                            <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
-                              UX/UI Design
-                            </span>
-                            <Image
-                              src="/ArrowRight.svg"
-                              alt="arrow right"
-                              width="10"
-                              height="10"
-                              className="w-[10%] h-[10%]"
-                            />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="/Services/brochure-and-ppt/"
-                            onClick={closeMobileMenu}
-                            className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
-                          >
-                            <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
-                              Brochure & PPT
-                            </span>
-                            <Image
-                              src="/ArrowRight.svg"
-                              alt="arrow right"
-                              width="10"
-                              height="10"
-                              className="w-[10%] h-[10%]"
-                            />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="/Services/logo-designing/"
-                            onClick={closeMobileMenu}
-                            className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
-                          >
-                            <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
-                              Logo Design
-                            </span>
-                            <Image
-                              src="/ArrowRight.svg"
-                              alt="arrow right"
-                              width="10"
-                              height="10"
-                              className="w-[10%] h-[10%]"
-                            />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="/Services/post-designing/"
-                            onClick={closeMobileMenu}
-                            className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
-                          >
-                            <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
-                              Posts & Banner
-                            </span>
-                            <Image
-                              src="/ArrowRight.svg"
-                              alt="arrow right"
-                              width="10"
-                              height="10"
-                              className="w-[10%] h-[10%]"
-                            />
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                    {/* second service close */}
+                      </span>
+                      <Image
+                        src={
+                          mobileOpenCategory === "graphic"
+                            ? "/arrow-up.svg"
+                            : "/DownArrow.svg"
+                        }
+                        alt=""
+                        width={20}
+                        height={20}
+                        className="shrink-0 w-5 h-5"
+                      />
+                    </button>
+                    {mobileOpenCategory === "graphic" && (
+                      <div className="px-4 pb-4 border-t border-white/20">
+                        <ul className="text-left pt-3 styled-list">
+                          <li>
+                            <Link
+                              href="/Services/ui-ux/"
+                              onClick={closeMobileMenu}
+                              className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
+                            >
+                              <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
+                                UX/UI Design
+                              </span>
+                              <Image
+                                src="/ArrowRight.svg"
+                                alt="arrow right"
+                                width="10"
+                                height="10"
+                                className="w-[10%] h-[10%]"
+                              />
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              href="/Services/brochure-and-ppt/"
+                              onClick={closeMobileMenu}
+                              className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
+                            >
+                              <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
+                                Brochure & PPT
+                              </span>
+                              <Image
+                                src="/ArrowRight.svg"
+                                alt="arrow right"
+                                width="10"
+                                height="10"
+                                className="w-[10%] h-[10%]"
+                              />
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              href="/Services/logo-designing/"
+                              onClick={closeMobileMenu}
+                              className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
+                            >
+                              <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
+                                Logo Design
+                              </span>
+                              <Image
+                                src="/ArrowRight.svg"
+                                alt="arrow right"
+                                width="10"
+                                height="10"
+                                className="w-[10%] h-[10%]"
+                              />
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              href="/Services/post-designing/"
+                              onClick={closeMobileMenu}
+                              className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
+                            >
+                              <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
+                                Posts & Banner
+                              </span>
+                              <Image
+                                src="/ArrowRight.svg"
+                                alt="arrow right"
+                                width="10"
+                                height="10"
+                                className="w-[10%] h-[10%]"
+                              />
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                    )}
+                  </div>
 
-                    {/* third service start */}
-                    <div className="bg-[#2A2A2A] min-w-[25%]  rounded-3xl p-4">
-                      <h1 className="font-avenir-bold font-bold text-lg text-left text-white">
+                  {/* Tech & Software */}
+                  <div className="rounded-3xl bg-[#2A2A2A]">
+                    <button
+                      type="button"
+                      onClick={() => toggleMobileCategory("tech")}
+                      className="w-full flex items-center justify-between gap-2 p-4 text-left"
+                    >
+                      <span className="font-avenir-bold text-lg text-white">
                         Tech & Software
-                      </h1>
-                      <div className="my-4 border-[0.5] border-white"></div>
-                      <ul className="text-left mt-4 h-full styled-list">
-                        <li>
-                          <Link
-                            href="https://www.zfour.in/"
-                            target="_blank"
-                            onClick={closeMobileMenu}
-                            className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
-                          >
-                            <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
-                              HRMS Software
-                            </span>
-                            <Image
-                              src="/ArrowRight.svg"
-                              alt="arrow right"
-                              width="10"
-                              height="10"
-                              className="w-[10%] h-[10%]"
-                            />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="/Services/crm/"
-                            onClick={closeMobileMenu}
-                            className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
-                          >
-                            <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
-                              CRM Software
-                            </span>
-                            <Image
-                              src="/ArrowRight.svg"
-                              alt="arrow right"
-                              width="10"
-                              height="10"
-                              className="w-[10%] h-[10%]"
-                            />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="/Services/website-development"
-                            onClick={closeMobileMenu}
-                            className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
-                          >
-                            <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
-                              Website Development
-                            </span>
-                            <Image
-                              src="/ArrowRight.svg"
-                              alt="arrow right"
-                              width="10"
-                              height="10"
-                              className="w-[10%] h-[10%]"
-                            />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="/Services/application-development"
-                            onClick={closeMobileMenu}
-                            className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
-                          >
-                            <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
-                              Application Development
-                            </span>
-                            <Image
-                              src="/ArrowRight.svg"
-                              alt="arrow right"
-                              width="10"
-                              height="10"
-                              className="w-[10%] h-[10%]"
-                            />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="/Services/software-development/"
-                            onClick={closeMobileMenu}
-                            className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
-                          >
-                            <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
-                              Software Development
-                            </span>
-                            <Image
-                              src="/ArrowRight.svg"
-                              alt="arrow right"
-                              width="10"
-                              height="10"
-                              className="w-[10%] h-[10%]"
-                            />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="/Services/cloud-and-devops/"
-                            onClick={closeMobileMenu}
-                            className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
-                          >
-                            <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
-                              Cloud & DevOps Services
-                            </span>
-                            <Image
-                              src="/ArrowRight.svg"
-                              alt="arrow right"
-                              width="10"
-                              height="10"
-                              className="w-[10%] h-[10%]"
-                            />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="/Services/epr/"
-                            onClick={closeMobileMenu}
-                            className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
-                          >
-                            <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
-                              EPR
-                            </span>
-                            <Image
-                              src="/ArrowRight.svg"
-                              alt="arrow right"
-                              width="10"
-                              height="10"
-                              className="w-[10%] h-[10%]"
-                            />
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                    {/* third service close */}
+                      </span>
+                      <Image
+                        src={
+                          mobileOpenCategory === "tech"
+                            ? "/arrow-up.svg"
+                            : "/DownArrow.svg"
+                        }
+                        alt=""
+                        width={20}
+                        height={20}
+                        className="shrink-0 w-5 h-5"
+                      />
+                    </button>
+                    {mobileOpenCategory === "tech" && (
+                      <div className="px-4 pb-4 border-t border-white/20">
+                        <ul className="text-left pt-3 styled-list">
+                          <li>
+                            <Link
+                              href="https://www.zfour.in/"
+                              target="_blank"
+                              onClick={closeMobileMenu}
+                              className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
+                            >
+                              <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
+                                HRMS Software
+                              </span>
+                              <Image
+                                src="/ArrowRight.svg"
+                                alt="arrow right"
+                                width="10"
+                                height="10"
+                                className="w-[10%] h-[10%]"
+                              />
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              href="/Services/crm/"
+                              onClick={closeMobileMenu}
+                              className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
+                            >
+                              <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
+                                CRM Software
+                              </span>
+                              <Image
+                                src="/ArrowRight.svg"
+                                alt="arrow right"
+                                width="10"
+                                height="10"
+                                className="w-[10%] h-[10%]"
+                              />
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              href="/Services/website-development"
+                              onClick={closeMobileMenu}
+                              className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
+                            >
+                              <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
+                                Website Development
+                              </span>
+                              <Image
+                                src="/ArrowRight.svg"
+                                alt="arrow right"
+                                width="10"
+                                height="10"
+                                className="w-[10%] h-[10%]"
+                              />
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              href="/Services/application-development"
+                              onClick={closeMobileMenu}
+                              className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
+                            >
+                              <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
+                                Application Development
+                              </span>
+                              <Image
+                                src="/ArrowRight.svg"
+                                alt="arrow right"
+                                width="10"
+                                height="10"
+                                className="w-[10%] h-[10%]"
+                              />
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              href="/Services/software-development/"
+                              onClick={closeMobileMenu}
+                              className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
+                            >
+                              <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
+                                Software Development
+                              </span>
+                              <Image
+                                src="/ArrowRight.svg"
+                                alt="arrow right"
+                                width="10"
+                                height="10"
+                                className="w-[10%] h-[10%]"
+                              />
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              href="/Services/cloud-and-devops/"
+                              onClick={closeMobileMenu}
+                              className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
+                            >
+                              <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
+                                Cloud & DevOps Services
+                              </span>
+                              <Image
+                                src="/ArrowRight.svg"
+                                alt="arrow right"
+                                width="10"
+                                height="10"
+                                className="w-[10%] h-[10%]"
+                              />
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              href="/Services/epr/"
+                              onClick={closeMobileMenu}
+                              className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
+                            >
+                              <span className="font-avenir-medium font-medium text-sm sm:text-base text-white">
+                                EPR Software
+                              </span>
+                              <Image
+                                src="/ArrowRight.svg"
+                                alt="arrow right"
+                                width="10"
+                                height="10"
+                                className="w-[10%] h-[10%]"
+                              />
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

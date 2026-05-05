@@ -11,6 +11,8 @@ interface PrimaryButtonProps {
   className?: string;
   nextPage?: boolean;
   loading?: boolean;
+  /** When true (or when `loading` is true), the button is non-interactive and styled disabled. */
+  disabled?: boolean;
   theme?: "default" | "ai";
 }
 
@@ -24,14 +26,18 @@ const PrimaryButton = ({
   className = "",
   nextPage,
   loading,
+  disabled,
   theme = "default",
 }: PrimaryButtonProps) => {
+  const isDisabled = Boolean(disabled || loading);
   const isAi = theme === "ai";
   const ringColor = isAi ? "ring-cyan-500" : "ring-red-500";
   const shadowColor = isAi ? "rgba(6,182,212,0.4)" : "rgba(246,19,19,0.4)";
   const shadowBase = isAi ? "shadow-cyan-900" : "shadow-red-900";
 
-  const commonStyles = `flex cursor-pointer text-nowrap flex-row items-center justify-between gap-2 text-sm ${className} ${
+  const commonStyles = `flex text-nowrap flex-row items-center justify-between gap-2 text-sm ${className} ${
+    isDisabled ? "cursor-not-allowed opacity-70 " : "cursor-pointer "
+  }${
     type === "normal" &&
     `button rounded-3xl px-4 py-2 shadow-[2px_2px_0px_${shadowColor}] ${shadowBase} hover:ring-2 ${ringColor} border-l-2 border-t-2 border-black duration-300 hover:border-2`
   } ${type === "variant2" && "btn-variant2 px-4 py-2"}
@@ -104,7 +110,14 @@ const PrimaryButton = ({
   }
 
   return (
-    <button onClick={onClick} className={commonStyles} type="button">
+    <button
+      type="button"
+      disabled={isDisabled}
+      aria-busy={loading ? true : undefined}
+      aria-disabled={isDisabled ? true : undefined}
+      onClick={isDisabled ? undefined : onClick}
+      className={commonStyles}
+    >
       {content}
     </button>
   );

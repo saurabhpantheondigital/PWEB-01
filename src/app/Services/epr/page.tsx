@@ -20,6 +20,10 @@ import {
   Landmark,
   MapPin,
   Factory,
+  Droplet,
+  Battery,
+  Laptop,
+  Car,
   Layers,
   Zap,
   Shield,
@@ -43,6 +47,7 @@ import {
 } from "lucide-react";
 
 import EPRCTA from "@/components/ui/EPRCTA";
+import EPRContactModal from "@/components/features/EPRContactModal";
 
 const TirangaIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
@@ -53,11 +58,25 @@ const TirangaIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
+const TyreIcon = ({ className }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 32 32"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <path d="m16 2c-7.72 0-14 6.28-14 14s6.28 14 14 14 14-6.28 14-14-6.28-14-14-14zm0 26c-6.617 0-12-5.383-12-12s5.383-12 12-12 12 5.383 12 12-5.383 12-12 12z" />
+    <path d="m16 6c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm6.92 6.005-3.754 1.579c-.535-.699-1.29-1.214-2.166-1.442v-4.073c2.531.318 4.694 1.821 5.92 3.936zm-8.92 3.995c0-1.09.886-2 2-2s2 .909 2 2c0 1.103-.897 2-2 2s-2-.897-2-2zm1-7.931v4.073c-.877.228-1.631.742-2.166 1.442l-3.754-1.579c1.225-2.115 3.389-3.618 5.92-3.936zm-6.698 5.779 3.755 1.579c-.16 1.105.102 2.074.716 2.916l-2.585 3.138c-1.882-1.995-2.669-4.836-1.886-7.633zm3.43 8.906 2.585-3.139c.513.241 1.08.385 1.683.385.699 0 1.348-.196 1.92-.513l2.489 3.181c-1.265.84-2.78 1.332-4.409 1.332-1.57 0-3.031-.461-4.268-1.246zm10.192-1.396-2.54-3.247c.554-.884.693-1.759.559-2.684l3.755-1.579c.772 2.758.015 5.533-1.774 7.51z" />
+  </svg>
+);
+
 const ContextualCTA = ({
   title,
   desc,
   btnText,
   href = "/Contact_Us",
+  onButtonClick,
   variant = "light",
   className = "",
   showBorder = false,
@@ -66,6 +85,7 @@ const ContextualCTA = ({
   desc: string;
   btnText: string;
   href?: string;
+  onButtonClick?: () => void;
   variant?: "light" | "dark";
   className?: string;
   showBorder?: boolean;
@@ -138,14 +158,26 @@ const ContextualCTA = ({
           </p>
         </div>
         <div className="w-full lg:w-auto">
-          <Link
-            href={href}
-            className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 bg-emerald-600 hover:bg-emerald-700 text-white font-black rounded-2xl transition-all shadow-2xl shadow-emerald-600/20 hover:shadow-emerald-600/40 hover:scale-[1.02] active:scale-95 w-full lg:w-auto"
-          >
-            <span className="relative z-10 text-lg">{btnText}</span>
-            <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1.5 relative z-10" />
-            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-          </Link>
+          {onButtonClick ? (
+            <button
+              type="button"
+              onClick={onButtonClick}
+              className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 bg-emerald-600 hover:bg-emerald-700 text-white font-black rounded-2xl transition-all shadow-2xl shadow-emerald-600/20 hover:shadow-emerald-600/40 hover:scale-[1.02] active:scale-95 w-full lg:w-auto"
+            >
+              <span className="relative z-10 text-lg">{btnText}</span>
+              <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1.5 relative z-10" />
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+            </button>
+          ) : (
+            <Link
+              href={href}
+              className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 bg-emerald-600 hover:bg-emerald-700 text-white font-black rounded-2xl transition-all shadow-2xl shadow-emerald-600/20 hover:shadow-emerald-600/40 hover:scale-[1.02] active:scale-95 w-full lg:w-auto"
+            >
+              <span className="relative z-10 text-lg">{btnText}</span>
+              <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1.5 relative z-10" />
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+            </Link>
+          )}
         </div>
       </div>
     </div>
@@ -155,11 +187,15 @@ const ContextualCTA = ({
 const canvas =
   "w-full min-h-screen overflow-x-hidden bg-[#F0F2F1] text-slate-800 selection:bg-emerald-200/40 selection:text-slate-900";
 
-function HeroSection() {
+function HeroSection({
+  onOpenContactModal,
+}: {
+  onOpenContactModal: () => void;
+}) {
   return (
     <section
       id="epr-hero"
-      className="min-md:-top-18 top-0 relative flex min-h-[90svh] w-full flex-col justify-end border-b border-slate-200/60 bg-gradient-to-b from-white via-emerald-50/40 to-[#F0F2F1] pb-8 pt-24 sm:min-h-[min(100svh,900px)] sm:justify-center sm:pb-12 md:pt-28 lg:pt-32"
+      className="min-md:-top-18 max-md:-mt-8 top-0 relative flex min-h-[90svh] w-full flex-col justify-end border-b border-slate-200/60 bg-gradient-to-b from-white via-emerald-50/40 to-[#F0F2F1] pb-8 pt-24 sm:min-h-[min(100svh,900px)] sm:justify-center sm:pb-12 md:pt-28 lg:pt-32"
     >
       <div
         className="pointer-events-none absolute inset-0 overflow-hidden"
@@ -178,12 +214,23 @@ function HeroSection() {
           className="absolute -right-[15%] top-1/4 h-[min(60vw,420px)] w-[min(60vw,420px)] rounded-full bg-amber-100/50 blur-3xl sm:right-0"
         />
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#F0F2F1] to-transparent" />
+        
+        {/* Mobile Background Illustration */}
+        <div className="md:hidden absolute top-[15%] left-1/2 -translate-x-1/2 w-[140%] max-w-[600px] aspect-square opacity-[0.08] pointer-events-none select-none blur-[1px]">
+          <Image
+            src="/EPR/recycle.svg"
+            alt=""
+            fill
+            className="object-contain"
+            priority
+          />
+        </div>
       </div>
 
       <div
         className={`${shell} relative z-[1] flex flex-1 flex-col justify-center py-8 sm:py-12 md:py-14 lg:py-16`}
       >
-        <div className="relative min-md:-mt-12 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center">
+        <div className="relative min-md:-mt-12 max-md:mt-20 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-7">
             <div className="flex justify-center lg:justify-start">
               <motion.div
@@ -191,7 +238,7 @@ function HeroSection() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="mb-6 inline-flex w-fit items-center gap-3 rounded-full border border-emerald-200/80 bg-emerald-50/90 px-3.5 py-1 text-[8px] font-bold uppercase leading-snug tracking-[0.14em] text-emerald-800 shadow-sm min-[400px]:px-4 min-[400px]:py-1.5 min-[400px]:text-[10px] min-[400px]:tracking-[0.18em]"
+                className="max-md:hidden  mb-4 inline-flex w-fit items-center gap-3 rounded-full border border-emerald-200/80 bg-emerald-50/90 px-3.5 py-1 text-[8px] font-bold uppercase leading-snug tracking-[0.14em] text-emerald-800 shadow-sm min-[400px]:px-4 min-[400px]:py-1.5 min-[400px]:text-[10px] min-[400px]:tracking-[0.18em]"
               >
                 <span className="relative flex h-2 w-2 shrink-0">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
@@ -203,19 +250,56 @@ function HeroSection() {
               </motion.div>
             </div>
 
-            <motion.h1
+            <h1
               id="hero-heading"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
               className="mb-5 text-center lg:text-left text-[clamp(1.85rem,6.5vw,4.2rem)] font-black leading-[1.05] tracking-[-0.035em] text-slate-900 sm:mb-6 lg:leading-[1.04]"
               style={{ fontFamily: "'Sora', sans-serif" }}
             >
-              One Platform. Every EPR Obligation
-              <span className="mt-1 block bg-gradient-to-r from-emerald-700 via-teal-600 to-emerald-600 bg-clip-text text-transparent sm:mt-2">
-                in India. Fully Automated.
-              </span>
-            </motion.h1>
+              {/* Mobile View: Dynamic Animated Heading */}
+              <div className="md:hidden flex flex-col items-center gap-2">
+                <motion.span
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="bg-emerald-100/80 text-emerald-700 px-4 py-1 rounded-full text-[12px] uppercase tracking-[0.2em] font-bold mb-1 shadow-sm border border-emerald-200/50 backdrop-blur-sm"
+                >
+                  One Platform
+                </motion.span>
+                <div className="overflow-hidden">
+                  <motion.span
+                    initial={{ y: "100%" }}
+                    animate={{ y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    className="block leading-[1.1]"
+                  >
+                    Every EPR Obligation
+                  </motion.span>
+                </div>
+                <div className="overflow-hidden pb-1">
+                  <motion.span
+                    initial={{ y: "100%" }}
+                    animate={{ y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    className="block bg-gradient-to-r from-emerald-600 via-teal-500 to-emerald-500 bg-clip-text text-transparent"
+                  >
+                    in India. Fully Automated.
+                  </motion.span>
+                </div>
+              </div>
+
+              {/* Desktop View: Standard Animation */}
+              <motion.span
+                className="hidden md:block"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+              >
+                One Platform. Every EPR Obligation
+                <span className="mt-1 block bg-gradient-to-r from-emerald-700 via-teal-600 to-emerald-600 bg-clip-text text-transparent sm:mt-2">
+                  in India. Fully Automated.
+                </span>
+              </motion.span>
+            </h1>
 
             <motion.p
               id="hero-description"
@@ -240,22 +324,39 @@ function HeroSection() {
               transition={{ delay: 0.6, duration: 0.6 }}
               className="flex w-full max-w-md mx-auto lg:mx-0 flex-col gap-3 sm:max-w-none sm:flex-row sm:items-stretch sm:justify-center lg:justify-start"
             >
-              <Link
+              <motion.button
+                type="button"
                 id="hero-get-started-btn"
-                href="/Contact_Us"
-                className="group relative inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-slate-900 text-white rounded-2xl font-black text-base shadow-xl shadow-slate-900/20 transition-all duration-300 hover:bg-slate-800 hover:shadow-slate-900/30 hover:scale-[1.02] active:scale-95 overflow-hidden"
+                onClick={onOpenContactModal}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="group relative inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-slate-900 text-white rounded-2xl font-black text-base shadow-xl shadow-slate-900/20 transition-all duration-300 hover:bg-slate-800 hover:shadow-slate-900/30 overflow-hidden"
               >
                 <span className="relative z-10">Get started free</span>
                 <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-              </Link>
-              <Link
+                
+                {/* Continuous Shimmer Animation */}
+                <motion.div
+                  animate={{
+                    x: ["-100%", "200%"],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "linear",
+                    repeatDelay: 1,
+                  }}
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 pointer-events-none"
+                />
+              </motion.button>
+              <button
+                type="button"
                 id="hero-request-demo-btn"
-                href="/Contact_Us"
+                onClick={onOpenContactModal}
                 className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-white/50 backdrop-blur-sm text-slate-800 rounded-2xl font-bold text-base border-2 border-slate-200 transition-all duration-300 hover:bg-white hover:border-emerald-300 hover:text-emerald-700 hover:shadow-xl hover:shadow-emerald-500/10 hover:scale-[1.02] active:scale-95"
               >
                 Request a demo
-              </Link>
+              </button>
             </motion.div>
           </div>
 
@@ -307,7 +408,7 @@ function HeroSection() {
                   width={800}
                   height={800}
                   priority
-                  className="h-auto w-full object-contain drop-shadow-[0_30px_60px_rgba(16,185,129,0.25)]"
+                  className="max-md:hidden h-auto w-full object-contain drop-shadow-[0_30px_60px_rgba(16,185,129,0.25)]"
                 />
 
                 {/* Subtle Glow behind the SVG */}
@@ -325,54 +426,42 @@ function SSOPortalsSection() {
   const portals = [
     {
       title: "Used oil Management",
-      icon: (
-        <path d="M12 2c-4 0-7 2-7 4v12c0 2 3 4 7 4s7-2 7-4V6c0-2-3-4-7-4zm0 2c3.3 0 5 1.4 5 2s-1.7 2-5 2-5-1.4-5-2 1.7-2 5-2zm0 16c-3.3 0-5-1.4-5-2v-2.2c1.3.7 3 1.2 5 1.2s3.7-.5 5-1.2V18c0 .6-1.7 2-5 2zm0-5c-3.3 0-5-1.4-5-2V9.8c1.3.7 3 1.2 5 1.2s3.7-.5 5-1.2V13c0 .6-1.7 2-5 2z" />
-      ),
+      icon: Droplet,
       accent: "from-amber-500 to-amber-700",
       color: "text-amber-500",
       hex: "#f59e0b",
     },
     {
       title: "Plastic Waste Management",
-      icon: (
-        <path d="M7 2h10l3 7-8 13-8-13 3-7zm0 2.4L4.9 9h4.3L7 4.4zM17 4.4L14.8 9h4.3L17 4.4zM9.5 11l2.5 4.1 2.5-4.1H9.5z" />
-      ),
+      icon: Recycle,
       accent: "from-emerald-500 to-emerald-700",
       color: "text-emerald-500",
       hex: "#10b981",
     },
     {
       title: "Battery Waste Management",
-      icon: (
-        <path d="M16 3H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 2v2h-2V5h2zM9 5h2v2H9V5zm7 14H8V9h8v10zM10 11h4v2h-4v-2zm0 4h4v2h-4v-2z" />
-      ),
+      icon: Battery,
       accent: "from-blue-500 to-blue-700",
       color: "text-blue-500",
       hex: "#3b82f6",
     },
     {
       title: "Waste Tyre Management",
-      icon: (
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-13c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z" />
-      ),
+      icon: TyreIcon,
       accent: "from-slate-600 to-slate-800",
       color: "text-slate-500",
       hex: "#64748b",
     },
     {
       title: "E-Waste Management",
-      icon: (
-        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM8 16h2v-2H8v2zm0-4h2v-2H8v2zm4 4h2v-2h-2v2zm0-4h2v-2h-2v2zm4 4h2v-2h-2v2zm0-4h2v-2h-2v2z" />
-      ),
+      icon: Laptop,
       accent: "from-indigo-500 to-indigo-700",
       color: "text-indigo-500",
       hex: "#6366f1",
     },
     {
       title: "End-of-Life Vehicles (ELV)",
-      icon: (
-        <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z" />
-      ),
+      icon: Car,
       accent: "from-rose-500 to-rose-700",
       color: "text-rose-500",
       hex: "#f43f5e",
@@ -437,15 +526,7 @@ function SSOPortalsSection() {
 
                 {/* Large Background Category Watermark */}
                 <div className="absolute -bottom-8 -right-8 pointer-events-none opacity-[0.04] group-hover:opacity-[0.08] transition-all duration-700 group-hover:-rotate-12 group-hover:scale-110">
-                  <svg
-                    width="180"
-                    height="180"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    {portal.icon}
-                  </svg>
+                  <portal.icon className="h-44 w-44" strokeWidth={1.5} />
                 </div>
 
                 {/* Icon Container with Beige Background Shape */}
@@ -459,13 +540,10 @@ function SSOPortalsSection() {
                     <div
                       className={`absolute inset-0 rounded-2xl bg-gradient-to-br opacity-95 ${portal.accent}`}
                     />
-                    <svg
+                    <portal.icon
                       className="relative z-10 h-8 w-8"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      {portal.icon}
-                    </svg>
+                      strokeWidth={2}
+                    />
                   </motion.div>
                 </div>
 
@@ -513,7 +591,7 @@ function EPRStatsStrip() {
       label: "Annual returns",
       sublabel: "generated in 1 click",
     },
-    { value: "30+", label: "Indian states", sublabel: "tracked" },
+    { value: "28+", label: "Indian states", sublabel: "tracked" },
     {
       value: "15 days",
       label: "CPCB registration",
@@ -522,7 +600,7 @@ function EPRStatsStrip() {
   ];
 
   return (
-    <section className="w-full bg-emerald-600 py-12 text-white relative overflow-hidden">
+    <section className="w-full bg-emerald-600 py-12 max-md:py-8 text-white relative overflow-hidden">
       {/* Dynamic Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -left-24 -top-24 w-64 h-64 bg-emerald-400/20 rounded-full blur-3xl animate-pulse" />
@@ -540,7 +618,7 @@ function EPRStatsStrip() {
               viewport={{ once: true }}
               className="flex flex-col items-center text-center px-0.5 group"
             >
-              <div className="text-[18px] sm:text-2xl md:text-5xl font-black mb-1 tracking-tighter group-hover:scale-110 transition-transform duration-300">
+              <div className="text-[18px]  sm:text-2xl md:text-5xl font-black mb-1 tracking-tighter group-hover:scale-110 transition-transform duration-300">
                 {stat.value === "15 days" ? (
                   stat.value
                 ) : (
@@ -1121,6 +1199,8 @@ function CTASection() {
 }
 
 export default function EcoTraceEprPage() {
+  const [contactModalOpen, setContactModalOpen] = React.useState(false);
+
   React.useEffect(() => {
     document.body.style.backgroundColor = "#F0F2F1";
     return () => {
@@ -1435,7 +1515,11 @@ export default function EcoTraceEprPage() {
 
   return (
     <main className={canvas} id="ecotrace-epr-page">
-      <HeroSection />
+      <EPRContactModal
+        open={contactModalOpen}
+        onClose={() => setContactModalOpen(false)}
+      />
+      <HeroSection onOpenContactModal={() => setContactModalOpen(true)} />
       <EPRStatsStrip />
       <SSOPortalsSection />
 
@@ -1836,6 +1920,7 @@ export default function EcoTraceEprPage() {
         desc="EcoTrace is the only platform in India that handles Plastic, E-Waste, Battery, Tyre, and Used Oil EPR under one roof."
         btnText="Book a Demo"
         className="bg-[#FDFDFD]"
+        onButtonClick={() => setContactModalOpen(true)}
       />
 
       <section
@@ -1966,6 +2051,7 @@ export default function EcoTraceEprPage() {
         desc="Most companies spend 200+ man-hours on EPR returns. We reduce that to 15 minutes of automated data validation."
         btnText="Automate Your Returns"
         className="bg-slate-50/50 border"
+        onButtonClick={() => setContactModalOpen(true)}
       />
 
       {/* Why Pantheon Digital - Our Story & Infrastructure */}
@@ -2164,13 +2250,13 @@ export default function EcoTraceEprPage() {
                 title: "Built for India, by India",
                 desc: "Not an adapted foreign software. Every calculation, certificate type, and rule change is built natively for India.",
                 icon: TirangaIcon,
-                color: "bg-[#059669] text-white",
+                color: "bg-[#cccccc] text-white",
               },
               {
                 title: "Only Multi-Category Platform",
                 desc: "Covers all five CPCB categories — Plastic, E-Waste, Battery, Tyre, and Used Oil — under one unified login.",
                 icon: Layers,
-                color: "bg-[#0284C7] text-white",
+                color: "bg-[#059669] text-white",
               },
               {
                 title: "Automation-First Architecture",
@@ -2204,7 +2290,7 @@ export default function EcoTraceEprPage() {
               },
               {
                 title: "Proven at Enterprise Scale",
-                desc: "Managing thousands of SKUs and 30+ states for pan-India FMCG operations in production.",
+                desc: "Managing thousands of SKUs and 28+ states for pan-India FMCG operations in production.",
                 icon: TrendingUp,
                 color: "bg-[#EA580C] text-white",
               },
@@ -2331,7 +2417,6 @@ export default function EcoTraceEprPage() {
                         : "bg-slate-100 text-slate-700 border-slate-200"
                   }`}
                 >
-                  
                   {auth.badge}
                 </div>
 
@@ -2393,6 +2478,7 @@ export default function EcoTraceEprPage() {
         desc="The registration process for PIBOs involves complex document validation. Our compliance team handles it end-to-end."
         btnText="Talk to a Registration Expert"
         className="bg-[#F0F2F1]"
+        onButtonClick={() => setContactModalOpen(true)}
       />
 
       {/* Certificate Types - 3D Holographic Grid */}
@@ -2591,6 +2677,7 @@ export default function EcoTraceEprPage() {
         desc="EcoTrace connects you with 100+ CPCB-registered recyclers to ensure you meet your targets with zero legal risk."
         btnText="Check Credit Availability"
         className="bg-[#FDFDFD]"
+        onButtonClick={() => setContactModalOpen(true)}
       />
       {/* Recycling Targets - Timeline Analysis - Restored & Fixed */}
       <section
@@ -3454,7 +3541,7 @@ export default function EcoTraceEprPage() {
           }
         }
       `}</style>
-      <EPRCTA />
+      <EPRCTA onPrimaryClick={() => setContactModalOpen(true)} />
     </main>
   );
 }

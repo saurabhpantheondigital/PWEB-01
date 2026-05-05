@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import EPRCTA from '@/components/ui/EPRCTA';
+import EPRContactModal from '@/components/features/EPRContactModal';
 import { ArrowRight } from 'lucide-react';
 
 const ContextualCTA = ({ 
@@ -12,12 +13,14 @@ const ContextualCTA = ({
   desc, 
   btnText, 
   href = "/Contact_Us",
+  onButtonClick,
   className = ""
 }: { 
   title: string; 
   desc: string; 
   btnText: string; 
   href?: string;
+  onButtonClick?: () => void;
   className?: string;
 }) => (
   <section className={`w-full py-20 overflow-hidden relative group transition-all duration-700 ${className} border-y border-slate-200/60`}>
@@ -48,11 +51,23 @@ const ContextualCTA = ({
           <p className="font-medium leading-relaxed text-base md:text-lg max-w-2xl mx-auto lg:mx-0 text-slate-500">{desc}</p>
         </div>
         <div className="w-full lg:w-auto">
-          <Link href={href} className="group relative inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-emerald-600 text-white rounded-xl font-black text-base overflow-hidden shadow-xl shadow-emerald-200/50 transition-all duration-300 hover:bg-emerald-700 hover:shadow-emerald-300/50 hover:scale-[1.02] active:scale-95 w-full lg:w-auto">
-            <span className="relative z-10">{btnText}</span>
-            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1 relative z-10" />
-            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-          </Link>
+          {onButtonClick ? (
+            <button
+              type="button"
+              onClick={onButtonClick}
+              className="group relative inline-flex w-full items-center justify-center gap-2.5 overflow-hidden rounded-xl bg-emerald-600 px-8 py-4 text-base font-black text-white shadow-xl shadow-emerald-200/50 transition-all duration-300 hover:scale-[1.02] hover:bg-emerald-700 hover:shadow-emerald-300/50 active:scale-95 lg:w-auto"
+            >
+              <span className="relative z-10">{btnText}</span>
+              <ArrowRight className="relative z-10 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 -translate-x-[100%] transition-transform duration-1000 group-hover:translate-x-[100%]" />
+            </button>
+          ) : (
+            <Link href={href} className="group relative inline-flex w-full items-center justify-center gap-2.5 overflow-hidden rounded-xl bg-emerald-600 px-8 py-4 text-base font-black text-white shadow-xl shadow-emerald-200/50 transition-all duration-300 hover:scale-[1.02] hover:bg-emerald-700 hover:shadow-emerald-300/50 active:scale-95 lg:w-auto">
+              <span className="relative z-10">{btnText}</span>
+              <ArrowRight className="relative z-10 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 -translate-x-[100%] transition-transform duration-1000 group-hover:translate-x-[100%]" />
+            </Link>
+          )}
         </div>
       </div>
     </div>
@@ -60,10 +75,15 @@ const ContextualCTA = ({
 );
 
 export default function BatteryWastePage() {
+  const [contactModalOpen, setContactModalOpen] = React.useState(false);
   const shell = "mx-auto w-full max-w-[1600px] px-4 min-[400px]:px-5 sm:px-6 md:px-10 lg:px-14 xl:px-16 2xl:px-20";
 
   return (
     <main className="min-h-screen bg-[#F0F2F1] pt-32 pb-0 overflow-hidden selection:bg-emerald-200/40 selection:text-slate-900 relative">
+      <EPRContactModal
+        open={contactModalOpen}
+        onClose={() => setContactModalOpen(false)}
+      />
       {/* Background Ambient Blobs & Illustrations */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-10%] right-[-10%] w-[800px] h-[800px] bg-emerald-500/5 rounded-full blur-[120px] animate-pulse" />
@@ -141,20 +161,22 @@ export default function BatteryWastePage() {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 mt-12"
           >
-            <Link
-              href="/Contact_Us"
+            <button
+              type="button"
+              onClick={() => setContactModalOpen(true)}
               className="group relative inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-slate-900 text-white rounded-xl font-black text-base shadow-xl shadow-slate-900/20 transition-all duration-300 hover:bg-slate-800 hover:shadow-slate-900/30 hover:scale-[1.02] active:scale-95 overflow-hidden"
             >
               <span className="relative z-10">Get started free</span>
               <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
               <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-            </Link>
-            <Link
-              href="/Contact_Us"
+            </button>
+            <button
+              type="button"
+              onClick={() => setContactModalOpen(true)}
               className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-white/50 backdrop-blur-sm text-slate-800 rounded-xl font-bold text-base border-2 border-slate-200 transition-all duration-300 hover:bg-white hover:border-emerald-300 hover:text-emerald-700 hover:shadow-xl hover:shadow-emerald-500/10 hover:scale-[1.02] active:scale-95"
             >
               Request a demo
-            </Link>
+            </button>
           </motion.div>
         </div>
 
@@ -254,6 +276,7 @@ export default function BatteryWastePage() {
           desc="New Lithium-ion targets begin in FY 2024–25. Let our experts model your collection requirements and certificate strategy."
           btnText="Model My Targets"
           className="mb-24 md:mb-32"
+          onButtonClick={() => setContactModalOpen(true)}
         />
 
         {/* The Business Challenge Section */}
@@ -350,6 +373,7 @@ export default function BatteryWastePage() {
       <EPRCTA 
         title="Ready to automate your Battery EPR?"
         description="Join leading automotive and EV manufacturers. Track chemistries, meet collection targets, and file returns on EcoTrace."
+        onPrimaryClick={() => setContactModalOpen(true)}
       />
     </main>
   );

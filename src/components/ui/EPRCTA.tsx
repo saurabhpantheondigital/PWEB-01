@@ -10,6 +10,8 @@ interface EPRCTAProps {
   description?: string;
   primaryActionText?: string;
   primaryHref?: string;
+  /** When set, primary control opens the callback instead of navigating. */
+  onPrimaryClick?: () => void;
   secondaryActionText?: string;
   secondaryHref?: string;
   className?: string;
@@ -20,6 +22,7 @@ export default function EPRCTA({
   description = "Book a personalised product demo with our experts.",
   primaryActionText = "Book a free demo",
   primaryHref = "/Contact_Us",
+  onPrimaryClick,
   secondaryActionText = "Contact sales",
   secondaryHref = "mailto:sales@pantheondigitals.com",
   className = "",
@@ -91,14 +94,26 @@ export default function EPRCTA({
             transition={{ duration: 0.6, delay: 0.1 }}
             className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-end gap-4 w-full lg:w-auto"
           >
-            <Link
-              href={primaryHref}
-              className="group relative inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-9 sm:py-4 bg-emerald-600 text-white rounded-xl font-black text-base sm:text-lg overflow-hidden shadow-xl shadow-emerald-200/50 transition-all duration-300 hover:bg-emerald-700 hover:shadow-emerald-300/50 hover:scale-[1.02] active:scale-95"
-            >
-              <span className="relative z-10">{primaryActionText}</span>
-              <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-            </Link>
+            {onPrimaryClick ? (
+              <button
+                type="button"
+                onClick={onPrimaryClick}
+                className="group relative inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-9 sm:py-4 bg-emerald-600 text-white rounded-xl font-black text-base sm:text-lg overflow-hidden shadow-xl shadow-emerald-200/50 transition-all duration-300 hover:bg-emerald-700 hover:shadow-emerald-300/50 hover:scale-[1.02] active:scale-95"
+              >
+                <span className="relative z-10">{primaryActionText}</span>
+                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+              </button>
+            ) : (
+              <Link
+                href={primaryHref}
+                className="group relative inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-9 sm:py-4 bg-emerald-600 text-white rounded-xl font-black text-base sm:text-lg overflow-hidden shadow-xl shadow-emerald-200/50 transition-all duration-300 hover:bg-emerald-700 hover:shadow-emerald-300/50 hover:scale-[1.02] active:scale-95"
+              >
+                <span className="relative z-10">{primaryActionText}</span>
+                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+              </Link>
+            )}
 
             <Link
               href={secondaryHref}

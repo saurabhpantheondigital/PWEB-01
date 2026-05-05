@@ -113,51 +113,50 @@ const Support = () => {
   };
 
   const onHandleSubmit = async () => {
-    if (validateForm()) {
-      setLoading(true);
-      const res = await fetch("/api/support", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          contact,
-          companyName,
-          issueType,
-          projectId,
-          issue_description: description,
-          priority_level: priority,
-          attachment: attachment || "",
-        }),
+    if (loading) return;
+    if (!validateForm()) return;
+    setLoading(true);
+    const res = await fetch("/api/support", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        contact,
+        companyName,
+        issueType,
+        projectId,
+        issue_description: description,
+        priority_level: priority,
+        attachment: attachment || "",
+      }),
+    });
+
+    const data = await res.json();
+    if (data.success) {
+      setLoading(false);
+      setToast({
+        success: 200,
+        msg: "Thanks for contacting us! We'll get in touch with you within 24–48 hours.",
       });
 
-      const data = await res.json();
-      if (data.success) {
-        // alert("Support ticket submitted!");
-        setLoading(false);
-        setToast({
-          success: 200,
-          msg: "Thanks for contacting us! We'll get in touch with you within 24–48 hours.",
-        });
-
-        setName("");
-        setEmail("");
-        setContact("");
-        setCompanyName("");
-        setIssueType("Select one");
-        setDescription("");
-        setPriority("Low");
-        setAttachment(null);
-        setAccept(false);
-      } else {
-        setLoading(false);
-        setToast({
-          success: 400,
-          msg: "Something went wrong! Please try again later.",
-        });
-      }
+      setName("");
+      setEmail("");
+      setContact("");
+      setCompanyName("");
+      setIssueType("Select one");
+      setDescription("");
+      setPriority("Low");
+      setAttachment(null);
+      setAccept(false);
+    } else {
+      setLoading(false);
+      setToast({
+        success: 400,
+        msg: "Something went wrong! Please try again later.",
+      });
     }
   };
 
@@ -173,7 +172,11 @@ const Support = () => {
           reach out to our dedicated support team below.
         </p>
 
-        <div className="w-full h-auto grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-12 mt-12 sm:mt-16">
+        <fieldset
+          disabled={loading}
+          aria-busy={loading}
+          className="border-0 p-0 m-0 min-w-0 w-full h-auto grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-12 mt-12 sm:mt-16 disabled:pointer-events-none disabled:opacity-75 transition-opacity"
+        >
           {/* Full name */}
           <div className="w-full">
             <h4 className="font-avenir-demi text-white text-sm sm:text-xl">
@@ -480,12 +483,13 @@ const Support = () => {
           <div className="sm:w-[60%] w-full flex justify-self-end">
             <PrimaryButton
               loading={loading}
+              disabled={loading}
               onClick={onHandleSubmit}
               label="Submit Ticket"
               className="w-full rounded-lg justify-center"
             />
           </div>
-        </div>
+        </fieldset>
       </div>
 
       {/* Talk to expert */}

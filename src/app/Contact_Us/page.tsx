@@ -11,6 +11,21 @@ import AboutNumerics from "@/components/ui/AboutNumerics";
 import FaqItem from "@/components/features/FaqItem";
 import Toast from "@/components/ui/Toast";
 
+/** Local YYYY-MM-DD for `<input type="date" min />` and comparisons. */
+function formatLocalDate(d: Date): string {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
+/** HH:mm for `<input type="time" min />` in local time. */
+function formatLocalTimeHM(d: Date): string {
+  const h = String(d.getHours()).padStart(2, "0");
+  const min = String(d.getMinutes()).padStart(2, "0");
+  return `${h}:${min}`;
+}
+
 const Contact_Us = () => {
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
@@ -43,7 +58,6 @@ const Contact_Us = () => {
   ];
 
   const services = [
-
     "Digital Marketing",
     "Graphic Designing",
     "UI/UX Design",
@@ -56,7 +70,7 @@ const Contact_Us = () => {
     "Application Development",
     "Custom Software",
     "DevOps or Cloud Services",
-  
+    "Other"
   ];
 
   const [loading, setLoading] = useState(false);
@@ -75,7 +89,9 @@ const Contact_Us = () => {
   const [description, setDescription] = useState<string>("");
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [attachment, setAttachment] = useState<File | null>(null);
-  const [method, setMethod] = useState<"Phone Call" | "Email" | "Whatsapp">();
+  const [method, setMethod] = useState<"Phone Call" | "Email" | "Whatsapp">(
+    "Phone Call",
+  );
   const [selectedMethod, setSelectedMethod] = useState<
     "Phone Call" | "Email" | "Whatsapp"
   >("Phone Call");
@@ -106,6 +122,28 @@ const Contact_Us = () => {
   };
 
   const validateForm = () => {
+    let dateErr = "";
+    let timeErr = "";
+    const hasDate = Boolean(date);
+    const hasTime = Boolean(time);
+    const todayStr = formatLocalDate(new Date());
+    const nowMs = Date.now();
+
+    if (!hasDate && !hasTime) {
+      /* optional */
+    } else if (!hasDate && hasTime) {
+      dateErr = "Please select a date for your preferred time";
+    } else if (hasDate) {
+      if (date < todayStr) {
+        dateErr = "Date cannot be in the past";
+      } else if (date === todayStr && hasTime) {
+        const selected = new Date(`${date}T${time}:00`);
+        if (selected.getTime() < nowMs) {
+          timeErr = "Choose a time in the future";
+        }
+      }
+    }
+
     const newError = {
       name: name ? "" : "Full name is required",
       email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
@@ -120,9 +158,9 @@ const Contact_Us = () => {
         serviceType.toLowerCase() !== "select one"
           ? ""
           : "Please select a service",
-      date: date ? "" : "Date is required",
-      time: time ? "" : "Time is required",
-      description: description ? "" : "Project brief is required",
+      date: dateErr,
+      time: timeErr,
+      description: "",
       method: method ? "" : "Preferred contact method required",
       accept: accept ? "" : "You must accept the terms",
     };
@@ -132,54 +170,59 @@ const Contact_Us = () => {
   };
 
   const onHandleSubmit = async () => {
-    if (validateForm()) {
-      setLoading(true);
-      const res = await fetch("/api/contact-us", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          contact,
-          companyName,
-          serviceType,
-          date,
-          time,
-          project_brief: description,
-          contact_method: method,
-          attachment: attachment || "",
-        }),
+    if (loading) return;
+    if (!validateForm()) return;
+    setLoading(true);
+    const res = await fetch("/api/contact-us", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        contact,
+        companyName,
+        serviceType,
+        date,
+        time,
+        project_brief: description,
+        contact_method: method,
+        attachment: attachment || "",
+        submission_source: "contact_us_page",
+      }),
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      setLoading(false);
+      setToast({
+        success: 200,
+        msg: "Message sent! We’ll get back to you soon – stay tuned!",
       });
-
-      const data = await res.json();
-
-      if (data.success) {
-        setLoading(false);
-        setToast({
-          success: 200,
-          msg: "Message sent! We’ll get back to you soon – stay tuned!",
-        });
-        // empty inputs
-        setName("");
-        setEmail("");
-        setContact("");
-        setCompanyName("");
-        setServiceType("Select one");
-        setDate("");
-        setTime("");
-        setDescription("");
-        setMethod("Phone Call");
-        setAttachment(null);
-        setAccept(false);
-      } else {
-        setLoading(false);
-        setToast({
-          success: 400,
-          msg: "Something went wrong! Please try again later.",
-        });
-      }
+      // empty inputs
+      setName("");
+      setEmail("");
+      setContact("");
+      setCompanyName("");
+      setServiceType("Select one");
+      setDate("");
+      setTime("");
+      setDescription("");
+      setMethod("Phone Call");
+      setSelectedMethod("Phone Call");
+      setAttachment(null);
+      setAccept(false);
+    } else {
+      setLoading(false);
+      setToast({
+        success: 400,
+        msg:
+          typeof data.message === "string" && data.message
+            ? data.message
+            : "Something went wrong! Please try again later.",
+      });
     }
   };
 
@@ -194,6 +237,9 @@ const Contact_Us = () => {
       document.body.style.overflow = "";
     };
   }, [isPopUpOpen]);
+
+  const todayMin = formatLocalDate(new Date());
+  const timeInputMin = date === todayMin ? formatLocalTimeHM(new Date()) : undefined;
 
   return (
     <div className="w-full h-full flex flex-col items-center">
@@ -246,7 +292,11 @@ const Contact_Us = () => {
           innovation and creativity.
         </p>
 
-        <div className="w-full h-auto grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-12 mt-12 sm:mt-16">
+        <fieldset
+          disabled={loading}
+          aria-busy={loading}
+          className="border-0 p-0 m-0 min-w-0 w-full h-auto grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-12 mt-12 sm:mt-16 disabled:pointer-events-none disabled:opacity-75 transition-opacity"
+        >
           {/* Full name */}
           <div className="w-full">
             <h4 className="font-avenir-demi text-white text-sm sm:text-xl">
@@ -382,6 +432,14 @@ const Contact_Us = () => {
                 {errors.serviceType}
               </p>
             )}
+            {serviceType.toLowerCase() !== "select one" && (
+              <p className="mt-2 text-xs text-zinc-400 font-avenir-medium leading-relaxed">
+                Email subject will be sent as:{" "}
+                <span className="font-avenir-demi text-zinc-300">
+                  New enquiry {serviceType}
+                </span>
+              </p>
+            )}
 
             <div
               className={`bg-[#212121] w-['90%'] sm:w-[350px] sm:absolute sm:right-0 sm:top-28 overflow-hidden border border-zinc-700 rounded-lg duration-300 z-10 ${
@@ -408,19 +466,30 @@ const Contact_Us = () => {
           {/* Time to connect */}
           <div className="w-full">
             <h4 className="font-avenir-demi text-white text-sm sm:text-xl">
-              Best time we can connect <sup>*</sup>
+              Best time we can connect{" "}
+              <span className="font-avenir-medium text-zinc-400 font-normal text-xs sm:text-sm">
+                (optional)
+              </span>
             </h4>
             <div className="flex gap-4 lg:flex-nowrap flex-wrap relative">
               <input
                 type="date"
+                min={todayMin}
                 className={`${
                   errors.date ? "error-input-box" : "input-box"
                 } w-full`}
                 placeholder="DD - MM - YYYY"
                 value={date}
                 onChange={(e) => {
-                  setDate(e.target.value);
-                  setErrors((prev) => ({ ...prev, date: "" }));
+                  const v = e.target.value;
+                  setDate(v);
+                  setErrors((prev) => ({ ...prev, date: "", time: "" }));
+                  if (v === todayMin && time) {
+                    const sel = new Date(`${v}T${time}:00`);
+                    if (sel.getTime() < Date.now()) {
+                      setTime("");
+                    }
+                  }
                 }}
               />
               {errors.date && (
@@ -430,6 +499,7 @@ const Contact_Us = () => {
               )}
               <input
                 type="time"
+                min={timeInputMin}
                 className={`${
                   errors.time ? "error-input-box" : "input-box"
                 } w-full`}
@@ -491,7 +561,10 @@ const Contact_Us = () => {
           {/* Project Brief + Upload */}
           <div className="w-full col-span-full relative">
             <h4 className="font-avenir-demi text-white text-sm sm:text-xl">
-              Project Brief <sup>*</sup>
+              Project Brief{" "}
+              <span className="font-avenir-medium text-zinc-400 font-normal text-xs sm:text-sm">
+                (optional)
+              </span>
             </h4>
             <textarea
               placeholder="Tell us about your project, goals, and timeline..."
@@ -561,10 +634,10 @@ const Contact_Us = () => {
                     checked={selectedMethod === method}
                     onChange={() => {
                       setSelectedMethod(
-                        method as "Phone Call" | "Email" | "Whatsapp"
+                        method as "Phone Call" | "Email" | "Whatsapp",
                       );
                       handleMethod(
-                        method as "Phone Call" | "Email" | "Whatsapp"
+                        method as "Phone Call" | "Email" | "Whatsapp",
                       );
                       setErrors((prev) => ({ ...prev, method: "" }));
                     }}
@@ -587,8 +660,9 @@ const Contact_Us = () => {
             <input
               type="checkbox"
               className="cursor-pointer  accent-[#F61313]"
-              onChange={() => {
-                setAccept(true);
+              checked={accept}
+              onChange={(e) => {
+                setAccept(e.target.checked);
                 setErrors((prev) => ({ ...prev, accept: "" }));
               }}
             />
@@ -615,12 +689,13 @@ const Contact_Us = () => {
           <div className="sm:w-[60%] w-full flex justify-self-end">
             <PrimaryButton
               loading={loading}
+              disabled={loading}
               onClick={onHandleSubmit}
               label={"Submit"}
               className="w-full rounded-lg justify-center max-h-24 overflow-clip"
             />
           </div>
-        </div>
+        </fieldset>
       </div>
 
       {/* ========================================================================================================================================================================================================================================================================================================================================================================================================================================================================================= */}

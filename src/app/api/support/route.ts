@@ -85,8 +85,8 @@ export async function POST(req: Request) {
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: "atul@pantheondigitals.com, admin@pantheondigitals.com, ashutosh@pantheondigitals.com, yash.pantheondigitals@gmail.com",
-      // to: "yash.pantheondigitals@gmail.com",
+      // to: "atul@pantheondigitals.com, admin@pantheondigitals.com, ashutosh@pantheondigitals.com, yash.pantheondigitals@gmail.com",
+      to: "vishal@pantheondigitals.com",
       subject: `New support enquiry from ${name}`,
       text: message,
     };

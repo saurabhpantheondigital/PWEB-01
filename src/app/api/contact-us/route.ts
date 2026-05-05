@@ -17,10 +17,11 @@ export async function POST(req: Request) {
         {
           status: 429,
           headers: { "Content-Type": "application/json" },
-        }
+        },
       );
     }
 
+    const body = await req.json();
     const {
       name,
       email,
@@ -32,13 +33,20 @@ export async function POST(req: Request) {
       project_brief,
       contact_method,
       attachment,
-    } = await req.json();
+    } = body;
+
+    /** Distinguishes EcoTrace EPR modal from the main /Contact_Us form (same endpoint, different mail labeling). */
+    const rawSource =
+      typeof body.submission_source === "string"
+        ? body.submission_source.slice(0, 64)
+        : "";
+    const isEprContactModal = rawSource === "epr_contact_modal";
 
     // --- SECURITY: Input Validation ---
     if (!name || !email || !companyName) {
       return new Response(
         JSON.stringify({ success: false, message: "Missing required fields." }),
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -48,7 +56,7 @@ export async function POST(req: Request) {
     if ((project_brief?.length || 0) > MAX_LENGTH) {
       return new Response(
         JSON.stringify({ success: false, message: "Message is too long." }),
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -60,19 +68,34 @@ export async function POST(req: Request) {
     const cleanBrief = sanitize(project_brief);
     // ----------------------------------
 
+    const emailUser = process.env.EMAIL_USER?.trim();
+    const emailPass = process.env.EMAIL_PASS?.trim();
+    if (!emailUser || !emailPass) {
+      console.error("contact-us: EMAIL_USER or EMAIL_PASS is missing in env");
+      return new Response(
+        JSON.stringify({
+          success: false,
+          message:
+            "Message could not be sent. Email is not configured on the server.",
+        }),
+        { status: 503, headers: { "Content-Type": "application/json" } },
+      );
+    }
+
     const transporter = nodemailer.createTransport({
       host: "smtp.hostinger.com",
       port: 465,
+      secure: true,
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: emailUser,
+        pass: emailPass,
       },
     });
 
-    const message = `
-    Contact:-
+    const message = `${isEprContactModal ? "EPR INQUIRY (EcoTrace modal)\n" : "CONTACT ENQUIRY (main Contact Us page)\n"}
+    Details:-
     name: ${sanitize(name)}
-    email: ${sanitize(email)} 
+    email: ${sanitize(email)}
     contact: ${sanitize(contact)}
     company name: ${sanitize(companyName)}
     service type: ${sanitize(serviceType)}
@@ -80,14 +103,23 @@ export async function POST(req: Request) {
     time: ${sanitize(time)}
     project brief: ${cleanBrief}
     contact method: ${sanitize(contact_method)}
-    attachment: ${attachment} 
+    attachment: ${attachment}
     `;
 
-    //
+    const rawService = sanitize(serviceType || "").trim();
+    const normalized =
+      rawService.toLowerCase() === "select one" || !rawService
+        ? "General"
+        : rawService;
+    const subjectService =
+      normalized.length > 120 ? `${normalized.slice(0, 117)}...` : normalized;
+    const subject = `New enquiry ${subjectService}`;
+
     const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: "atul@pantheondigitals.com, admin@pantheondigitals.com, ashutosh@pantheondigitals.com",
-      subject: `New contact enquiry from ${name}`,
+      from: emailUser,
+      // to: "atul@pantheondigitals.com, admin@pantheondigitals.com, ashutosh@pantheondigitals.com",
+      to: "vishal@pantheondigitals.com",
+      subject,
       text: message,
     };
 
@@ -98,7 +130,7 @@ export async function POST(req: Request) {
     console.error(error);
     return new Response(
       JSON.stringify({ success: false, message: error.message }),
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
