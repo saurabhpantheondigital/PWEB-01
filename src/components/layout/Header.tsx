@@ -79,7 +79,7 @@ const Header = () => {
             {/* button list */}
             <div className="flex flex-row gap-12 items-center">
               <Link
-                href="/Projects/"
+                href="/Projects"
                 className={`font-avenir-bold text-sm ${isEprPage ? "text-[#0A1628] hover:text-[#0D6E56]" : "text-white hover:text-white/70"} transition-colors uppercase tracking-widest ${
                   pathname === "/Projects"
                     ? "underline underline-offset-8 decoration-cyan-500"
@@ -89,7 +89,7 @@ const Header = () => {
                 Projects
               </Link>
               <Link
-                href="/About/"
+                href="/About"
                 onClick={closeDropDownMenu}
                 className={`font-avenir-bold text-sm ${isEprPage ? "text-[#0A1628] hover:text-[#0D6E56]" : "text-white hover:text-white/70"} transition-colors uppercase tracking-widest ${
                   pathname === "/About"
@@ -396,6 +396,10 @@ const Header = () => {
                 <div className="my-2 border-[0.5px] border-white"></div>
                 <div className="text-left mt-4 h-auto styled-list">
                   {[
+                      {
+                        href: "/Services/epr",
+                        label: "EPR Software",
+                      },
                     {
                       href: "https://www.zfour.in/",
                       label: "HRMS Software",
@@ -418,10 +422,7 @@ const Header = () => {
                       href: "/Services/cloud-and-devops",
                       label: "Cloud & DevOps Services",
                     },
-                    {
-                      href: "/Services/epr",
-                      label: "EPR Software",
-                    },
+                  
                   ].map((link) => (
                     <Link
                       key={link.href}
@@ -582,7 +583,7 @@ const Header = () => {
                         <ul className="text-left pt-3 styled-list">
                           <li>
                             <Link
-                              href="/Services/social-management/"
+                              href="/Services/social-management"
                               onClick={closeMobileMenu}
                               className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
                             >
@@ -600,7 +601,7 @@ const Header = () => {
                           </li>
                           <li>
                             <Link
-                              href="/Services/google-ppc/"
+                              href="/Services/google-ppc"
                               onClick={closeMobileMenu}
                               className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
                             >
@@ -618,7 +619,7 @@ const Header = () => {
                           </li>
                           <li>
                             <Link
-                              href="/Services/meta-ads/"
+                              href="/Services/meta-ads"
                               onClick={closeMobileMenu}
                               className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
                             >
@@ -636,7 +637,7 @@ const Header = () => {
                           </li>
                           <li>
                             <Link
-                              href="/Services/seo/"
+                              href="/Services/seo"
                               onClick={closeMobileMenu}
                               className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
                             >
@@ -654,7 +655,7 @@ const Header = () => {
                           </li>
                           <li>
                             <Link
-                              href="/Services/posts-and-reels/"
+                              href="/Services/posts-and-reels"
                               onClick={closeMobileMenu}
                               className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
                             >
@@ -672,7 +673,7 @@ const Header = () => {
                           </li>
                           <li>
                             <Link
-                              href="/Services/branding-and-ads/"
+                              href="/Services/branding-and-ads"
                               onClick={closeMobileMenu}
                               className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
                             >
@@ -720,7 +721,7 @@ const Header = () => {
                         <ul className="text-left pt-3 styled-list">
                           <li>
                             <Link
-                              href="/Services/ui-ux/"
+                              href="/Services/ui-ux"
                               onClick={closeMobileMenu}
                               className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
                             >
@@ -738,7 +739,7 @@ const Header = () => {
                           </li>
                           <li>
                             <Link
-                              href="/Services/brochure-and-ppt/"
+                              href="/Services/brochure-and-ppt"
                               onClick={closeMobileMenu}
                               className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
                             >
@@ -756,7 +757,7 @@ const Header = () => {
                           </li>
                           <li>
                             <Link
-                              href="/Services/logo-designing/"
+                              href="/Services/logo-designing"
                               onClick={closeMobileMenu}
                               className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
                             >
@@ -774,7 +775,7 @@ const Header = () => {
                           </li>
                           <li>
                             <Link
-                              href="/Services/post-designing/"
+                              href="/Services/post-designing"
                               onClick={closeMobileMenu}
                               className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
                             >
@@ -841,7 +842,7 @@ const Header = () => {
                           </li>
                           <li>
                             <Link
-                              href="/Services/crm/"
+                              href="/Services/crm"
                               onClick={closeMobileMenu}
                               className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
                             >
@@ -895,7 +896,7 @@ const Header = () => {
                           </li>
                           <li>
                             <Link
-                              href="/Services/software-development/"
+                              href="/Services/software-development"
                               onClick={closeMobileMenu}
                               className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
                             >
@@ -913,7 +914,7 @@ const Header = () => {
                           </li>
                           <li>
                             <Link
-                              href="/Services/cloud-and-devops/"
+                              href="/Services/cloud-and-devops"
                               onClick={closeMobileMenu}
                               className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
                             >
@@ -931,7 +932,7 @@ const Header = () => {
                           </li>
                           <li>
                             <Link
-                              href="/Services/epr/"
+                              href="/Services/epr"
                               onClick={closeMobileMenu}
                               className="flex flex-row justify-between items-center hover:bg-black/25 hover:rounded-lg py-2 px-1"
                             >
@@ -966,7 +967,7 @@ const Header = () => {
             />
 
             <PrimaryButton
-              href="/Contact_Us/"
+              href="/Contact_Us"
               onClick={closeMobileMenu}
               leftIcon="/Contact-Us.svg"
               label="Contact Us"

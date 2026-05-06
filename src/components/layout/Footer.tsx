@@ -60,7 +60,7 @@ const Footer = ({ theme = "default" }: { theme?: "default" | "ai" }) => {
               <li className="hover:translate-x-5 duration-300">
                 <Link
                   className={`font-avenir-medium hover:underline underline-offset-4 duration-300 ${hoverColor}`}
-                  href="/Services/social-management/"
+                  href="/Services/social-management"
                 >
                   Social management
                 </Link>
@@ -68,7 +68,7 @@ const Footer = ({ theme = "default" }: { theme?: "default" | "ai" }) => {
               <li className="hover:translate-x-5 duration-300">
                 <Link
                   className={`font-avenir-medium hover:underline underline-offset-4 duration-300 ${hoverColor}`}
-                  href="/Services/google-ppc/"
+                  href="/Services/google-ppc"
                 >
                   Google PPC
                 </Link>
@@ -76,7 +76,7 @@ const Footer = ({ theme = "default" }: { theme?: "default" | "ai" }) => {
               <li className="hover:translate-x-5 duration-300">
                 <Link
                   className={`font-avenir-medium hover:underline underline-offset-4 duration-300 ${hoverColor}`}
-                  href="/Services/meta-ads/"
+                  href="/Services/meta-ads"
                 >
                   Meta Ads
                 </Link>
@@ -165,7 +165,7 @@ const Footer = ({ theme = "default" }: { theme?: "default" | "ai" }) => {
               <li className="hover:translate-x-5 duration-300">
                 <Link
                   className={`font-avenir-medium hover:underline underline-offset-4 hover:translate-x-10 duration-300 ${hoverColor}`}
-                  href="/Services/crm/"
+                  href="/Services/crm"
                 >
                   CRM Software
                 </Link>
@@ -173,7 +173,7 @@ const Footer = ({ theme = "default" }: { theme?: "default" | "ai" }) => {
               <li className="hover:translate-x-5 duration-300">
                 <Link
                   className={`font-avenir-medium hover:underline underline-offset-4 hover:translate-x-10 duration-300 ${hoverColor}`}
-                  href="/Services/website-development/"
+                  href="/Services/website-development"
                 >
                   Website Development
                 </Link>
@@ -181,7 +181,7 @@ const Footer = ({ theme = "default" }: { theme?: "default" | "ai" }) => {
               <li className="hover:translate-x-5 duration-300">
                 <Link
                   className={`font-avenir-medium hover:underline underline-offset-4 hover:translate-x-10 duration-300 ${hoverColor}`}
-                  href="/Services/application-development/"
+                  href="/Services/application-development"
                 >
                   Application Development
                 </Link>
@@ -197,7 +197,7 @@ const Footer = ({ theme = "default" }: { theme?: "default" | "ai" }) => {
               <li className="hover:translate-x-5 duration-300">
                 <Link
                   className={`font-avenir-medium hover:underline underline-offset-4 hover:translate-x-10 duration-300 ${hoverColor}`}
-                  href="/Services/cloud-and-devops/"
+                  href="/Services/cloud-and-devops"
                 >
                   Cloud & DevOps Services
                 </Link>
